@@ -217,13 +217,13 @@ export const demoOrcamentos = Array.from({ length: 14 }).map((_, i) => {
 
 // ===================== FINANCEIRO (80+) =====================
 const CAT_REC = [
-  ["Cita", 180, 320], ["Tratamiento", 800, 2500], ["Presupuesto", 1500, 4500],
-  ["Reembolso", 200, 600], ["Convenio", 150, 280],
+  ["Cita", 36, 64], ["Tratamiento", 160, 500], ["Presupuesto", 300, 900],
+  ["Reembolso", 40, 120], ["Convenio", 30, 56],
 ] as const;
 const CAT_DESP = [
-  ["Alquiler", 5500], ["Materiales", 1400], ["Laboratorio", 2200],
-  ["Marketing", 850], ["Nómina", 13800], ["Equipos", 2400],
-  ["Energía", 920], ["Internet", 380], ["Limpieza", 480], ["Otros", 320],
+  ["Alquiler", 1100], ["Materiales", 280], ["Laboratorio", 440],
+  ["Marketing", 170], ["Nómina", 2760], ["Equipos", 480],
+  ["Energía", 184], ["Internet", 76], ["Limpieza", 96], ["Otros", 64],
 ] as const;
 
 export const demoFinanceiro = (() => {
