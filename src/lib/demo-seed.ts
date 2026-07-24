@@ -269,11 +269,11 @@ export const DEMO_KPI = {
   revisoesPendentes: 18,
   tratamentosAndamento: 24,
   orcamentosPendentes: 14,
-  faturamentoMes: 47800,
-  aReceber: 18400,
-  recebidoMes: 29400,
-  despesasMes: 22400,
-  ticketMedio: 286,
+  faturamentoMes: 9560,
+  aReceber: 3680,
+  recebidoMes: 5880,
+  despesasMes: 4480,
+  ticketMedio: 57,
   taxaOcupacao: 0.82,
   taxaCancelamento: 0.06,
   taxaFaltasHoje: 0.16,
@@ -281,10 +281,10 @@ export const DEMO_KPI = {
 
 // ===================== ALERTAS DASHBOARD =====================
 export const DEMO_ALERTAS = [
-  { tone: "red",   titulo: "Tasa de ausencias alta hoy: 16%",        desc: "2 pacientes faltaron. Considere overbooking en los próximos espacios.", cta: "Ver agenda" },
-  { tone: "amber", titulo: "8 presupuestos detenidos hace +14 días",     desc: "Potencial de R$ 23.400 perdido sin seguimiento.",                    cta: "Disparar seguimiento" },
-  { tone: "sky",   titulo: "5 pacientes VIP sin retorno hace +60 días", desc: "Reactivar puede generar R$ 8.500 en citas.",                  cta: "Reactivar" },
-  { tone: "green", titulo: "Carla Mendonça confirmó Implante — Etapa 2", desc: "Mayor ticket de la semana: R$ 3.800.",                       cta: "Ver cita" },
+  { tone: "red",   titulo: "Tasa de ausencias alta hoy: 16%",              desc: "2 pacientes faltaron. Considere overbooking en los próximos espacios.", cta: "Ver agenda" },
+  { tone: "amber", titulo: "8 presupuestos detenidos hace +14 días",       desc: "Potencial de $ 4.680 perdido sin seguimiento.",                          cta: "Disparar seguimiento" },
+  { tone: "sky",   titulo: "5 pacientes VIP sin retorno hace +60 días",    desc: "Reactivar puede generar $ 1.700 en citas.",                              cta: "Reactivar" },
+  { tone: "green", titulo: "Carla Mendoza confirmó Implante — Etapa 2",    desc: "Mayor ticket de la semana: $ 760.",                                      cta: "Ver cita" },
 ];
 
 // ===================== AI GROWTH OPORTUNIDADES =====================
