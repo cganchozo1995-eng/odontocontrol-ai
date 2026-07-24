@@ -181,7 +181,7 @@ export const demoTratamentos = Array.from({ length: 24 }).map((_, i) => {
     dente: ["—","36","11,12,21,22","Arcada superior","47","Todos","14, 15"][i % 7],
     status, data_inicio: d(-(30 + i * 8)),
     proxima_etapa: status === "en_curso" ? `Etapa ${concl + 1} de ${etapas}` : null,
-    valor_total: [4800,6000,1800,8000,2500,14000,12000,3000][i % 8],
+    valor_total: [960,1200,360,1600,500,2800,2400,600][i % 8],
     etapas_total: etapas, etapas_concluidas: concl,
     progresso: Math.round((concl / etapas) * 100),
   };
