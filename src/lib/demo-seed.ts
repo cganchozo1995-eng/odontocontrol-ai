@@ -26,18 +26,18 @@ export const demoProfissionais = [
 ];
 
 export const demoProcedimentos = [
-  { id: "pr1",  nome: "Evaluación inicial",         codigo_tuss: "99999014", valor: 150,   duracao_minutos: 30, categoria: "Cita" },
-  { id: "pr2",  nome: "Limpieza profesional",      codigo_tuss: "99999001", valor: 220,   duracao_minutos: 45, categoria: "Prevención" },
-  { id: "pr3",  nome: "Restauración de resina",     codigo_tuss: "99999002", valor: 380,   duracao_minutos: 60, categoria: "Odontología Estética" },
-  { id: "pr4",  nome: "Tratamiento de conducto",       codigo_tuss: "99999003", valor: 1800,  duracao_minutos: 90, categoria: "Endodoncia" },
-  { id: "pr5",  nome: "Blanqueamiento dental",        codigo_tuss: "99999005", valor: 1200,  duracao_minutos: 60, categoria: "Estética" },
-  { id: "pr6",  nome: "Implante unitario",         codigo_tuss: "99999004", valor: 3800,  duracao_minutos: 120, categoria: "Implantología" },
-  { id: "pr7",  nome: "Corona de porcelana",        codigo_tuss: "99999010", valor: 2500,  duracao_minutos: 90, categoria: "Prótesis" },
-  { id: "pr8",  nome: "Aparato fijo - mantenimiento",codigo_tuss: "99999007", valor: 250,   duracao_minutos: 30, categoria: "Ortodoncia" },
-  { id: "pr9",  nome: "Carilla de porcelana",       codigo_tuss: "99999012", valor: 1900,  duracao_minutos: 90, categoria: "Estética" },
-  { id: "pr10", nome: "Extracción simple",          codigo_tuss: "99999008", valor: 350,   duracao_minutos: 45, categoria: "Cirugía" },
-  { id: "pr11", nome: "Raspado periodontal",      codigo_tuss: "99999013", valor: 420,   duracao_minutos: 60, categoria: "Periodoncia" },
-  { id: "pr12", nome: "Radiografía panorámica",    codigo_tuss: "99999015", valor: 120,   duracao_minutos: 15, categoria: "Diagnóstico" },
+  { id: "pr1",  nome: "Evaluación inicial",         codigo_tuss: "99999014", valor: 25,   duracao_minutos: 30, categoria: "Cita" },
+  { id: "pr2",  nome: "Limpieza profesional",       codigo_tuss: "99999001", valor: 40,   duracao_minutos: 45, categoria: "Prevención" },
+  { id: "pr3",  nome: "Restauración de resina",     codigo_tuss: "99999002", valor: 70,   duracao_minutos: 60, categoria: "Odontología Estética" },
+  { id: "pr4",  nome: "Tratamiento de conducto",    codigo_tuss: "99999003", valor: 320,  duracao_minutos: 90, categoria: "Endodoncia" },
+  { id: "pr5",  nome: "Blanqueamiento dental",      codigo_tuss: "99999005", valor: 220,  duracao_minutos: 60, categoria: "Estética" },
+  { id: "pr6",  nome: "Implante unitario",          codigo_tuss: "99999004", valor: 750,  duracao_minutos: 120, categoria: "Implantología" },
+  { id: "pr7",  nome: "Corona de porcelana",        codigo_tuss: "99999010", valor: 450,  duracao_minutos: 90, categoria: "Prótesis" },
+  { id: "pr8",  nome: "Ortodoncia — mantenimiento", codigo_tuss: "99999007", valor: 45,   duracao_minutos: 30, categoria: "Ortodoncia" },
+  { id: "pr9",  nome: "Carilla de porcelana",       codigo_tuss: "99999012", valor: 350,  duracao_minutos: 90, categoria: "Estética" },
+  { id: "pr10", nome: "Extracción simple",          codigo_tuss: "99999008", valor: 60,   duracao_minutos: 45, categoria: "Cirugía" },
+  { id: "pr11", nome: "Raspado periodontal",        codigo_tuss: "99999013", valor: 80,   duracao_minutos: 60, categoria: "Periodoncia" },
+  { id: "pr12", nome: "Radiografía panorámica",     codigo_tuss: "99999015", valor: 25,   duracao_minutos: 15, categoria: "Diagnóstico" },
 ];
 
 // ===================== PACIENTES (30) =====================
