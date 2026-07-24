@@ -888,12 +888,12 @@ export type Database = {
       status_clinica_enum: "ativo" | "trial" | "bloqueado"
       status_cobranca_enum: "ativo" | "inadimplente" | "suspenso"
       status_consulta_enum:
-        | "agendada"
+        | "programada"
         | "confirmada"
-        | "em_atendimento"
+        | "en_atencion"
         | "concluida"
         | "cancelada"
-        | "faltou"
+        | "ausente"
       status_financeiro_enum: "pendente" | "pago" | "atrasado" | "cancelado"
       status_orcamento_enum:
         | "pendente"
@@ -906,18 +906,18 @@ export type Database = {
         | "concluido"
         | "cancelado"
       tipo_consulta_enum:
-        | "avaliacao"
+        | "evaluacion"
         | "consulta"
-        | "retorno"
-        | "procedimento"
-        | "urgencia"
+        | "seguimiento"
+        | "procedimiento"
+        | "urgencia_odontologica"
       tipo_financeiro_enum: "receita" | "despesa"
       tipo_historico_enum:
-        | "anamnese"
-        | "exame"
-        | "procedimento"
-        | "observacao"
-        | "receita"
+        | "anamnesis"
+        | "examen"
+        | "procedimiento"
+        | "observacion"
+        | "receta"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1070,12 +1070,12 @@ export const Constants = {
       status_clinica_enum: ["ativo", "trial", "bloqueado"],
       status_cobranca_enum: ["ativo", "inadimplente", "suspenso"],
       status_consulta_enum: [
-        "agendada",
+        "programada",
         "confirmada",
-        "em_atendimento",
+        "en_atencion",
         "concluida",
         "cancelada",
-        "faltou",
+        "ausente",
       ],
       status_financeiro_enum: ["pendente", "pago", "atrasado", "cancelado"],
       status_orcamento_enum: [
@@ -1091,19 +1091,19 @@ export const Constants = {
         "cancelado",
       ],
       tipo_consulta_enum: [
-        "avaliacao",
+        "evaluacion",
         "consulta",
-        "retorno",
-        "procedimento",
-        "urgencia",
+        "seguimiento",
+        "procedimiento",
+        "urgencia_odontologica",
       ],
       tipo_financeiro_enum: ["receita", "despesa"],
       tipo_historico_enum: [
-        "anamnese",
-        "exame",
-        "procedimento",
-        "observacao",
-        "receita",
+        "anamnesis",
+        "examen",
+        "procedimiento",
+        "observacion",
+        "receta",
       ],
     },
   },
