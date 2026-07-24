@@ -238,7 +238,7 @@ export const demoFinanceiro = (() => {
       categoria: cat,
       valor: Math.round(min + Math.random() * (max - min)),
       data: format(subDays(today, i % 28), "yyyy-MM-dd"),
-      forma_pagamento: ["Pix","Tarjeta de crédito","Tarjeta de débito","Efectivo","Boleto"][i % 5],
+      forma_pagamento: ["Transferencia","Tarjeta de crédito","Tarjeta de débito","Efectivo","Cheque"][i % 5],
       status: i % 9 === 0 ? "pendiente" : i % 13 === 0 ? "atrasado" : "pagado",
     });
   }
