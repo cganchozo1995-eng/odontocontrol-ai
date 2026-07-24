@@ -169,8 +169,9 @@ function Page() {
             { name: "hora", label: "Hora", type: "time", required: true },
             { name: "duracao_minutos", label: "Duración (min)", type: "number" },
             { name: "tipo", label: "Tipo", type: "select", options: [
-              { value: "consulta", label: "Cita" }, { value: "retorno", label: "Retorno" },
-              { value: "procedimento", label: "Procedimiento" }, { value: "emergencia", label: "Emergencia" },
+              { value: "consulta", label: "Cita" }, { value: "seguimiento", label: "Seguimiento" },
+              { value: "procedimiento", label: "Procedimiento" }, { value: "urgencia_odontologica", label: "Urgencia" },
+              { value: "evaluacion", label: "Evaluación" },
             ]},
             { name: "status", label: "Estado", type: "select", options: [
               { value: "programada", label: "Programada" }, { value: "confirmada", label: "Confirmada" },
