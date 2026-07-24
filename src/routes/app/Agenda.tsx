@@ -96,7 +96,7 @@ function Page() {
           <Button variant="outline" size="icon" onClick={() => step(-1)}><ChevronLeft className="size-4" /></Button>
           <Button variant="outline" size="sm" onClick={() => setAnchor(new Date())}>Hoy</Button>
           <Button variant="outline" size="icon" onClick={() => step(1)}><ChevronRight className="size-4" /></Button>
-          <Button onClick={() => { setEdit({ data: format(anchor, "yyyy-MM-dd"), duracao_minutos: 60, status: "agendada", tipo: "consulta" }); setOpen(true); }}><Plus className="size-4 mr-1" />Nueva</Button>
+          <Button onClick={() => { setEdit({ data: format(anchor, "yyyy-MM-dd"), duracao_minutos: 60, status: "programada", tipo: "consulta" }); setOpen(true); }}><Plus className="size-4 mr-1" />Nueva</Button>
         </div>
       } />
 
@@ -173,8 +173,8 @@ function Page() {
               { value: "procedimento", label: "Procedimiento" }, { value: "emergencia", label: "Emergencia" },
             ]},
             { name: "status", label: "Estado", type: "select", options: [
-              { value: "agendada", label: "Programada" }, { value: "confirmada", label: "Confirmada" },
-              { value: "realizada", label: "Realizada" }, { value: "cancelada", label: "Cancelada" }, { value: "faltou", label: "Ausente" },
+              { value: "programada", label: "Programada" }, { value: "confirmada", label: "Confirmada" },
+              { value: "realizada", label: "Realizada" }, { value: "cancelada", label: "Cancelada" }, { value: "ausente", label: "Ausente" },
             ]},
             { name: "valor_total", label: "Valor", type: "number", step: "0.01" },
             { name: "observacoes", label: "Observaciones", type: "textarea", col: 2 },

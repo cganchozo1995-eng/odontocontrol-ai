@@ -55,7 +55,7 @@ function Page() {
     return { mes: format(d, "MM/yy"), receita: r, despesa: dsp, lucro: r - dsp };
   });
 
-  const statusCons = ["agendada", "confirmada", "realizada", "cancelada", "faltou"].map((s) => ({
+  const statusCons = ["programada", "confirmada", "realizada", "cancelada", "ausente"].map((s) => ({
     name: s, value: (data?.cons ?? []).filter((c: any) => c.status === s).length,
   })).filter((s) => s.value > 0);
 

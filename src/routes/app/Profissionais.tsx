@@ -87,7 +87,7 @@ function Page() {
           const meus = cons.filter((c: any) => c.profissional_id === r.id);
           const realizadas = meus.filter((c: any) => c.status === "realizada").length;
           const fat = meus.filter((c: any) => c.status === "realizada").reduce((a: number, c: any) => a + Number(c.valor_total ?? 0), 0);
-          const noShow = meus.filter((c: any) => c.status === "faltou").length;
+          const noShow = meus.filter((c: any) => c.status === "ausente").length;
           return (
             <Card key={r.id} className="overflow-hidden">
               <CardContent className="p-4 space-y-3">

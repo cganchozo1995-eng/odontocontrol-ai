@@ -61,7 +61,7 @@ function Page() {
   const consConcluidasMes = consMes.filter((c: any) => c.status === "concluida" || c.status === "realizada");
   const ticketMedio = consConcluidasMes.length ? receitaMes / consConcluidasMes.length : 0;
   const consTotal = consMes.length || 1;
-  const consFaltou = consMes.filter((c: any) => c.status === "faltou" || c.status === "no_show").length;
+  const consFaltou = consMes.filter((c: any) => c.status === "ausente" || c.status === "no_show").length;
   const noShowRate = (consFaltou / consTotal) * 100;
   const orcPendentes = (data?.orc ?? []).filter((o: any) => o.status === "pendente" || o.status === "em_negociacao").length;
   const orcVelhos = (data?.orc ?? []).filter((o: any) => (o.status === "pendente" || o.status === "em_negociacao") && o.data <= cutoff7).length;

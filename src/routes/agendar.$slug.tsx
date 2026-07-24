@@ -56,7 +56,7 @@ function Page() {
         clinica_id: clinica.id, paciente_id: pacienteId, paciente_nome: sel.nome,
         profissional_id: sel.prof.id, profissional_nome: sel.prof.nome,
         data: sel.data, hora: sel.hora, duracao_minutos: sel.proc.duracao_minutos ?? 60,
-        tipo: "consulta", status: "agendada", valor_total: sel.proc.valor,
+        tipo: "consulta", status: "programada", valor_total: sel.proc.valor,
         procedimentos: [{ id: sel.proc.id, nome: sel.proc.nome, valor: sel.proc.valor }],
       });
       if (e2) throw e2;

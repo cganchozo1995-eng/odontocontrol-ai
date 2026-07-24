@@ -188,7 +188,7 @@ function Page() {
                   </div>
                   <Badge variant="outline" className={st.cls}>{st.txt}</Badge>
                   <div className="flex gap-1">
-                    {c.status === "agendada" && <Button size="sm" variant="ghost" className="h-7"><Check className="size-3" /></Button>}
+                    {c.status === "programada" && <Button size="sm" variant="ghost" className="h-7"><Check className="size-3" /></Button>}
                     {c.status === "confirmada" && <Button size="sm" variant="ghost" className="h-7"><Play className="size-3" /></Button>}
                   </div>
                 </div>
