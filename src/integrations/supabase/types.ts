@@ -866,14 +866,16 @@ export type Database = {
     }
     Enums: {
       especialidade_enum:
-        | "Clinico_geral"
-        | "Ortodontia"
-        | "Implantodontia"
-        | "Endodontia"
-        | "Periodontia"
-        | "Estetica"
-        | "Cirurgia"
-        | "Outro"
+        | "odontologia_general"
+        | "ortodoncia"
+        | "implantologia"
+        | "endodoncia"
+        | "periodoncia"
+        | "estetica"
+        | "cirugia_oral"
+        | "otra"
+        | "odontopediatria"
+        | "protesis"
       plano_enum: "starter" | "pro" | "premium"
       role_enum:
         | "owner"
@@ -1044,14 +1046,16 @@ export const Constants = {
   public: {
     Enums: {
       especialidade_enum: [
-        "Clinico_geral",
-        "Ortodontia",
-        "Implantodontia",
-        "Endodontia",
-        "Periodontia",
-        "Estetica",
-        "Cirurgia",
-        "Outro",
+        "odontologia_general",
+        "ortodoncia",
+        "implantologia",
+        "endodoncia",
+        "periodoncia",
+        "estetica",
+        "cirugia_oral",
+        "otra",
+        "odontopediatria",
+        "protesis",
       ],
       plano_enum: ["starter", "pro", "premium"],
       role_enum: [

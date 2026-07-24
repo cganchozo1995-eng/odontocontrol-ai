@@ -8,21 +8,21 @@ export const demoClinica = {
   id: "demo-clinica",
   nome: "OdontoControl Excellence",
   slug: "excellence",
-  cnpj: "12.345.678/0001-90",
-  cro_responsavel: "CRO-SP 12345",
-  telefone: "(11) 3456-7890",
-  whatsapp: "(11) 99999-0000",
-  email: "contato@excellence.odonto.br",
-  endereco: "Av. Paulista, 1500 - Bela Vista, São Paulo/SP",
+  cnpj: "1791234567001",
+  cro_responsavel: "ACESS 12345",
+  telefone: "+593 2 345 6789",
+  whatsapp: "+593 99 999 0000",
+  email: "contacto@excellence.odonto.ec",
+  endereco: "Av. Amazonas 1500 y Naciones Unidas, Quito, Ecuador",
   primary_color: "#0EA5E9",
-  plano: "profissional",
+  plano: "profesional",
 };
 
 export const demoProfissionais = [
-  { id: "p1", nome: "Dra. Patrícia Lima",  especialidade: "Ortodoncia",      cro_numero: "23456", cro_uf: "SP", telefone: "(11) 99100-2001", valor_consulta: 280, percentual_repasse: 50, ativo: true, cor: "#0EA5E9" },
-  { id: "p2", nome: "Dr. Ricardo Souza",   especialidade: "Implantología",  cro_numero: "34567", cro_uf: "SP", telefone: "(11) 99100-2002", valor_consulta: 320, percentual_repasse: 55, ativo: true, cor: "#8B5CF6" },
-  { id: "p3", nome: "Dra. Carla Mendes",   especialidade: "Endodoncia",      cro_numero: "45678", cro_uf: "SP", telefone: "(11) 99100-2003", valor_consulta: 280, percentual_repasse: 50, ativo: true, cor: "#10B981" },
-  { id: "p4", nome: "Dr. Marcos Silva",    especialidade: "Odontología General",   cro_numero: "56789", cro_uf: "SP", telefone: "(11) 99100-2004", valor_consulta: 200, percentual_repasse: 45, ativo: true, cor: "#F59E0B" },
+  { id: "p1", nome: "Dra. Patricia Lima",  especialidade: "Ortodoncia",           cro_numero: "23456", cro_uf: "PICH", telefone: "+593 99 100 2001", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#0EA5E9" },
+  { id: "p2", nome: "Dr. Ricardo Souza",   especialidade: "Implantología",         cro_numero: "34567", cro_uf: "PICH", telefone: "+593 99 100 2002", valor_consulta: 70, percentual_repasse: 55, ativo: true, cor: "#8B5CF6" },
+  { id: "p3", nome: "Dra. Carla Méndez",   especialidade: "Endodoncia",            cro_numero: "45678", cro_uf: "PICH", telefone: "+593 99 100 2003", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#10B981" },
+  { id: "p4", nome: "Dr. Marcos Silva",    especialidade: "Odontología General",   cro_numero: "56789", cro_uf: "PICH", telefone: "+593 99 100 2004", valor_consulta: 40, percentual_repasse: 45, ativo: true, cor: "#F59E0B" },
 ];
 
 export const demoProcedimentos = [

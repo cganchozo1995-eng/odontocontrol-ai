@@ -1,8 +1,11 @@
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
+// Formateador de dólares estadounidenses (USD) para toda la aplicación.
+// Se mantiene el nombre `brl` para compatibilidad con imports existentes.
 export const brl = (n: number | null | undefined) =>
-  new Intl.NumberFormat("es-419", { style: "currency", currency: "BRL" }).format(Number(n ?? 0));
+  new Intl.NumberFormat("es-EC", { style: "currency", currency: "USD" }).format(Number(n ?? 0));
+export const usd = brl;
 
 export const dateBR = (d: string | Date | null | undefined, fmt = "dd/MM/yyyy") =>
   d ? format(new Date(d), fmt, { locale: es }) : "—";

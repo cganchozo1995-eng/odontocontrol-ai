@@ -162,7 +162,7 @@ function HotmartSection() {
           nome: editing.nome ?? "",
           descricao: editing.descricao ?? "",
           valor: Number(editing.valor ?? 0),
-          moeda: editing.moeda || "BRL",
+          moeda: editing.moeda || "USD",
           ciclo: (editing.ciclo as any) || "mensal",
           url_checkout: editing.url_checkout ?? "",
           hotmart_product_id: editing.hotmart_product_id ?? "",
@@ -241,7 +241,7 @@ function HotmartSection() {
               <div className="font-semibold">Planes de venta</div>
               <div className="text-xs text-muted-foreground">Registre cada oferta de Hotmart con su enlace de checkout.</div>
             </div>
-            <Button size="sm" onClick={() => setEditing({ ativo: true, moeda: "BRL", ciclo: "mensal", ordem: planos.length })}>
+            <Button size="sm" onClick={() => setEditing({ ativo: true, moeda: "USD", ciclo: "mensal", ordem: planos.length })}>
               <Plus className="size-4" /> Nuevo plan
             </Button>
           </div>
@@ -309,7 +309,7 @@ function HotmartSection() {
                 </div>
                 <div>
                   <Label>Moneda</Label>
-                  <Input value={editing.moeda ?? "BRL"} onChange={(e) => setEditing({ ...editing, moeda: e.target.value.toUpperCase() })} />
+                  <Input value={editing.moeda ?? "USD"} onChange={(e) => setEditing({ ...editing, moeda: e.target.value.toUpperCase() })} />
                 </div>
                 <div>
                   <Label>Ciclo</Label>

@@ -14,7 +14,7 @@ const planoSchema = z.object({
   nome: z.string().min(1).max(120),
   descricao: z.string().max(500).optional().nullable(),
   valor: z.number().min(0).max(999999),
-  moeda: z.string().max(6).default("BRL"),
+  moeda: z.string().max(6).default("USD"),
   ciclo: z.enum(["mensal", "anual", "unico"]).default("mensal"),
   url_checkout: z.string().url().max(500),
   hotmart_product_id: z.string().max(80).optional().nullable(),

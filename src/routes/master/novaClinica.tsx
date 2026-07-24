@@ -89,50 +89,50 @@ function Page() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-5xl">
         <Section icon={Building2} title="Datos de la clínica">
           <Grid>
-            <Field label="Nome *" error={errors.nome?.message}><Input {...register("nome")} /></Field>
-            <Field label="Slug público" help="Aparecerá en /agendar/SLUG. Deje en blanco para generar"><Input placeholder="ex: odontosorriso" {...register("slug")} /></Field>
-            <Field label="Cor principal"><Input type="color" className="h-10 w-20 p-1" {...register("cor_principal")} /></Field>
-            <Field label="CRO de la clínica" error={errors.cro_clinica?.message}><Input placeholder="CRO-RJ 12345" {...register("cro_clinica")} /></Field>
-            <Field label="Especialidades (separadas por vírgula)" full><Input placeholder="Ortodontia, Endodontia, Periodontia" {...register("especialidades")} /></Field>
+            <Field label="Nombre *" error={errors.nome?.message}><Input {...register("nome")} /></Field>
+            <Field label="Slug público" help="Aparecerá en /agendar/SLUG. Deje en blanco para generar"><Input placeholder="ej: odontosonrisa" {...register("slug")} /></Field>
+            <Field label="Color principal"><Input type="color" className="h-10 w-20 p-1" {...register("cor_principal")} /></Field>
+            <Field label="Registro sanitario de la clínica" error={errors.cro_clinica?.message}><Input placeholder="ACESS 12345" {...register("cro_clinica")} /></Field>
+            <Field label="Especialidades (separadas por coma)" full><Input placeholder="Ortodoncia, Endodoncia, Periodoncia" {...register("especialidades")} /></Field>
           </Grid>
         </Section>
 
         <Section icon={MapPin} title="Dirección">
           <Grid>
-            <Field label="CEP"><Input {...register("cep")} /></Field>
-            <Field label="Rua"><Input {...register("rua")} /></Field>
+            <Field label="Código postal"><Input {...register("cep")} /></Field>
+            <Field label="Calle"><Input {...register("rua")} /></Field>
             <Field label="Número"><Input {...register("numero")} /></Field>
-            <Field label="Bairro"><Input {...register("bairro")} /></Field>
-            <Field label="Cidade"><Input {...register("cidade")} /></Field>
-            <Field label="UF"><Input maxLength={2} {...register("uf")} /></Field>
+            <Field label="Barrio"><Input {...register("bairro")} /></Field>
+            <Field label="Ciudad"><Input {...register("cidade")} /></Field>
+            <Field label="Provincia"><Input maxLength={3} {...register("uf")} /></Field>
           </Grid>
         </Section>
 
         <Section icon={Phone} title="Contacto">
           <Grid>
             <Field label="Teléfono"><Input {...register("telefone")} /></Field>
-            <Field label="WhatsApp"><Input placeholder="(11) 99999-9999" {...register("whatsapp")} /></Field>
+            <Field label="WhatsApp"><Input placeholder="+593 99 999 9999" {...register("whatsapp")} /></Field>
           </Grid>
         </Section>
 
         <Section icon={Stethoscope} title="Responsable técnico">
-          <div className="text-xs text-muted-foreground">Use la sección CRO de arriba para el responsable técnico — campo único.</div>
+          <div className="text-xs text-muted-foreground">Use la sección de registro sanitario de arriba para el responsable técnico — campo único.</div>
         </Section>
 
         <Section icon={CreditCard} title="Plan y cobro">
           <Grid>
-            <Field label="Plano">
+            <Field label="Plan">
               <Select value={watch("plano")} onValueChange={(v) => setValue("plano", v as any)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="starter">Básico (R$ 97)</SelectItem>
-                  <SelectItem value="pro">Profesional (R$ 197)</SelectItem>
-                  <SelectItem value="premium">Enterprise (R$ 397)</SelectItem>
+                  <SelectItem value="starter">Básico ($ 29)</SelectItem>
+                  <SelectItem value="pro">Profesional ($ 59)</SelectItem>
+                  <SelectItem value="premium">Enterprise ($ 119)</SelectItem>
                 </SelectContent>
               </Select>
             </Field>
-            <Field label="Valor mensal (R$)" error={errors.valor_mensal?.message}><Input type="number" step="0.01" {...register("valor_mensal")} /></Field>
-            <Field label="Dia de vencimento" error={errors.dia_vencimento?.message}><Input type="number" min={1} max={31} {...register("dia_vencimento")} /></Field>
+            <Field label="Valor mensual ($)" error={errors.valor_mensal?.message}><Input type="number" step="0.01" {...register("valor_mensal")} /></Field>
+            <Field label="Día de vencimiento" error={errors.dia_vencimento?.message}><Input type="number" min={1} max={31} {...register("dia_vencimento")} /></Field>
           </Grid>
         </Section>
 

@@ -151,11 +151,11 @@ function Page() {
               <thead className="bg-muted/40">
                 <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
                   <th className="px-4 py-2 font-semibold">#</th>
-                  <th className="px-4 py-2 font-semibold">Profissional</th>
+                  <th className="px-4 py-2 font-semibold">Profesional</th>
                   <th className="px-4 py-2 font-semibold">Especialidad</th>
                   <th className="px-4 py-2 font-semibold text-right">Consultas</th>
                   <th className="px-4 py-2 font-semibold text-right">Ticket</th>
-                  <th className="px-4 py-2 font-semibold text-right">Faturamento</th>
+                  <th className="px-4 py-2 font-semibold text-right">Facturación</th>
                   <th className="px-4 py-2 font-semibold text-right">Comisión</th>
                 </tr>
               </thead>
