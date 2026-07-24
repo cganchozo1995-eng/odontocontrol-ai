@@ -224,14 +224,14 @@ function Landing() {
               Nuestra IA escanea sus datos todos los días e identifica pacientes inactivos, presupuestos pausados, horarios ociosos y oportunidades que los humanos perderían. Y genera los mensajes listos para usted.
             </p>
             <Button asChild size="lg" className="gradient-primary text-white shadow-premium mt-6">
-              <Link to="/demo/AIGrowth">Ver IA em acción <ArrowRight className="size-4 ml-1" /></Link>
+              <Link to="/demo/AIGrowth">Ver IA en acción <ArrowRight className="size-4 ml-1" /></Link>
             </Button>
           </div>
           <div className="space-y-3">
             {[
-              { icon: Star,  color: "text-amber-500 bg-amber-50",  t: "5 pacientes VIP sin retorno",      c: "+R$ 8.500", a: "Reactivar ahora" },
-              { icon: Clock, color: "text-sky-500 bg-sky-50",       t: "8 presupuestos pausados hace 14 días",  c: "+R$ 23.400", a: "Follow-up automático" },
-              { icon: Users, color: "text-emerald-500 bg-emerald-50", t: "Horario flojo: mar/jue 13-15h",  c: "+R$ 4.200", a: "Crear campaña" },
+              { icon: Star,  color: "text-amber-500 bg-amber-50",  t: "5 pacientes VIP sin retorno",      c: "+$ 8.500", a: "Reactivar ahora" },
+              { icon: Clock, color: "text-sky-500 bg-sky-50",       t: "8 presupuestos pausados hace 14 días",  c: "+$ 23.400", a: "Follow-up automático" },
+              { icon: Users, color: "text-emerald-500 bg-emerald-50", t: "Horario flojo: mar/jue 13-15h",  c: "+$ 4.200", a: "Crear campaña" },
             ].map((it) => (
               <Card key={it.t} className="border-0 shadow-card shadow-card-hover">
                 <CardContent className="p-5 flex items-center gap-4">
@@ -291,7 +291,7 @@ function Landing() {
               )}
               <CardContent className="p-7">
                 <div className={`text-sm font-bold uppercase tracking-wide ${p.featured ? "text-white/80" : "text-muted-foreground"}`}>{p.name}</div>
-                <div className="text-5xl font-extrabold mt-2">R${p.price}<span className={`text-base font-normal ${p.featured ? "text-white/80" : "text-muted-foreground"}`}>/mes</span></div>
+                <div className="text-5xl font-extrabold mt-2">${p.price}<span className={`text-base font-normal ${p.featured ? "text-white/80" : "text-muted-foreground"}`}>/mes</span></div>
                 <ul className="mt-6 space-y-3 text-sm">
                   {p.items.map((i) => (
                     <li key={i} className="flex gap-2"><CheckCircle2 className={`size-4 mt-0.5 shrink-0 ${p.featured ? "text-white" : "text-primary"}`} />{i}</li>

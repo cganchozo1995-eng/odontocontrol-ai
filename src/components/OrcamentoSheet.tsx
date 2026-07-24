@@ -198,7 +198,7 @@ export function OrcamentoSheet({
             </div>
 
             <div className="space-y-1.5">
-              <Label>Observações</Label>
+              <Label>Observaciones</Label>
               <Input value={draft.observacoes ?? ""} onChange={(e) => setDraft({ ...draft, observacoes: e.target.value })} />
             </div>
 

@@ -60,16 +60,16 @@ function Page() {
   return (
     <div className="space-y-5 animate-fade-in">
       <PageHeader
-        title="Financeiro"
+        title="Financiero"
         description="Ingresos, gastos y flujo de caja"
         actions={<Button className="gradient-primary text-white shadow-premium"><Plus className="size-4 mr-1.5" />Nuevo registro</Button>}
       />
 
       <div className="grid md:grid-cols-4 gap-3">
-        <Kpi label="Faturamento do mês" value={brl(DEMO_KPI.faturamentoMes)} icon={DollarSign} color="text-emerald-500 bg-emerald-50" />
-        <Kpi label="A receber"          value={brl(DEMO_KPI.aReceber)}        icon={Wallet}     color="text-amber-500 bg-amber-50" />
-        <Kpi label="Recebido no mês"    value={brl(DEMO_KPI.recebidoMes)}     icon={TrendingUp} color="text-sky-500 bg-sky-50" />
-        <Kpi label="Gastos del mes"    value={brl(DEMO_KPI.despesasMes)}     icon={TrendingDown} color="text-red-500 bg-red-50" />
+        <Kpi label="Facturación del mes" value={brl(DEMO_KPI.faturamentoMes)} icon={DollarSign} color="text-emerald-500 bg-emerald-50" />
+        <Kpi label="Por cobrar"          value={brl(DEMO_KPI.aReceber)}        icon={Wallet}     color="text-amber-500 bg-amber-50" />
+        <Kpi label="Recibido en el mes"  value={brl(DEMO_KPI.recebidoMes)}     icon={TrendingUp} color="text-sky-500 bg-sky-50" />
+        <Kpi label="Gastos del mes"      value={brl(DEMO_KPI.despesasMes)}     icon={TrendingDown} color="text-red-500 bg-red-50" />
       </div>
 
       <Card className="border-0 shadow-card">

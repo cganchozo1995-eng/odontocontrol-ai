@@ -19,7 +19,19 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Profissionais")({ component: Page });
 
-const ESPS = ["clinico_geral", "ortodontia", "endodontia", "periodontia", "implantodontia", "odontopediatria", "protese", "cirurgia", "estetica", "outra"];
+const ESPS: { value: string; label: string }[] = [
+  { value: "odontologia_general", label: "Odontología General" },
+  { value: "ortodoncia", label: "Ortodoncia" },
+  { value: "endodoncia", label: "Endodoncia" },
+  { value: "periodoncia", label: "Periodoncia" },
+  { value: "implantologia", label: "Implantología" },
+  { value: "odontopediatria", label: "Odontopediatría" },
+  { value: "protesis", label: "Prótesis" },
+  { value: "cirugia_oral", label: "Cirugía Oral" },
+  { value: "estetica", label: "Estética" },
+  { value: "otra", label: "Otra" },
+];
+const ESPS_LABEL: Record<string, string> = Object.fromEntries(ESPS.map((e) => [e.value, e.label]));
 
 function Page() {
   const { clinicaId } = useAuth();
@@ -75,7 +87,7 @@ function Page() {
           const meus = cons.filter((c: any) => c.profissional_id === r.id);
           const realizadas = meus.filter((c: any) => c.status === "realizada").length;
           const fat = meus.filter((c: any) => c.status === "realizada").reduce((a: number, c: any) => a + Number(c.valor_total ?? 0), 0);
-          const noShow = meus.filter((c: any) => c.status === "faltou").length;
+          const noShow = meus.filter((c: any) => c.status === "ausente").length;
           return (
             <Card key={r.id} className="overflow-hidden">
               <CardContent className="p-4 space-y-3">
@@ -83,10 +95,10 @@ function Page() {
                   <Avatar className="size-14"><AvatarFallback className="bg-primary text-primary-foreground">{initials(r.nome)}</AvatarFallback></Avatar>
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold truncate">{r.nome}</div>
-                    <div className="text-xs text-muted-foreground capitalize">{r.especialidade?.replace("_", " ") ?? "—"}</div>
+                    <div className="text-xs text-muted-foreground">{ESPS_LABEL[r.especialidade] ?? "—"}</div>
                     <div className="flex gap-1 mt-1">
                       {r.ativo ? <Badge>Activo</Badge> : <Badge variant="secondary">Inactivo</Badge>}
-                      {r.cro_numero && <Badge variant="outline"><IdCard className="size-3 mr-1" />CRO {r.cro_numero}/{r.cro_uf}</Badge>}
+                      {r.cro_numero && <Badge variant="outline"><IdCard className="size-3 mr-1" />Matrícula {r.cro_numero}{r.cro_uf ? ` / ${r.cro_uf}` : ""}</Badge>}
                     </div>
                   </div>
                 </div>
@@ -135,9 +147,9 @@ function Page() {
           onSubmit={save}
           fields={[
             { name: "nome", label: "Nombre", required: true, col: 2 },
-            { name: "especialidade", label: "Especialidad", type: "select", options: ESPS.map(e => ({ value: e, label: e.replace("_", " ") })) },
-            { name: "cro_numero", label: "CRO Nº" },
-            { name: "cro_uf", label: "CRO UF" },
+            { name: "especialidade", label: "Especialidad", type: "select", options: ESPS },
+            { name: "cro_numero", label: "Nº de matrícula profesional" },
+            { name: "cro_uf", label: "Provincia / Región" },
             { name: "telefone", label: "Teléfono", type: "tel" },
             { name: "email", label: "Email", type: "email" },
             { name: "percentual_repasse", label: "Comisión %", type: "number", step: "0.01" },

@@ -8,36 +8,36 @@ export const demoClinica = {
   id: "demo-clinica",
   nome: "OdontoControl Excellence",
   slug: "excellence",
-  cnpj: "12.345.678/0001-90",
-  cro_responsavel: "CRO-SP 12345",
-  telefone: "(11) 3456-7890",
-  whatsapp: "(11) 99999-0000",
-  email: "contato@excellence.odonto.br",
-  endereco: "Av. Paulista, 1500 - Bela Vista, São Paulo/SP",
+  cnpj: "1791234567001",
+  cro_responsavel: "ACESS 12345",
+  telefone: "+593 2 345 6789",
+  whatsapp: "+593 99 999 0000",
+  email: "contacto@excellence.odonto.ec",
+  endereco: "Av. Amazonas 1500 y Naciones Unidas, Quito, Ecuador",
   primary_color: "#0EA5E9",
-  plano: "profissional",
+  plano: "profesional",
 };
 
 export const demoProfissionais = [
-  { id: "p1", nome: "Dra. Patrícia Lima",  especialidade: "Ortodoncia",      cro_numero: "23456", cro_uf: "SP", telefone: "(11) 99100-2001", valor_consulta: 280, percentual_repasse: 50, ativo: true, cor: "#0EA5E9" },
-  { id: "p2", nome: "Dr. Ricardo Souza",   especialidade: "Implantología",  cro_numero: "34567", cro_uf: "SP", telefone: "(11) 99100-2002", valor_consulta: 320, percentual_repasse: 55, ativo: true, cor: "#8B5CF6" },
-  { id: "p3", nome: "Dra. Carla Mendes",   especialidade: "Endodoncia",      cro_numero: "45678", cro_uf: "SP", telefone: "(11) 99100-2003", valor_consulta: 280, percentual_repasse: 50, ativo: true, cor: "#10B981" },
-  { id: "p4", nome: "Dr. Marcos Silva",    especialidade: "Odontología General",   cro_numero: "56789", cro_uf: "SP", telefone: "(11) 99100-2004", valor_consulta: 200, percentual_repasse: 45, ativo: true, cor: "#F59E0B" },
+  { id: "p1", nome: "Dra. Patricia Lima",  especialidade: "Ortodoncia",           cro_numero: "23456", cro_uf: "PICH", telefone: "+593 99 100 2001", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#0EA5E9" },
+  { id: "p2", nome: "Dr. Ricardo Souza",   especialidade: "Implantología",         cro_numero: "34567", cro_uf: "PICH", telefone: "+593 99 100 2002", valor_consulta: 70, percentual_repasse: 55, ativo: true, cor: "#8B5CF6" },
+  { id: "p3", nome: "Dra. Carla Méndez",   especialidade: "Endodoncia",            cro_numero: "45678", cro_uf: "PICH", telefone: "+593 99 100 2003", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#10B981" },
+  { id: "p4", nome: "Dr. Marcos Silva",    especialidade: "Odontología General",   cro_numero: "56789", cro_uf: "PICH", telefone: "+593 99 100 2004", valor_consulta: 40, percentual_repasse: 45, ativo: true, cor: "#F59E0B" },
 ];
 
 export const demoProcedimentos = [
-  { id: "pr1",  nome: "Evaluación inicial",         codigo_tuss: "99999014", valor: 150,   duracao_minutos: 30, categoria: "Cita" },
-  { id: "pr2",  nome: "Limpieza profesional",      codigo_tuss: "99999001", valor: 220,   duracao_minutos: 45, categoria: "Prevención" },
-  { id: "pr3",  nome: "Restauración de resina",     codigo_tuss: "99999002", valor: 380,   duracao_minutos: 60, categoria: "Odontología Estética" },
-  { id: "pr4",  nome: "Tratamiento de conducto",       codigo_tuss: "99999003", valor: 1800,  duracao_minutos: 90, categoria: "Endodoncia" },
-  { id: "pr5",  nome: "Blanqueamiento dental",        codigo_tuss: "99999005", valor: 1200,  duracao_minutos: 60, categoria: "Estética" },
-  { id: "pr6",  nome: "Implante unitario",         codigo_tuss: "99999004", valor: 3800,  duracao_minutos: 120, categoria: "Implantología" },
-  { id: "pr7",  nome: "Corona de porcelana",        codigo_tuss: "99999010", valor: 2500,  duracao_minutos: 90, categoria: "Prótesis" },
-  { id: "pr8",  nome: "Aparato fijo - mantenimiento",codigo_tuss: "99999007", valor: 250,   duracao_minutos: 30, categoria: "Ortodoncia" },
-  { id: "pr9",  nome: "Carilla de porcelana",       codigo_tuss: "99999012", valor: 1900,  duracao_minutos: 90, categoria: "Estética" },
-  { id: "pr10", nome: "Extracción simple",          codigo_tuss: "99999008", valor: 350,   duracao_minutos: 45, categoria: "Cirugía" },
-  { id: "pr11", nome: "Raspado periodontal",      codigo_tuss: "99999013", valor: 420,   duracao_minutos: 60, categoria: "Periodoncia" },
-  { id: "pr12", nome: "Radiografía panorámica",    codigo_tuss: "99999015", valor: 120,   duracao_minutos: 15, categoria: "Diagnóstico" },
+  { id: "pr1",  nome: "Evaluación inicial",         codigo_tuss: "99999014", valor: 25,   duracao_minutos: 30, categoria: "Cita" },
+  { id: "pr2",  nome: "Limpieza profesional",       codigo_tuss: "99999001", valor: 40,   duracao_minutos: 45, categoria: "Prevención" },
+  { id: "pr3",  nome: "Restauración de resina",     codigo_tuss: "99999002", valor: 70,   duracao_minutos: 60, categoria: "Odontología Estética" },
+  { id: "pr4",  nome: "Tratamiento de conducto",    codigo_tuss: "99999003", valor: 320,  duracao_minutos: 90, categoria: "Endodoncia" },
+  { id: "pr5",  nome: "Blanqueamiento dental",      codigo_tuss: "99999005", valor: 220,  duracao_minutos: 60, categoria: "Estética" },
+  { id: "pr6",  nome: "Implante unitario",          codigo_tuss: "99999004", valor: 750,  duracao_minutos: 120, categoria: "Implantología" },
+  { id: "pr7",  nome: "Corona de porcelana",        codigo_tuss: "99999010", valor: 450,  duracao_minutos: 90, categoria: "Prótesis" },
+  { id: "pr8",  nome: "Ortodoncia — mantenimiento", codigo_tuss: "99999007", valor: 45,   duracao_minutos: 30, categoria: "Ortodoncia" },
+  { id: "pr9",  nome: "Carilla de porcelana",       codigo_tuss: "99999012", valor: 350,  duracao_minutos: 90, categoria: "Estética" },
+  { id: "pr10", nome: "Extracción simple",          codigo_tuss: "99999008", valor: 60,   duracao_minutos: 45, categoria: "Cirugía" },
+  { id: "pr11", nome: "Raspado periodontal",        codigo_tuss: "99999013", valor: 80,   duracao_minutos: 60, categoria: "Periodoncia" },
+  { id: "pr12", nome: "Radiografía panorámica",     codigo_tuss: "99999015", valor: 25,   duracao_minutos: 15, categoria: "Diagnóstico" },
 ];
 
 // ===================== PACIENTES (30) =====================
@@ -52,22 +52,22 @@ type Pac = {
 };
 
 const NOMES_BR = [
-  "Ana Beatriz Silva","Carla Mendonça Ribeiro","Mariana Costa","Patrícia Ribeiro","Juliana Martins",
-  "Beatriz Oliveira","Camila Rodrigues","Larissa Souza","Renata Barbosa","Aline Castro",
-  "Fernanda Dias","Cíntia Pinheiro","Tatiana Moreira","Priscila Gomes","Vanessa Cavalcanti",
-  "Bianca Freitas","Carlos Eduardo Pereira","Fernando Almeida","Roberto Carvalho","Lucas Ferreira",
-  "Rodrigo Santos","Diego Nascimento","Gabriel Lima","Tiago Mendes","Bruno Araújo",
-  "Marcelo Rocha","Vinícius Cardoso","Eduardo Vieira","Henrique Cunha","Felipe Monteiro",
+  "Ana Beatriz Silva","Carla Mendoza Ribera","Mariana Costa","Patricia Ribera","Juliana Martínez",
+  "Beatriz Oliveira","Camila Rodríguez","Larissa Suárez","Renata Barbosa","Aline Castro",
+  "Fernanda Díaz","Cintia Piñeiro","Tatiana Moreira","Priscila Gómez","Vanessa Cavalcanti",
+  "Bianca Freitas","Carlos Eduardo Pérez","Fernando Almeida","Roberto Carvajal","Lucas Ferrer",
+  "Rodrigo Santos","Diego Nascimento","Gabriel Lima","Tiago Méndez","Bruno Araújo",
+  "Marcelo Rocha","Vinicio Cárdenas","Eduardo Vieira","Enrique Cunha","Felipe Montero",
 ];
-const CONV = ["Unimed","Amil Dental","Odontoprev","SulAmérica","Bradesco Saúde","Particular"];
+const CONV = ["IESS","Salud S.A.","Ecuasanitas","BMI Ecuador","Humana Seguros","Particular"];
 
 function build(i: number, status: Pac["status"], tags: string[], diasSem: number, totC: number, valH: number): Pac {
   const nome = NOMES_BR[i];
   return {
     id: `pa${i + 1}`,
     nome,
-    cpf: `${100 + i}.${200 + i}.${300 + i}-${(10 + i) % 100}`,
-    telefone: `(11) 9${String(80000000 + i * 1373).padStart(8, "0").slice(0, 8)}`,
+    cpf: `${1700000000 + i * 137}`,
+    telefone: `+593 9${String(80000000 + i * 1373).padStart(8, "0").slice(0, 8)}`,
     email: `${nome.split(" ")[0].toLowerCase()}@email.com`,
     convenio: CONV[i % CONV.length],
     data_nascimento: format(subMonths(today, 240 + i * 7), "yyyy-MM-dd"),
@@ -77,8 +77,8 @@ function build(i: number, status: Pac["status"], tags: string[], diasSem: number
     total_consultas: totC,
     valor_historico: valH,
     alergias: i % 5 === 0 ? ["Penicilina"] : i % 7 === 0 ? ["Látex"] : [],
-    medicamentos_uso: i % 6 === 0 ? ["Losartana"] : i % 8 === 0 ? ["Sinvastatina"] : [],
-    doencas_preexistentes: i % 9 === 0 ? "Hipertensão" : i % 11 === 0 ? "Diabetes tipo 2" : null,
+    medicamentos_uso: i % 6 === 0 ? ["Losartán"] : i % 8 === 0 ? ["Simvastatina"] : [],
+    doencas_preexistentes: i % 9 === 0 ? "Hipertensión" : i % 11 === 0 ? "Diabetes tipo 2" : null,
   };
 }
 
@@ -120,7 +120,7 @@ export const demoPacientes: Pac[] = [
 
 // ===================== CONSULTAS DE HOJE (12) =====================
 const tdy = format(today, "yyyy-MM-dd");
-const PROCS_NM = ["Limpieza","Avaliação","Restauração","Canal","Manutenção Ortodontia","Clareamento","Implante - 2ª etapa","Coroa","Faceta","Extração"];
+const PROCS_NM = ["Limpieza","Evaluación","Restauración","Endodoncia","Mantenimiento Ortodoncia","Blanqueamiento","Implante - 2ª etapa","Corona","Carilla","Extracción"];
 const STATUS_HJ = ["concluida","concluida","concluida","en_atención","programada","confirmada","confirmada","programada","programada","ausente","programada","confirmada"];
 const HORAS_HJ  = ["08:00","08:30","09:00","09:30","10:00","10:30","11:00","13:30","14:00","14:30","16:00","17:30"];
 
@@ -181,7 +181,7 @@ export const demoTratamentos = Array.from({ length: 24 }).map((_, i) => {
     dente: ["—","36","11,12,21,22","Arcada superior","47","Todos","14, 15"][i % 7],
     status, data_inicio: d(-(30 + i * 8)),
     proxima_etapa: status === "en_curso" ? `Etapa ${concl + 1} de ${etapas}` : null,
-    valor_total: [4800,6000,1800,8000,2500,14000,12000,3000][i % 8],
+    valor_total: [960,1200,360,1600,500,2800,2400,600][i % 8],
     etapas_total: etapas, etapas_concluidas: concl,
     progresso: Math.round((concl / etapas) * 100),
   };
@@ -217,13 +217,13 @@ export const demoOrcamentos = Array.from({ length: 14 }).map((_, i) => {
 
 // ===================== FINANCEIRO (80+) =====================
 const CAT_REC = [
-  ["Cita", 180, 320], ["Tratamiento", 800, 2500], ["Presupuesto", 1500, 4500],
-  ["Reembolso", 200, 600], ["Convenio", 150, 280],
+  ["Cita", 36, 64], ["Tratamiento", 160, 500], ["Presupuesto", 300, 900],
+  ["Reembolso", 40, 120], ["Convenio", 30, 56],
 ] as const;
 const CAT_DESP = [
-  ["Alquiler", 5500], ["Materiales", 1400], ["Laboratorio", 2200],
-  ["Marketing", 850], ["Nómina", 13800], ["Equipos", 2400],
-  ["Energía", 920], ["Internet", 380], ["Limpieza", 480], ["Otros", 320],
+  ["Alquiler", 1100], ["Materiales", 280], ["Laboratorio", 440],
+  ["Marketing", 170], ["Nómina", 2760], ["Equipos", 480],
+  ["Energía", 184], ["Internet", 76], ["Limpieza", 96], ["Otros", 64],
 ] as const;
 
 export const demoFinanceiro = (() => {
@@ -238,7 +238,7 @@ export const demoFinanceiro = (() => {
       categoria: cat,
       valor: Math.round(min + Math.random() * (max - min)),
       data: format(subDays(today, i % 28), "yyyy-MM-dd"),
-      forma_pagamento: ["Pix","Tarjeta de crédito","Tarjeta de débito","Efectivo","Boleto"][i % 5],
+      forma_pagamento: ["Transferencia","Tarjeta de crédito","Tarjeta de débito","Efectivo","Cheque"][i % 5],
       status: i % 9 === 0 ? "pendiente" : i % 13 === 0 ? "atrasado" : "pagado",
     });
   }
@@ -269,11 +269,11 @@ export const DEMO_KPI = {
   revisoesPendentes: 18,
   tratamentosAndamento: 24,
   orcamentosPendentes: 14,
-  faturamentoMes: 47800,
-  aReceber: 18400,
-  recebidoMes: 29400,
-  despesasMes: 22400,
-  ticketMedio: 286,
+  faturamentoMes: 9560,
+  aReceber: 3680,
+  recebidoMes: 5880,
+  despesasMes: 4480,
+  ticketMedio: 57,
   taxaOcupacao: 0.82,
   taxaCancelamento: 0.06,
   taxaFaltasHoje: 0.16,
@@ -281,10 +281,10 @@ export const DEMO_KPI = {
 
 // ===================== ALERTAS DASHBOARD =====================
 export const DEMO_ALERTAS = [
-  { tone: "red",   titulo: "Tasa de ausencias alta hoy: 16%",        desc: "2 pacientes faltaron. Considere overbooking en los próximos espacios.", cta: "Ver agenda" },
-  { tone: "amber", titulo: "8 presupuestos detenidos hace +14 días",     desc: "Potencial de R$ 23.400 perdido sin seguimiento.",                    cta: "Disparar seguimiento" },
-  { tone: "sky",   titulo: "5 pacientes VIP sin retorno hace +60 días", desc: "Reactivar puede generar R$ 8.500 en citas.",                  cta: "Reactivar" },
-  { tone: "green", titulo: "Carla Mendonça confirmó Implante — Etapa 2", desc: "Mayor ticket de la semana: R$ 3.800.",                       cta: "Ver cita" },
+  { tone: "red",   titulo: "Tasa de ausencias alta hoy: 16%",              desc: "2 pacientes faltaron. Considere overbooking en los próximos espacios.", cta: "Ver agenda" },
+  { tone: "amber", titulo: "8 presupuestos detenidos hace +14 días",       desc: "Potencial de $ 4.680 perdido sin seguimiento.",                          cta: "Disparar seguimiento" },
+  { tone: "sky",   titulo: "5 pacientes VIP sin retorno hace +60 días",    desc: "Reactivar puede generar $ 1.700 en citas.",                              cta: "Reactivar" },
+  { tone: "green", titulo: "Carla Mendoza confirmó Implante — Etapa 2",    desc: "Mayor ticket de la semana: $ 760.",                                      cta: "Ver cita" },
 ];
 
 // ===================== AI GROWTH OPORTUNIDADES =====================
@@ -295,7 +295,7 @@ export const demoAIOportunidades = [
     tone: "red",
     titulo: "12 pacientes no retornan hace +30 días",
     desc: "Recupere ingresos reactivando ahora.",
-    impacto: 8500,
+    impacto: 1700,
     pacientes: demoPacientes.filter((p) => p.dias_sem_consulta > 60).slice(0, 6).map((p) => ({
       nome: p.nome, telefone: p.telefone, dias: p.dias_sem_consulta, valor: p.valor_historico,
     })),
@@ -307,7 +307,7 @@ export const demoAIOportunidades = [
     tone: "amber",
     titulo: "8 revisiones pendientes",
     desc: "Pacientes que aún no han programado la revisión semestral.",
-    impacto: 1600,
+    impacto: 320,
     pacientes: demoPacientes.filter((p) => p.tags.includes("revisión_pendiente")).slice(0, 5).map((p) => ({
       nome: p.nome, telefone: p.telefone, dias: p.dias_sem_consulta, valor: p.valor_historico,
     })),
@@ -319,9 +319,9 @@ export const demoAIOportunidades = [
     tone: "orange",
     titulo: "5 tratamientos pausados hace +30 días",
     desc: "Continúe los tratamientos y recupere ingresos detenidos.",
-    impacto: 24000,
+    impacto: 4800,
     pacientes: demoTratamentos.filter((t) => t.status === "pausado").slice(0, 4).map((t) => ({
-      nome: t.paciente_nome, telefone: "(11) 99000-0000", dias: 35, valor: t.valor_total,
+      nome: t.paciente_nome, telefone: "+593 99 000 0000", dias: 35, valor: t.valor_total,
     })),
     mensagem: "¡Hola [Nombre]! Nos gustaría dar continuidad a su tratamiento. Tenemos horarios disponibles esta semana, ¿puedo agendarle?",
   },
@@ -331,9 +331,9 @@ export const demoAIOportunidades = [
     tone: "teal",
     titulo: "6 presupuestos sin respuesta +14 días",
     desc: "El seguimiento genera un 32% de aprobación extra.",
-    impacto: 13100,
+    impacto: 2620,
     pacientes: demoOrcamentos.filter((o) => o.status === "pendiente" && o.dias_desde_envio > 14).slice(0, 5).map((o) => ({
-      nome: o.paciente_nome, telefone: "(11) 99000-0000", dias: o.dias_desde_envio, valor: o.total_com_desconto,
+      nome: o.paciente_nome, telefone: "+593 99 000 0000", dias: o.dias_desde_envio, valor: o.total_com_desconto,
     })),
     mensagem: "¡Hola [Nombre]! Pasamos para ver si quedó alguna duda sobre el presupuesto que presentamos. ¡Estamos a disposición para conversar y ofrecer condiciones especiales!",
   },
@@ -343,7 +343,7 @@ export const demoAIOportunidades = [
     tone: "blue",
     titulo: "Horario débil: Martes y jueves 13h–15h",
     desc: "Solo el 30% de los espacios ocupados en este intervalo.",
-    impacto: 4200,
+    impacto: 840,
     pacientes: [],
     mensagem: "🎁 ¡Promoción relámpago! Limpieza profesional + evaluación los martes y jueves, 13h–15h, con 20% OFF. Vacantes limitadas, ¡reserve ya!",
   },
@@ -352,7 +352,7 @@ export const demoAIOportunidades = [
 // ===================== HISTÓRICO =====================
 export const demoHistorico = Array.from({ length: 30 }).map((_, i) => {
   const pac = demoPacientes[i % demoPacientes.length];
-  const tipos = ["anamnesis","examen","procedimiento","observación","receta"];
+  const tipos = ["anamnesis","examen","procedimiento","observacion","receta"];
   return {
     id: `h${i}`,
     paciente_id: pac.id,
