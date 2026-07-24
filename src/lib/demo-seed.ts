@@ -52,22 +52,22 @@ type Pac = {
 };
 
 const NOMES_BR = [
-  "Ana Beatriz Silva","Carla Mendonça Ribeiro","Mariana Costa","Patrícia Ribeiro","Juliana Martins",
-  "Beatriz Oliveira","Camila Rodrigues","Larissa Souza","Renata Barbosa","Aline Castro",
-  "Fernanda Dias","Cíntia Pinheiro","Tatiana Moreira","Priscila Gomes","Vanessa Cavalcanti",
-  "Bianca Freitas","Carlos Eduardo Pereira","Fernando Almeida","Roberto Carvalho","Lucas Ferreira",
-  "Rodrigo Santos","Diego Nascimento","Gabriel Lima","Tiago Mendes","Bruno Araújo",
-  "Marcelo Rocha","Vinícius Cardoso","Eduardo Vieira","Henrique Cunha","Felipe Monteiro",
+  "Ana Beatriz Silva","Carla Mendoza Ribera","Mariana Costa","Patricia Ribera","Juliana Martínez",
+  "Beatriz Oliveira","Camila Rodríguez","Larissa Suárez","Renata Barbosa","Aline Castro",
+  "Fernanda Díaz","Cintia Piñeiro","Tatiana Moreira","Priscila Gómez","Vanessa Cavalcanti",
+  "Bianca Freitas","Carlos Eduardo Pérez","Fernando Almeida","Roberto Carvajal","Lucas Ferrer",
+  "Rodrigo Santos","Diego Nascimento","Gabriel Lima","Tiago Méndez","Bruno Araújo",
+  "Marcelo Rocha","Vinicio Cárdenas","Eduardo Vieira","Enrique Cunha","Felipe Montero",
 ];
-const CONV = ["Unimed","Amil Dental","Odontoprev","SulAmérica","Bradesco Saúde","Particular"];
+const CONV = ["IESS","Salud S.A.","Ecuasanitas","BMI Ecuador","Humana Seguros","Particular"];
 
 function build(i: number, status: Pac["status"], tags: string[], diasSem: number, totC: number, valH: number): Pac {
   const nome = NOMES_BR[i];
   return {
     id: `pa${i + 1}`,
     nome,
-    cpf: `${100 + i}.${200 + i}.${300 + i}-${(10 + i) % 100}`,
-    telefone: `(11) 9${String(80000000 + i * 1373).padStart(8, "0").slice(0, 8)}`,
+    cpf: `${1700000000 + i * 137}`,
+    telefone: `+593 9${String(80000000 + i * 1373).padStart(8, "0").slice(0, 8)}`,
     email: `${nome.split(" ")[0].toLowerCase()}@email.com`,
     convenio: CONV[i % CONV.length],
     data_nascimento: format(subMonths(today, 240 + i * 7), "yyyy-MM-dd"),
@@ -77,8 +77,8 @@ function build(i: number, status: Pac["status"], tags: string[], diasSem: number
     total_consultas: totC,
     valor_historico: valH,
     alergias: i % 5 === 0 ? ["Penicilina"] : i % 7 === 0 ? ["Látex"] : [],
-    medicamentos_uso: i % 6 === 0 ? ["Losartana"] : i % 8 === 0 ? ["Sinvastatina"] : [],
-    doencas_preexistentes: i % 9 === 0 ? "Hipertensão" : i % 11 === 0 ? "Diabetes tipo 2" : null,
+    medicamentos_uso: i % 6 === 0 ? ["Losartán"] : i % 8 === 0 ? ["Simvastatina"] : [],
+    doencas_preexistentes: i % 9 === 0 ? "Hipertensión" : i % 11 === 0 ? "Diabetes tipo 2" : null,
   };
 }
 
