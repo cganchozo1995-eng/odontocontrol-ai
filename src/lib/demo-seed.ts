@@ -120,7 +120,7 @@ export const demoPacientes: Pac[] = [
 
 // ===================== CONSULTAS DE HOJE (12) =====================
 const tdy = format(today, "yyyy-MM-dd");
-const PROCS_NM = ["Limpieza","Avaliação","Restauração","Canal","Manutenção Ortodontia","Clareamento","Implante - 2ª etapa","Coroa","Faceta","Extração"];
+const PROCS_NM = ["Limpieza","Evaluación","Restauración","Endodoncia","Mantenimiento Ortodoncia","Blanqueamiento","Implante - 2ª etapa","Corona","Carilla","Extracción"];
 const STATUS_HJ = ["concluida","concluida","concluida","en_atención","programada","confirmada","confirmada","programada","programada","ausente","programada","confirmada"];
 const HORAS_HJ  = ["08:00","08:30","09:00","09:30","10:00","10:30","11:00","13:30","14:00","14:30","16:00","17:30"];
 
