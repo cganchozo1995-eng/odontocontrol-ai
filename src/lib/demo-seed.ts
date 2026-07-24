@@ -352,7 +352,7 @@ export const demoAIOportunidades = [
 // ===================== HISTÓRICO =====================
 export const demoHistorico = Array.from({ length: 30 }).map((_, i) => {
   const pac = demoPacientes[i % demoPacientes.length];
-  const tipos = ["anamnesis","examen","procedimiento","observación","receta"];
+  const tipos = ["anamnesis","examen","procedimiento","observacion","receta"];
   return {
     id: `h${i}`,
     paciente_id: pac.id,
