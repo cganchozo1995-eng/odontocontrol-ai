@@ -76,7 +76,7 @@ function Page() {
         searchKeys={["nome" as any, "cpf" as any, "telefone" as any]}
         columns={[
           { key: "nome", header: "Nombre" },
-          { key: "cpf", header: "Documento" },
+          { key: "cpf", header: "C.I / RUC" },
           { key: "telefone", header: "Teléfono" },
           { key: "convenio", header: "Convenio" },
           { key: "data_nascimento", header: "Nac.", render: (r: any) => dateBR(r.data_nascimento) },
@@ -98,7 +98,7 @@ function Page() {
           onSubmit={save}
           fields={[
             { name: "nome", label: "Nombre", required: true, col: 2 },
-            { name: "cpf", label: "Documento" }, { name: "rg", label: "RG" },
+            { name: "cpf", label: "C.I / RUC" }, { name: "rg", label: "Documento secundario" },
             { name: "data_nascimento", label: "Nacimiento", type: "date" },
             { name: "telefone", label: "Teléfono", type: "tel" },
             { name: "email", label: "Email", type: "email" },

@@ -5,7 +5,7 @@ import { useAuth } from "@/lib/auth";
 import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, Legend } from "recharts";
-import { brl } from "@/lib/format";
+import { useMoney } from "@/lib/format";
 import { format, startOfMonth, subMonths } from "date-fns";
 
 export const Route = createFileRoute("/app/Relatorios")({ component: Page });
@@ -14,6 +14,7 @@ const COLORS = ["#06B6D4", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6", "#EC4899"
 
 function Page() {
   const { clinicaId } = useAuth();
+  const money = useMoney();
   const fromDate = format(subMonths(startOfMonth(new Date()), 5), "yyyy-MM-dd");
 
   const { data } = useQuery({
@@ -71,7 +72,7 @@ function Page() {
           <h3 className="font-semibold mb-4">Facturación mensual</h3>
           <div className="h-64"><ResponsiveContainer>
             <BarChart data={meses}>
-              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => brl(Number(v))} />
+              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
               <Legend /><Bar dataKey="receita" fill="#10B981" name="Ingreso" /><Bar dataKey="despesa" fill="#EF4444" name="Egreso" />
             </BarChart>
           </ResponsiveContainer></div>
@@ -80,7 +81,7 @@ function Page() {
           <h3 className="font-semibold mb-4">Ganancia mensual</h3>
           <div className="h-64"><ResponsiveContainer>
             <LineChart data={meses}>
-              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => brl(Number(v))} />
+              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
               <Line type="monotone" dataKey="lucro" stroke="#06B6D4" strokeWidth={3} name="Ganancia" />
             </LineChart>
           </ResponsiveContainer></div>

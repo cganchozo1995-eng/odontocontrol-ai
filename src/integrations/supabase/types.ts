@@ -51,6 +51,7 @@ export type Database = {
           endereco: Json | null
           id: string
           logo_url: string | null
+          moeda: string
           mrr: number
           nome: string
           owner_email: string | null
@@ -75,6 +76,7 @@ export type Database = {
           endereco?: Json | null
           id?: string
           logo_url?: string | null
+          moeda?: string
           mrr?: number
           nome: string
           owner_email?: string | null
@@ -99,6 +101,7 @@ export type Database = {
           endereco?: Json | null
           id?: string
           logo_url?: string | null
+          moeda?: string
           mrr?: number
           nome?: string
           owner_email?: string | null
@@ -894,15 +897,15 @@ export type Database = {
         | "concluida"
         | "cancelada"
         | "ausente"
-      status_financeiro_enum: "pendente" | "pago" | "atrasado" | "cancelado"
+      status_financeiro_enum: "pendiente" | "pago" | "atrasado" | "cancelado"
       status_orcamento_enum:
-        | "pendente"
-        | "aprovado"
-        | "recusado"
-        | "em_negociacao"
+        | "pendiente"
+        | "aprobado"
+        | "rechazado"
+        | "en_negociacion"
       status_tratamento_enum:
-        | "planejado"
-        | "em_andamento"
+        | "planificado"
+        | "en_curso"
         | "concluido"
         | "cancelado"
       tipo_consulta_enum:
@@ -911,7 +914,7 @@ export type Database = {
         | "seguimiento"
         | "procedimiento"
         | "urgencia_odontologica"
-      tipo_financeiro_enum: "receita" | "despesa"
+      tipo_financeiro_enum: "ingreso" | "egreso"
       tipo_historico_enum:
         | "anamnesis"
         | "examen"
@@ -1077,16 +1080,16 @@ export const Constants = {
         "cancelada",
         "ausente",
       ],
-      status_financeiro_enum: ["pendente", "pago", "atrasado", "cancelado"],
+      status_financeiro_enum: ["pendiente", "pago", "atrasado", "cancelado"],
       status_orcamento_enum: [
-        "pendente",
-        "aprovado",
-        "recusado",
-        "em_negociacao",
+        "pendiente",
+        "aprobado",
+        "rechazado",
+        "en_negociacion",
       ],
       status_tratamento_enum: [
-        "planejado",
-        "em_andamento",
+        "planificado",
+        "en_curso",
         "concluido",
         "cancelado",
       ],
@@ -1097,7 +1100,7 @@ export const Constants = {
         "procedimiento",
         "urgencia_odontologica",
       ],
-      tipo_financeiro_enum: ["receita", "despesa"],
+      tipo_financeiro_enum: ["ingreso", "egreso"],
       tipo_historico_enum: [
         "anamnesis",
         "examen",

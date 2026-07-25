@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GripVertical, Plus, Trash2, Printer, CheckCircle2, Save } from "lucide-react";
-import { brl } from "@/lib/format";
+import { useMoney } from "@/lib/format";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
@@ -26,6 +26,7 @@ export function OrcamentoSheet({
   onSaved: () => void;
 }) {
   const { clinicaId, clinica } = useAuth();
+  const money = useMoney();
   const [draft, setDraft] = useState<any>(null);
   const [items, setItems] = useState<Item[]>([]);
   const [showPrint, setShowPrint] = useState(false);
@@ -102,18 +103,18 @@ export function OrcamentoSheet({
     if (!confirm("¿Aprobar y generar tratamiento + lanzamiento financiero?")) return;
     try {
       const descTxt = items.map((it) => `${it.qtd}x ${it.nome}`).join("; ");
-      await supabase.from("orcamento").update({ status: "aprovado" }).eq("id", draft.id);
+      await supabase.from("orcamento").update({ status: "aprobado" }).eq("id", draft.id);
       await supabase.from("tratamento").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, paciente_nome: draft.paciente_nome,
         profissional_id: draft.profissional_id ?? null, descricao: descTxt || draft.numero,
-        status: "planejado", data_inicio: new Date().toISOString().slice(0, 10),
+        status: "planificado", data_inicio: new Date().toISOString().slice(0, 10),
         valor_total: totalDesc,
       });
       await supabase.from("financeiro").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, orcamento_id: draft.id,
-        tipo: "receita", status: "pendente", descricao: `Presupuesto ${draft.numero ?? ""}`.trim(),
+        tipo: "ingreso", status: "pendiente", descricao: `Presupuesto ${draft.numero ?? ""}`.trim(),
         valor: totalDesc, data: new Date().toISOString().slice(0, 10),
-        categoria: "Tratamento", total_parcelas: Number(draft.parcelas), parcela_atual: 1,
+        categoria: "Tratamiento", total_parcelas: Number(draft.parcelas), parcela_atual: 1,
       });
       toast.success("Presupuesto aprobado y tratamiento creado");
       onSaved(); onOpenChange(false);
@@ -146,7 +147,12 @@ export function OrcamentoSheet({
                 <Select value={draft.status} onValueChange={(v) => setDraft({ ...draft, status: v })}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    {["pendiente","en_negociación","aprobado","rechazado","expirado"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                    {[
+                      { v: "pendiente", l: "Pendiente" },
+                      { v: "en_negociacion", l: "En negociación" },
+                      { v: "aprobado", l: "Aprobado" },
+                      { v: "rechazado", l: "Rechazado" },
+                    ].map((s) => <SelectItem key={s.v} value={s.v}>{s.l}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
@@ -158,7 +164,7 @@ export function OrcamentoSheet({
                 <div className="flex gap-2">
                   <Select onValueChange={(v) => addItem(v)}>
                     <SelectTrigger className="h-8 w-48 text-xs"><SelectValue placeholder="+ Procedimiento" /></SelectTrigger>
-                    <SelectContent>{procs.map((p: any) => <SelectItem key={p.id} value={p.id}>{p.nome} — {brl(p.valor)}</SelectItem>)}</SelectContent>
+                    <SelectContent>{procs.map((p: any) => <SelectItem key={p.id} value={p.id}>{p.nome} — {money(p.valor)}</SelectItem>)}</SelectContent>
                   </Select>
                   <Button size="sm" variant="outline" onClick={() => addItem()}><Plus className="size-3 mr-1" />Vacío</Button>
                 </div>
@@ -177,7 +183,7 @@ export function OrcamentoSheet({
                               <Input value={it.nome} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, nome: e.target.value } : x))} placeholder="Ítem" className="h-8 flex-1" />
                               <Input type="number" step="0.01" value={it.valor} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, valor: Number(e.target.value) } : x))} className="h-8 w-24" />
                               <Input type="number" value={it.qtd} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, qtd: Number(e.target.value) } : x))} className="h-8 w-14" />
-                              <div className="text-xs w-20 text-right font-medium">{brl(it.valor * it.qtd)}</div>
+                              <div className="text-xs w-20 text-right font-medium">{money(it.valor * it.qtd)}</div>
                               <Button size="icon" variant="ghost" className="h-7 w-7" onClick={() => setItems(items.filter((x) => x.id !== it.id))}><Trash2 className="size-3" /></Button>
                             </div>
                           )}
@@ -191,10 +197,10 @@ export function OrcamentoSheet({
             </div>
 
             <div className="rounded-lg border p-4 bg-primary/5 space-y-1 text-sm">
-              <div className="flex justify-between"><span>Subtotal</span><span>{brl(total)}</span></div>
-              <div className="flex justify-between"><span>Descuento ({desc}%)</span><span>− {brl(total - totalDesc)}</span></div>
-              <div className="flex justify-between text-lg font-bold border-t pt-2 mt-1"><span>Total</span><span className="text-primary">{brl(totalDesc)}</span></div>
-              <div className="text-xs text-muted-foreground text-right">{draft.parcelas}x de {brl(totalDesc / Math.max(1, Number(draft.parcelas)))}</div>
+              <div className="flex justify-between"><span>Subtotal</span><span>{money(total)}</span></div>
+              <div className="flex justify-between"><span>Descuento ({desc}%)</span><span>− {money(total - totalDesc)}</span></div>
+              <div className="flex justify-between text-lg font-bold border-t pt-2 mt-1"><span>Total</span><span className="text-primary">{money(totalDesc)}</span></div>
+              <div className="text-xs text-muted-foreground text-right">{draft.parcelas}x de {money(totalDesc / Math.max(1, Number(draft.parcelas)))}</div>
             </div>
 
             <div className="space-y-1.5">

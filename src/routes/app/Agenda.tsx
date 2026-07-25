@@ -13,17 +13,27 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { addDays, addMonths, format, startOfMonth, startOfWeek, endOfMonth, endOfWeek } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { es } from "date-fns/locale";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Agenda")({ component: Page });
 
 const statusColors: Record<string, string> = {
-  agendada: "bg-blue-100 text-blue-800 border-blue-300",
+  programada: "bg-blue-100 text-blue-800 border-blue-300",
   confirmada: "bg-emerald-100 text-emerald-800 border-emerald-300",
-  realizada: "bg-purple-100 text-purple-800 border-purple-300",
+  en_atencion: "bg-sky-100 text-sky-800 border-sky-300",
+  concluida: "bg-purple-100 text-purple-800 border-purple-300",
   cancelada: "bg-red-100 text-red-800 border-red-300",
-  faltou: "bg-amber-100 text-amber-800 border-amber-300",
+  ausente: "bg-amber-100 text-amber-800 border-amber-300",
+};
+
+const statusLabels: Record<string, string> = {
+  programada: "Programada",
+  confirmada: "Confirmada",
+  en_atencion: "En atención",
+  concluida: "Realizada",
+  cancelada: "Cancelada",
+  ausente: "No asistió",
 };
 
 type View = "dia" | "semana" | "mes";
@@ -101,9 +111,9 @@ function Page() {
       } />
 
       <div className="text-sm text-muted-foreground mb-3 font-medium">
-        {view === "dia" && format(anchor, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+        {view === "dia" && format(anchor, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es })}
         {view === "semana" && `Semana del ${format(days[0], "dd/MM")} – ${format(days[days.length - 1], "dd/MM/yyyy")}`}
-        {view === "mes" && format(anchor, "MMMM 'de' yyyy", { locale: ptBR })}
+        {view === "mes" && format(anchor, "MMMM 'de' yyyy", { locale: es })}
       </div>
 
       <DragDropContext onDragEnd={onDrag}>
@@ -122,7 +132,7 @@ function Page() {
                 {(prov, snap) => (
                   <Card ref={prov.innerRef} {...prov.droppableProps}
                     className={`p-2 ${isMes ? "min-h-[100px]" : "min-h-[260px]"} ${isHoje ? "ring-2 ring-primary" : ""} ${snap.isDraggingOver ? "bg-accent/60" : ""}`}>
-                    <div className="text-xs uppercase text-muted-foreground">{format(d, isMes ? "EEEEEE" : "EEE", { locale: ptBR })}</div>
+                    <div className="text-xs uppercase text-muted-foreground">{format(d, isMes ? "EEEEEE" : "EEE", { locale: es })}</div>
                     <div className={`font-semibold mb-2 ${isMes ? "text-sm" : ""}`}>{format(d, "dd/MM")}</div>
                     <div className="space-y-1.5">
                       {items.length === 0 && !isMes && <div className="text-xs text-muted-foreground">Sin citas</div>}
@@ -154,7 +164,7 @@ function Page() {
       </DragDropContext>
 
       <div className="flex gap-3 text-xs mt-4 text-muted-foreground flex-wrap">
-        {Object.entries(statusColors).map(([k, c]) => <span key={k} className={`px-2 py-0.5 rounded border ${c}`}>{k}</span>)}
+        {Object.entries(statusColors).map(([k, c]) => <span key={k} className={`px-2 py-0.5 rounded border ${c}`}>{statusLabels[k] ?? k}</span>)}
       </div>
 
       <FormDialog open={open} onOpenChange={(o) => { setOpen(o); if (!o) setEdit(null); }} title={edit?.id ? "Editar cita" : "Nueva cita"} wide>
@@ -175,7 +185,8 @@ function Page() {
             ]},
             { name: "status", label: "Estado", type: "select", options: [
               { value: "programada", label: "Programada" }, { value: "confirmada", label: "Confirmada" },
-              { value: "realizada", label: "Realizada" }, { value: "cancelada", label: "Cancelada" }, { value: "ausente", label: "Ausente" },
+              { value: "en_atencion", label: "En atención" }, { value: "concluida", label: "Realizada" },
+              { value: "cancelada", label: "Cancelada" }, { value: "ausente", label: "No asistió" },
             ]},
             { name: "valor_total", label: "Valor", type: "number", step: "0.01" },
             { name: "observacoes", label: "Observaciones", type: "textarea", col: 2 },

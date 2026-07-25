@@ -233,7 +233,7 @@ export const demoFinanceiro = (() => {
     const [cat, min, max] = CAT_REC[i % CAT_REC.length];
     lst.push({
       id: `r${i}`,
-      tipo: "receita",
+      tipo: "ingreso",
       descricao: `${cat} — ${demoPacientes[i % demoPacientes.length].nome}`,
       categoria: cat,
       valor: Math.round(min + Math.random() * (max - min)),
@@ -247,7 +247,7 @@ export const demoFinanceiro = (() => {
     const [c, v] = CAT_DESP[i % CAT_DESP.length];
     lst.push({
       id: `dp${i}`,
-      tipo: "despesa",
+      tipo: "egreso",
       descricao: c,
       categoria: c,
       valor: v + (i % 5) * 80,
