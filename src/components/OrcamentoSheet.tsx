@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GripVertical, Plus, Trash2, Printer, CheckCircle2, Save } from "lucide-react";
-import { brl } from "@/lib/format";
+import { useMoney } from "@/lib/format";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
@@ -26,6 +26,7 @@ export function OrcamentoSheet({
   onSaved: () => void;
 }) {
   const { clinicaId, clinica } = useAuth();
+  const money = useMoney();
   const [draft, setDraft] = useState<any>(null);
   const [items, setItems] = useState<Item[]>([]);
   const [showPrint, setShowPrint] = useState(false);

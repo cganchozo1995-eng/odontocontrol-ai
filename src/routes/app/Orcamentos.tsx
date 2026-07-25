@@ -33,7 +33,7 @@ function Page() {
     queryFn: async () => (await supabase.from("procedimento").select("id,nome,valor").eq("clinica_id", clinicaId!).eq("ativo", true).order("nome")).data ?? [],
   });
 
-  const openNew = () => { setSel({ status: "pendente", data: new Date().toISOString().slice(0, 10), parcelas: 1, desconto_pct: 0, itens: [] }); setOpen(true); };
+  const openNew = () => { setSel({ status: "pendiente", data: new Date().toISOString().slice(0, 10), parcelas: 1, desconto_pct: 0, itens: [] }); setOpen(true); };
   const openOne = (r: any) => { setSel(r); setOpen(true); };
 
   const remove = async (id: string) => {

@@ -18,13 +18,13 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/app/Tratamentos")({ component: Page });
 
 const STATUS = [
-  { value: "planejado", label: "Planificado" },
-  { value: "em_andamento", label: "En curso" },
+  { value: "planificado", label: "Planificado" },
+  { value: "en_curso", label: "En curso" },
   { value: "concluido", label: "Concluido" },
   { value: "cancelado", label: "Cancelado" },
 ];
 
-const stageWeight: Record<string, number> = { planejado: 10, em_andamento: 60, concluido: 100, cancelado: 0 };
+const stageWeight: Record<string, number> = { planificado: 10, en_curso: 60, concluido: 100, cancelado: 0 };
 
 function Page() {
   const { clinicaId } = useAuth();
@@ -70,7 +70,7 @@ function Page() {
   };
 
   const advance = async (r: any) => {
-    const next = r.status === "planejado" ? "em_andamento" : r.status === "em_andamento" ? "concluido" : r.status;
+    const next = r.status === "planificado" ? "en_curso" : r.status === "en_curso" ? "concluido" : r.status;
     if (next === r.status) return;
     const payload: any = { status: next };
     if (next === "concluido") payload.data_conclusao = new Date().toISOString().slice(0, 10);
@@ -84,14 +84,14 @@ function Page() {
   return (
     <>
       <PageHeader title="Tratamientos" description="Planes con etapas y progreso" actions={
-        <Button onClick={() => { setEdit({ status: "planejado", data_inicio: new Date().toISOString().slice(0, 10) }); setOpen(true); }}><Plus className="size-4 mr-1" />Nuevo</Button>
+        <Button onClick={() => { setEdit({ status: "planificado", data_inicio: new Date().toISOString().slice(0, 10) }); setOpen(true); }}><Plus className="size-4 mr-1" />Nuevo</Button>
       } />
       <Input placeholder="Buscar..." className="max-w-md mb-4" value={filtro} onChange={(e) => setFiltro(e.target.value)} />
       <div className="grid md:grid-cols-2 gap-4">
         {filtered.map((r: any) => {
           const pct = stageWeight[r.status] ?? 0;
           const etapas = (r.descricao ?? "").split(/[;\n]+/).map((s: string) => s.trim()).filter(Boolean);
-          const done = r.status === "concluido" ? etapas.length : r.status === "em_andamento" ? Math.ceil(etapas.length / 2) : 0;
+          const done = r.status === "concluido" ? etapas.length : r.status === "en_curso" ? Math.ceil(etapas.length / 2) : 0;
           return (
             <Card key={r.id}>
               <CardContent className="p-4 space-y-3">
