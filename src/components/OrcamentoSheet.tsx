@@ -164,7 +164,7 @@ export function OrcamentoSheet({
                 <div className="flex gap-2">
                   <Select onValueChange={(v) => addItem(v)}>
                     <SelectTrigger className="h-8 w-48 text-xs"><SelectValue placeholder="+ Procedimiento" /></SelectTrigger>
-                    <SelectContent>{procs.map((p: any) => <SelectItem key={p.id} value={p.id}>{p.nome} — {brl(p.valor)}</SelectItem>)}</SelectContent>
+                    <SelectContent>{procs.map((p: any) => <SelectItem key={p.id} value={p.id}>{p.nome} — {money(p.valor)}</SelectItem>)}</SelectContent>
                   </Select>
                   <Button size="sm" variant="outline" onClick={() => addItem()}><Plus className="size-3 mr-1" />Vacío</Button>
                 </div>
@@ -183,7 +183,7 @@ export function OrcamentoSheet({
                               <Input value={it.nome} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, nome: e.target.value } : x))} placeholder="Ítem" className="h-8 flex-1" />
                               <Input type="number" step="0.01" value={it.valor} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, valor: Number(e.target.value) } : x))} className="h-8 w-24" />
                               <Input type="number" value={it.qtd} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, qtd: Number(e.target.value) } : x))} className="h-8 w-14" />
-                              <div className="text-xs w-20 text-right font-medium">{brl(it.valor * it.qtd)}</div>
+                              <div className="text-xs w-20 text-right font-medium">{money(it.valor * it.qtd)}</div>
                               <Button size="icon" variant="ghost" className="h-7 w-7" onClick={() => setItems(items.filter((x) => x.id !== it.id))}><Trash2 className="size-3" /></Button>
                             </div>
                           )}
@@ -197,10 +197,10 @@ export function OrcamentoSheet({
             </div>
 
             <div className="rounded-lg border p-4 bg-primary/5 space-y-1 text-sm">
-              <div className="flex justify-between"><span>Subtotal</span><span>{brl(total)}</span></div>
-              <div className="flex justify-between"><span>Descuento ({desc}%)</span><span>− {brl(total - totalDesc)}</span></div>
-              <div className="flex justify-between text-lg font-bold border-t pt-2 mt-1"><span>Total</span><span className="text-primary">{brl(totalDesc)}</span></div>
-              <div className="text-xs text-muted-foreground text-right">{draft.parcelas}x de {brl(totalDesc / Math.max(1, Number(draft.parcelas)))}</div>
+              <div className="flex justify-between"><span>Subtotal</span><span>{money(total)}</span></div>
+              <div className="flex justify-between"><span>Descuento ({desc}%)</span><span>− {money(total - totalDesc)}</span></div>
+              <div className="flex justify-between text-lg font-bold border-t pt-2 mt-1"><span>Total</span><span className="text-primary">{money(totalDesc)}</span></div>
+              <div className="text-xs text-muted-foreground text-right">{draft.parcelas}x de {money(totalDesc / Math.max(1, Number(draft.parcelas)))}</div>
             </div>
 
             <div className="space-y-1.5">
