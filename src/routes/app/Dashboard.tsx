@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { KpiCard } from "@/components/KpiCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { brl, dateBR } from "@/lib/format";
+import { useMoney, dateBR } from "@/lib/format";
 import {
   Calendar, Users, DollarSign, TrendingUp, Receipt, ClipboardList,
   AlertTriangle, Repeat, Activity, FileWarning,
@@ -23,6 +23,7 @@ const COLORS = ["#06B6D4", "#3B82F6", "#8B5CF6", "#10B981", "#F59E0B", "#EF4444"
 
 function Page() {
   const { clinicaId, clinica } = useAuth();
+  const money = useMoney();
   const today = format(new Date(), "yyyy-MM-dd");
   const monthStart = format(startOfMonth(new Date()), "yyyy-MM-dd");
   const monthEnd = format(endOfMonth(new Date()), "yyyy-MM-dd");
