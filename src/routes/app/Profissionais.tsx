@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Plus, Mail, Phone, IdCard, Pencil, Trash2, CalendarDays } from "lucide-react";
 import { brl, initials } from "@/lib/format";
 import { addDays, format, startOfWeek } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { es } from "date-fns/locale";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Profissionais")({ component: Page });
@@ -119,7 +119,7 @@ function Page() {
                       const n = meus.filter((c: any) => c.data === day).length;
                       return (
                         <div key={day} className="flex-1 text-center">
-                          <div className="text-[10px] text-muted-foreground">{format(d, "EEEEEE", { locale: ptBR })}</div>
+                          <div className="text-[10px] text-muted-foreground">{format(d, "EEEEEE", { locale: es })}</div>
                           <div className={`h-7 rounded text-xs font-medium flex items-center justify-center ${n > 0 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>{n}</div>
                         </div>
                       );

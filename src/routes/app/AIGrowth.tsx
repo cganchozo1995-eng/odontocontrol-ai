@@ -43,11 +43,11 @@ function Page() {
   });
 
   const orcVelhos = (data?.orc ?? []).filter((o: any) =>
-    (o.status === "pendente" || o.status === "em_negociacao") && o.data <= cutoff7
+    (o.status === "pendiente" || o.status === "en_negociacion") && o.data <= cutoff7
   );
 
   const tratParalisados = (data?.trat ?? []).filter((t: any) =>
-    t.status === "em_andamento" && t.updated_at && t.updated_at.slice(0, 10) < cutoff90
+    t.status === "en_curso" && t.updated_at && t.updated_at.slice(0, 10) < cutoff90
   );
 
   // Procedimentos com baixa demanda (não apareceram em nenhum orçamento nos últimos 90d)
