@@ -12,8 +12,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "OdontoControl AI — Gestión inteligente para clínicas odontológicas" },
       { name: "description", content: "Agenda, pacientes, financiero, tratamientos y un motor de IA que identifica oportunidades y recupera ingresos — todo en un solo lugar." },
-      { property: "og:title", content: "OdontoControl AI" },
-      { property: "og:description", content: "Su clínica odontológica con inteligencia artificial." },
+      { property: "og:title", content: "OdontoControl AI — Gestión inteligente para clínicas odontológicas" },
+      { property: "og:description", content: "Agenda, pacientes, financiero, tratamientos y un motor de IA que identifica oportunidades y recupera ingresos — todo en un solo lugar." },
     ],
   }),
   component: Landing,
