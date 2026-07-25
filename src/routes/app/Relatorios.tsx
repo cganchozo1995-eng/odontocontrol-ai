@@ -72,7 +72,7 @@ function Page() {
           <h3 className="font-semibold mb-4">Facturación mensual</h3>
           <div className="h-64"><ResponsiveContainer>
             <BarChart data={meses}>
-              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => brl(Number(v))} />
+              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
               <Legend /><Bar dataKey="receita" fill="#10B981" name="Ingreso" /><Bar dataKey="despesa" fill="#EF4444" name="Egreso" />
             </BarChart>
           </ResponsiveContainer></div>
@@ -81,7 +81,7 @@ function Page() {
           <h3 className="font-semibold mb-4">Ganancia mensual</h3>
           <div className="h-64"><ResponsiveContainer>
             <LineChart data={meses}>
-              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => brl(Number(v))} />
+              <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
               <Line type="monotone" dataKey="lucro" stroke="#06B6D4" strokeWidth={3} name="Ganancia" />
             </LineChart>
           </ResponsiveContainer></div>

@@ -111,9 +111,9 @@ function Page() {
       } />
 
       <div className="text-sm text-muted-foreground mb-3 font-medium">
-        {view === "dia" && format(anchor, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+        {view === "dia" && format(anchor, "EEEE, dd 'de' MMMM 'de' yyyy", { locale: es })}
         {view === "semana" && `Semana del ${format(days[0], "dd/MM")} – ${format(days[days.length - 1], "dd/MM/yyyy")}`}
-        {view === "mes" && format(anchor, "MMMM 'de' yyyy", { locale: ptBR })}
+        {view === "mes" && format(anchor, "MMMM 'de' yyyy", { locale: es })}
       </div>
 
       <DragDropContext onDragEnd={onDrag}>
@@ -132,7 +132,7 @@ function Page() {
                 {(prov, snap) => (
                   <Card ref={prov.innerRef} {...prov.droppableProps}
                     className={`p-2 ${isMes ? "min-h-[100px]" : "min-h-[260px]"} ${isHoje ? "ring-2 ring-primary" : ""} ${snap.isDraggingOver ? "bg-accent/60" : ""}`}>
-                    <div className="text-xs uppercase text-muted-foreground">{format(d, isMes ? "EEEEEE" : "EEE", { locale: ptBR })}</div>
+                    <div className="text-xs uppercase text-muted-foreground">{format(d, isMes ? "EEEEEE" : "EEE", { locale: es })}</div>
                     <div className={`font-semibold mb-2 ${isMes ? "text-sm" : ""}`}>{format(d, "dd/MM")}</div>
                     <div className="space-y-1.5">
                       {items.length === 0 && !isMes && <div className="text-xs text-muted-foreground">Sin citas</div>}
