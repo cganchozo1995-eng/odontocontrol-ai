@@ -146,7 +146,12 @@ export function OrcamentoSheet({
                 <Select value={draft.status} onValueChange={(v) => setDraft({ ...draft, status: v })}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    {["pendiente","en_negociación","aprobado","rechazado","expirado"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                    {[
+                      { v: "pendiente", l: "Pendiente" },
+                      { v: "en_negociacion", l: "En negociación" },
+                      { v: "aprobado", l: "Aprobado" },
+                      { v: "rechazado", l: "Rechazado" },
+                    ].map((s) => <SelectItem key={s.v} value={s.v}>{s.l}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
