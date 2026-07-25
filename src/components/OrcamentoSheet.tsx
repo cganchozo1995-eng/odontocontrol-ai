@@ -102,18 +102,18 @@ export function OrcamentoSheet({
     if (!confirm("¿Aprobar y generar tratamiento + lanzamiento financiero?")) return;
     try {
       const descTxt = items.map((it) => `${it.qtd}x ${it.nome}`).join("; ");
-      await supabase.from("orcamento").update({ status: "aprovado" }).eq("id", draft.id);
+      await supabase.from("orcamento").update({ status: "aprobado" }).eq("id", draft.id);
       await supabase.from("tratamento").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, paciente_nome: draft.paciente_nome,
         profissional_id: draft.profissional_id ?? null, descricao: descTxt || draft.numero,
-        status: "planejado", data_inicio: new Date().toISOString().slice(0, 10),
+        status: "planificado", data_inicio: new Date().toISOString().slice(0, 10),
         valor_total: totalDesc,
       });
       await supabase.from("financeiro").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, orcamento_id: draft.id,
-        tipo: "receita", status: "pendente", descricao: `Presupuesto ${draft.numero ?? ""}`.trim(),
+        tipo: "ingreso", status: "pendiente", descricao: `Presupuesto ${draft.numero ?? ""}`.trim(),
         valor: totalDesc, data: new Date().toISOString().slice(0, 10),
-        categoria: "Tratamento", total_parcelas: Number(draft.parcelas), parcela_atual: 1,
+        categoria: "Tratamiento", total_parcelas: Number(draft.parcelas), parcela_atual: 1,
       });
       toast.success("Presupuesto aprobado y tratamiento creado");
       onSaved(); onOpenChange(false);
