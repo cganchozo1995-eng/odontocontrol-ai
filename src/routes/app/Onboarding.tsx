@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Loader2 } from "lucide-react";
+import { CURRENCIES } from "@/lib/format";
 import { toast } from "sonner";
 import { addDays, format } from "date-fns";
 
@@ -21,6 +22,7 @@ function Page() {
   const [data, setData] = useState<any>({
     nome: "", cro_responsavel: "", telefone: "",
     cor_primaria: "#06B6D4",
+    moeda: "USD",
     membros: [{ nome: "", email: "", role: "recepcionista" }],
     profissionais: [{ nome: "", cro_numero: "", especialidade: "" }],
     procedimentos: [{ nome: "", codigo_tuss: "", valor: 0, duracao_minutos: 60 }],
@@ -32,7 +34,8 @@ function Page() {
     try {
       const { data: c, error } = await supabase.from("clinica").insert({
         nome: data.nome, cro_responsavel: data.cro_responsavel, telefone: data.telefone,
-        cor_primaria: data.cor_primaria, owner_nome: user.user_metadata?.nome ?? user.email,
+        cor_primaria: data.cor_primaria, moeda: data.moeda || "USD",
+        owner_nome: user.user_metadata?.nome ?? user.email,
         owner_email: user.email, status: "trial",
         trial_ate: format(addDays(new Date(), 14), "yyyy-MM-dd"),
       }).select().single();
@@ -70,8 +73,18 @@ function Page() {
           {step === 1 && (
             <div className="space-y-3">
               <div><Label>Nombre de la clínica *</Label><Input value={data.nome} onChange={(e) => setData({ ...data, nome: e.target.value })} /></div>
-              <div><Label>CRO Responsable</Label><Input value={data.cro_responsavel} onChange={(e) => setData({ ...data, cro_responsavel: e.target.value })} /></div>
+              <div><Label>Registro sanitario / CRO</Label><Input value={data.cro_responsavel} onChange={(e) => setData({ ...data, cro_responsavel: e.target.value })} /></div>
               <div><Label>Teléfono</Label><Input value={data.telefone} onChange={(e) => setData({ ...data, telefone: e.target.value })} /></div>
+              <div>
+                <Label>Moneda</Label>
+                <select
+                  className="h-9 w-full px-2 rounded-md border bg-background"
+                  value={data.moeda}
+                  onChange={(e) => setData({ ...data, moeda: e.target.value })}
+                >
+                  {CURRENCIES.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}
+                </select>
+              </div>
             </div>
           )}
           {step === 2 && (
