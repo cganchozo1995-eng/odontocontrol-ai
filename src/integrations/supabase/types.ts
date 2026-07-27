@@ -863,8 +863,45 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_public_booking: {
+        Args: {
+          p_convenio?: string
+          p_data: string
+          p_data_nascimento?: string
+          p_email?: string
+          p_hora: string
+          p_nome: string
+          p_procedimento_id: string
+          p_profissional_id: string
+          p_slug: string
+          p_telefone: string
+        }
+        Returns: string
+      }
+      get_clinica_publica: {
+        Args: { p_slug: string }
+        Returns: {
+          cor_primaria: string
+          id: string
+          logo_url: string
+          moeda: string
+          nome: string
+          slug: string
+          telefone: string
+        }[]
+      }
       is_admin: { Args: never; Returns: boolean }
       is_clinica_admin: { Args: { _clinica_id: string }; Returns: boolean }
+      list_profissionais_publicos: {
+        Args: { p_clinica_id: string }
+        Returns: {
+          clinica_id: string
+          especialidade: Database["public"]["Enums"]["especialidade_enum"]
+          foto_url: string
+          id: string
+          nome: string
+        }[]
+      }
       user_clinica_ids: { Args: never; Returns: string[] }
     }
     Enums: {
