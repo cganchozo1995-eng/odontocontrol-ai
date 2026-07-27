@@ -29,14 +29,16 @@ function Page() {
 
   useEffect(() => {
     (async () => {
-      const { data: c } = await supabase.from("clinica").select("*").eq("slug", slug).maybeSingle();
-      setClinica(c);
+      // Safe public read: only non-sensitive clinic fields
+      const { data: cRows } = await (supabase as any).rpc("get_clinica_publica", { p_slug: slug });
+      const c = Array.isArray(cRows) ? cRows[0] : cRows;
+      setClinica(c ?? null);
       if (c) {
         const [{ data: p }, { data: pr }] = await Promise.all([
-          supabase.from("profissional").select("*").eq("clinica_id", c.id).eq("ativo", true),
+          (supabase as any).rpc("list_profissionais_publicos", { p_clinica_id: c.id }),
           supabase.from("procedimento").select("*").eq("clinica_id", c.id).eq("ativo", true),
         ]);
-        setProfs(p ?? []); setProcs(pr ?? []);
+        setProfs((p as any[]) ?? []); setProcs(pr ?? []);
       }
       setLoading(false);
     })();
@@ -45,21 +47,19 @@ function Page() {
   const submit = async () => {
     setBusy(true);
     try {
-      const pacienteId = crypto.randomUUID();
-      const { error: e1 } = await supabase.from("paciente").insert({
-        id: pacienteId,
-        clinica_id: clinica.id, nome: sel.nome, telefone: sel.telefone, email: sel.email || null,
-        data_nascimento: sel.data_nascimento || null, convenio: sel.convenio || null,
+      const { error } = await (supabase as any).rpc("create_public_booking", {
+        p_slug: slug,
+        p_profissional_id: sel.prof.id,
+        p_procedimento_id: sel.proc.id,
+        p_data: sel.data,
+        p_hora: sel.hora,
+        p_nome: sel.nome,
+        p_telefone: sel.telefone,
+        p_email: sel.email || null,
+        p_data_nascimento: sel.data_nascimento || null,
+        p_convenio: sel.convenio || null,
       });
-      if (e1) throw e1;
-      const { error: e2 } = await supabase.from("consulta").insert({
-        clinica_id: clinica.id, paciente_id: pacienteId, paciente_nome: sel.nome,
-        profissional_id: sel.prof.id, profissional_nome: sel.prof.nome,
-        data: sel.data, hora: sel.hora, duracao_minutos: sel.proc.duracao_minutos ?? 60,
-        tipo: "consulta", status: "programada", valor_total: sel.proc.valor,
-        procedimentos: [{ id: sel.proc.id, nome: sel.proc.nome, valor: sel.proc.valor }],
-      });
-      if (e2) throw e2;
+      if (error) throw error;
       setProtocolo("OS" + Date.now().toString().slice(-8));
       setDone(true);
     } catch (err: any) { toast.error(err.message); } finally { setBusy(false); }
