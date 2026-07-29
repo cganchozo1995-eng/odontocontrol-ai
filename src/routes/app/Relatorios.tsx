@@ -71,10 +71,9 @@ function Page() {
     return { mes: format(d, "MM/yy"), qtd: (data?.cons ?? []).filter((c: any) => monthKey(c.data) === key).length };
   });
 
-  // Facturación mensual (ingreso/egreso son los valores actuales del enum tipo_financeiro_enum).
-  // Se aceptan variantes legacy por compatibilidad de datos históricos.
-  const isIngreso = (t: any) => t === "ingreso" || t === "receita";
-  const isEgreso = (t: any) => t === "egreso" || t === "despesa";
+  // Facturación mensual usando los enums actuales: ingreso / egreso.
+  const isIngreso = (t: any) => t === "ingreso";
+  const isEgreso = (t: any) => t === "egreso";
 
   const meses = Array.from({ length: 6 }).map((_, i) => {
     const d = subMonths(new Date(), 5 - i);

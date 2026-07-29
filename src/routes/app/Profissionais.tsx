@@ -85,8 +85,8 @@ function Page() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((r: any) => {
           const meus = cons.filter((c: any) => c.profissional_id === r.id);
-          const realizadas = meus.filter((c: any) => c.status === "realizada").length;
-          const fat = meus.filter((c: any) => c.status === "realizada").reduce((a: number, c: any) => a + Number(c.valor_total ?? 0), 0);
+          const realizadas = meus.filter((c: any) => c.status === "concluida").length;
+          const fat = meus.filter((c: any) => c.status === "concluida").reduce((a: number, c: any) => a + Number(c.valor_total ?? 0), 0);
           const noShow = meus.filter((c: any) => c.status === "ausente").length;
           return (
             <Card key={r.id} className="overflow-hidden">
