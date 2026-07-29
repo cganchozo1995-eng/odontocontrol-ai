@@ -68,7 +68,7 @@ function Page() {
   const noShowRate = (consFaltou / consTotal) * 100;
   const orcPendentes = (data?.orc ?? []).filter((o: any) => o.status === "pendiente" || o.status === "pendente" || o.status === "en_negociacion" || o.status === "em_negociacao").length;
   const orcVelhos = (data?.orc ?? []).filter((o: any) => (o.status === "pendiente" || o.status === "pendente" || o.status === "en_negociacion" || o.status === "em_negociacao") && o.data <= cutoff7).length;
-  const tratParalisados = (data?.trat ?? []).filter((t: any) => t.status === "em_andamento" && t.updated_at && t.updated_at < cutoff90).length;
+  const tratParalisados = (data?.trat ?? []).filter((t: any) => (t.status === "en_curso" || t.status === "em_andamento") && t.updated_at && t.updated_at < cutoff90).length;
   const pacAtivos = data?.pac.length ?? 0;
   // Retorno: pacientes com >1 consulta concluída nos últimos 90d / pacientes ativos
   const pacComRetorno = new Set(consultas.filter((c: any) => c.data >= cutoff90 && (c.status === "concluida" || c.status === "realizada")).map((c: any) => c.paciente_id)).size;
