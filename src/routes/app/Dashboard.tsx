@@ -59,19 +59,19 @@ function Page() {
   const consMes = consultas.filter((c: any) => c.data >= monthStart && c.data <= monthEnd);
   const finMes = (data?.fin ?? []).filter((f: any) => f.data >= monthStart && f.data <= monthEnd);
   const receitaMes = finMes
-    .filter((f: any) => (f.tipo === "ingreso" || f.tipo === "receita") && f.status !== "cancelado")
+    .filter((f: any) => f.tipo === "ingreso" && f.status !== "cancelado")
     .reduce((a, x: any) => a + Number(x.valor ?? 0), 0);
-  const consConcluidasMes = consMes.filter((c: any) => c.status === "concluida" || c.status === "realizada");
+  const consConcluidasMes = consMes.filter((c: any) => c.status === "concluida");
   const ticketMedio = consConcluidasMes.length ? receitaMes / consConcluidasMes.length : 0;
   const consTotal = consMes.length || 1;
-  const consFaltou = consMes.filter((c: any) => c.status === "ausente" || c.status === "no_show").length;
+  const consFaltou = consMes.filter((c: any) => c.status === "ausente").length;
   const noShowRate = (consFaltou / consTotal) * 100;
-  const orcPendentes = (data?.orc ?? []).filter((o: any) => o.status === "pendiente" || o.status === "pendente" || o.status === "en_negociacion" || o.status === "em_negociacao").length;
-  const orcVelhos = (data?.orc ?? []).filter((o: any) => (o.status === "pendiente" || o.status === "pendente" || o.status === "en_negociacion" || o.status === "em_negociacao") && o.data <= cutoff7).length;
-  const tratParalisados = (data?.trat ?? []).filter((t: any) => (t.status === "en_curso" || t.status === "em_andamento") && t.updated_at && t.updated_at < cutoff90).length;
+  const orcPendentes = (data?.orc ?? []).filter((o: any) => o.status === "pendiente" || o.status === "en_negociacion").length;
+  const orcVelhos = (data?.orc ?? []).filter((o: any) => (o.status === "pendiente" || o.status === "en_negociacion") && o.data <= cutoff7).length;
+  const tratParalisados = (data?.trat ?? []).filter((t: any) => t.status === "en_curso" && t.updated_at && t.updated_at < cutoff90).length;
   const pacAtivos = data?.pac.length ?? 0;
   // Retorno: pacientes com >1 consulta concluída nos últimos 90d / pacientes ativos
-  const pacComRetorno = new Set(consultas.filter((c: any) => c.data >= cutoff90 && (c.status === "concluida" || c.status === "realizada")).map((c: any) => c.paciente_id)).size;
+  const pacComRetorno = new Set(consultas.filter((c: any) => c.data >= cutoff90 && c.status === "concluida").map((c: any) => c.paciente_id)).size;
   const taxaRetorno = pacAtivos ? (pacComRetorno / pacAtivos) * 100 : 0;
   const aiAlerts = orcVelhos + tratParalisados;
 
@@ -81,7 +81,7 @@ function Page() {
     return {
       dia: dateBR(d, "EEE dd/MM"),
       consultas: consultas.filter((c: any) => c.data === d).length,
-      concluidas: consultas.filter((c: any) => c.data === d && (c.status === "concluida" || c.status === "realizada")).length,
+      concluidas: consultas.filter((c: any) => c.data === d && c.status === "concluida").length,
     };
   });
 
