@@ -32,6 +32,7 @@ import { Route as MasterConfiguracionRouteImport } from './routes/master/configu
 import { Route as MasterClinicasSuspensasRouteImport } from './routes/master/clinicasSuspensas'
 import { Route as MasterClinicasSuspendidasRouteImport } from './routes/master/clinicasSuspendidas'
 import { Route as DemoTratamientosRouteImport } from './routes/demo/Tratamientos'
+import { Route as DemoTratamentosRouteImport } from './routes/demo/Tratamentos'
 import { Route as DemoRelatoriosRouteImport } from './routes/demo/Relatorios'
 import { Route as DemoPresupuestosRouteImport } from './routes/demo/Presupuestos'
 import { Route as DemoPacientesRouteImport } from './routes/demo/Pacientes'
@@ -44,6 +45,7 @@ import { Route as DemoCrecimientoIARouteImport } from './routes/demo/Crecimiento
 import { Route as DemoAgendaRouteImport } from './routes/demo/Agenda'
 import { Route as DemoAIGrowthRouteImport } from './routes/demo/AIGrowth'
 import { Route as AppTratamientosRouteImport } from './routes/app/Tratamientos'
+import { Route as AppTratamentosRouteImport } from './routes/app/Tratamentos'
 import { Route as AppRelatoriosRouteImport } from './routes/app/Relatorios'
 import { Route as AppProfissionaisRouteImport } from './routes/app/Profissionais'
 import { Route as AppProfesionalesRouteImport } from './routes/app/Profesionales'
@@ -183,6 +185,11 @@ const DemoTratamientosRoute = DemoTratamientosRouteImport.update({
   path: '/Tratamientos',
   getParentRoute: () => DemoRoute,
 } as any)
+const DemoTratamentosRoute = DemoTratamentosRouteImport.update({
+  id: '/Tratamentos',
+  path: '/Tratamentos',
+  getParentRoute: () => DemoRoute,
+} as any)
 const DemoRelatoriosRoute = DemoRelatoriosRouteImport.update({
   id: '/Relatorios',
   path: '/Relatorios',
@@ -241,6 +248,11 @@ const DemoAIGrowthRoute = DemoAIGrowthRouteImport.update({
 const AppTratamientosRoute = AppTratamientosRouteImport.update({
   id: '/Tratamientos',
   path: '/Tratamientos',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTratamentosRoute = AppTratamentosRouteImport.update({
+  id: '/Tratamentos',
+  path: '/Tratamentos',
   getParentRoute: () => AppRoute,
 } as any)
 const AppRelatoriosRoute = AppRelatoriosRouteImport.update({
@@ -389,6 +401,7 @@ export interface FileRoutesByFullPath {
   '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
+  '/app/Tratamentos': typeof AppTratamentosRoute
   '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
@@ -401,6 +414,7 @@ export interface FileRoutesByFullPath {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
+  '/demo/Tratamentos': typeof DemoTratamentosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
   '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
@@ -448,6 +462,7 @@ export interface FileRoutesByTo {
   '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
+  '/app/Tratamentos': typeof AppTratamentosRoute
   '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
@@ -460,6 +475,7 @@ export interface FileRoutesByTo {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
+  '/demo/Tratamentos': typeof DemoTratamentosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
   '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
@@ -508,6 +524,7 @@ export interface FileRoutesById {
   '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
+  '/app/Tratamentos': typeof AppTratamentosRoute
   '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
@@ -520,6 +537,7 @@ export interface FileRoutesById {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
+  '/demo/Tratamentos': typeof DemoTratamentosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
   '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
@@ -569,6 +587,7 @@ export interface FileRouteTypes {
     | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
+    | '/app/Tratamentos'
     | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
@@ -581,6 +600,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Relatorios'
+    | '/demo/Tratamentos'
     | '/demo/Tratamientos'
     | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
@@ -628,6 +648,7 @@ export interface FileRouteTypes {
     | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
+    | '/app/Tratamentos'
     | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
@@ -640,6 +661,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Relatorios'
+    | '/demo/Tratamentos'
     | '/demo/Tratamientos'
     | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
@@ -687,6 +709,7 @@ export interface FileRouteTypes {
     | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
+    | '/app/Tratamentos'
     | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
@@ -699,6 +722,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Relatorios'
+    | '/demo/Tratamentos'
     | '/demo/Tratamientos'
     | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
@@ -893,6 +917,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoTratamientosRouteImport
       parentRoute: typeof DemoRoute
     }
+    '/demo/Tratamentos': {
+      id: '/demo/Tratamentos'
+      path: '/Tratamentos'
+      fullPath: '/demo/Tratamentos'
+      preLoaderRoute: typeof DemoTratamentosRouteImport
+      parentRoute: typeof DemoRoute
+    }
     '/demo/Relatorios': {
       id: '/demo/Relatorios'
       path: '/Relatorios'
@@ -975,6 +1006,13 @@ declare module '@tanstack/react-router' {
       path: '/Tratamientos'
       fullPath: '/app/Tratamientos'
       preLoaderRoute: typeof AppTratamientosRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Tratamentos': {
+      id: '/app/Tratamentos'
+      path: '/Tratamentos'
+      fullPath: '/app/Tratamentos'
+      preLoaderRoute: typeof AppTratamentosRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/Relatorios': {
@@ -1155,6 +1193,7 @@ interface AppRouteChildren {
   AppProfesionalesRoute: typeof AppProfesionalesRoute
   AppProfissionaisRoute: typeof AppProfissionaisRoute
   AppRelatoriosRoute: typeof AppRelatoriosRoute
+  AppTratamentosRoute: typeof AppTratamentosRoute
   AppTratamientosRoute: typeof AppTratamientosRoute
 }
 
@@ -1179,6 +1218,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppProfesionalesRoute: AppProfesionalesRoute,
   AppProfissionaisRoute: AppProfissionaisRoute,
   AppRelatoriosRoute: AppRelatoriosRoute,
+  AppTratamentosRoute: AppTratamentosRoute,
   AppTratamientosRoute: AppTratamientosRoute,
 }
 
@@ -1196,6 +1236,7 @@ interface DemoRouteChildren {
   DemoPacientesRoute: typeof DemoPacientesRoute
   DemoPresupuestosRoute: typeof DemoPresupuestosRoute
   DemoRelatoriosRoute: typeof DemoRelatoriosRoute
+  DemoTratamentosRoute: typeof DemoTratamentosRoute
   DemoTratamientosRoute: typeof DemoTratamientosRoute
 }
 
@@ -1211,6 +1252,7 @@ const DemoRouteChildren: DemoRouteChildren = {
   DemoPacientesRoute: DemoPacientesRoute,
   DemoPresupuestosRoute: DemoPresupuestosRoute,
   DemoRelatoriosRoute: DemoRelatoriosRoute,
+  DemoTratamentosRoute: DemoTratamentosRoute,
   DemoTratamientosRoute: DemoTratamientosRoute,
 }
 
