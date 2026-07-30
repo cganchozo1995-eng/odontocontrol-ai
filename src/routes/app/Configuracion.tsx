@@ -15,7 +15,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { BookingLinkCard } from "@/components/booking-link-card";
 
-export const Route = createFileRoute("/app/Configuracoes")({ component: Page });
+export const Route = createFileRoute("/app/Configuracion")({ component: Page });
 
 function Page() {
   const { clinica, refresh } = useAuth();
@@ -67,7 +67,7 @@ function Page() {
 
         <TabsContent value="equipe">
           <Card><CardContent className="p-6">
-            <p className="text-sm text-muted-foreground">Gestione miembros, cargos y permisos en <a href="/app/Equipe" className="text-primary underline">Equipo</a>.</p>
+            <p className="text-sm text-muted-foreground">Gestione miembros, cargos y permisos en <a href="/app/Equipo" className="text-primary underline">Equipo</a>.</p>
           </CardContent></Card>
         </TabsContent>
 

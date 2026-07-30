@@ -12,7 +12,7 @@ import { Plus, Pencil } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/app/Equipe")({ component: Page });
+export const Route = createFileRoute("/app/Equipo")({ component: Page });
 
 const ROLES = [
   { value: "owner", label: "Dueño" }, { value: "admin", label: "Admin" },

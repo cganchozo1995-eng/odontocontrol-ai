@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/trocar-senha")({ component: Page });
+export const Route = createFileRoute("/cambiar-contrasena")({ component: Page });
 
 function Page() {
   const [pw, setPw] = useState("");
@@ -20,7 +20,7 @@ function Page() {
       const { error } = await supabase.auth.updateUser({ password: pw });
       if (error) throw error;
       toast.success("¡Contraseña actualizada!");
-      nav({ to: "/app/Configuracoes" });
+      nav({ to: "/app/Configuracion" });
     } catch (err: any) { toast.error(err.message); } finally { setBusy(false); }
   };
   return (

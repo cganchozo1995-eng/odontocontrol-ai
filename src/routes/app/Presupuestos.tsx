@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { brl, dateBR } from "@/lib/format";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/app/Orcamentos")({ component: Page });
+export const Route = createFileRoute("/app/Presupuestos")({ component: Page });
 
 function Page() {
   const { clinicaId } = useAuth();

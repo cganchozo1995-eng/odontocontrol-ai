@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { toast } from "sonner";
 import { Loader2, Copy, ExternalLink, MessageCircle, AlertTriangle, Building2, MapPin, Phone, Stethoscope, CreditCard, UserCog } from "lucide-react";
 
-export const Route = createFileRoute("/master/novaClinica")({ component: Page });
+export const Route = createFileRoute("/master/nuevaClinica")({ component: Page });
 
 const schema = z.object({
   nome: z.string().min(2, "Mínimo 2 caracteres").max(120),

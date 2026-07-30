@@ -3,7 +3,7 @@ import { CrudPage } from "@/components/CrudPage";
 import { Badge } from "@/components/ui/badge";
 import { useMoney, dateBR } from "@/lib/format";
 
-export const Route = createFileRoute("/app/Financeiro")({ component: Page });
+export const Route = createFileRoute("/app/Financiero")({ component: Page });
 
 const FORMAS_PAGO = [
   { value: "efectivo", label: "Efectivo" },

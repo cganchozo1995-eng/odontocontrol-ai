@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/demo/AIGrowth")({ component: Page });
+export const Route = createFileRoute("/demo/CrecimientoIA")({ component: Page });
 
 const AI_TITLES: Record<string, string> = {
   ai1: "12 pacientes no regresan hace +30 días",

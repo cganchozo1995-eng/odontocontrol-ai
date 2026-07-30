@@ -224,7 +224,7 @@ function Landing() {
               Nuestra IA escanea sus datos todos los días e identifica pacientes inactivos, presupuestos pausados, horarios ociosos y oportunidades que los humanos perderían. Y genera los mensajes listos para usted.
             </p>
             <Button asChild size="lg" className="gradient-primary text-white shadow-premium mt-6">
-              <Link to="/demo/AIGrowth">Ver IA en acción <ArrowRight className="size-4 ml-1" /></Link>
+              <Link to="/demo/CrecimientoIA">Ver IA en acción <ArrowRight className="size-4 ml-1" /></Link>
             </Button>
           </div>
           <div className="space-y-3">

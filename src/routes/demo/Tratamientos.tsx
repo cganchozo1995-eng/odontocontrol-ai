@@ -10,7 +10,7 @@ import { demoTratamentos } from "@/lib/demo-seed";
 import { brl, dateBR } from "@/lib/format";
 import { Search, Play, Pause, Check, Eye, Activity } from "lucide-react";
 
-export const Route = createFileRoute("/demo/Tratamentos")({ component: Page });
+export const Route = createFileRoute("/demo/Tratamientos")({ component: Page });
 
 const TR_MAP: Record<string, string> = {
   "Ortodontia Fixa": "Ortodoncia Fija",

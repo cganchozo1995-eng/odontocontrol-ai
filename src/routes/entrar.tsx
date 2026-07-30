@@ -19,7 +19,7 @@ function EntrarPage() {
 
   useEffect(() => {
     if (loading || !session) return;
-    if (isSuperAdmin) navigate({ to: "/master/painel" });
+    if (isSuperAdmin) navigate({ to: "/master/panel" });
     else if (clinicaId) navigate({ to: "/app/Dashboard" });
     else navigate({ to: "/app/Onboarding" });
   }, [loading, session, isSuperAdmin, clinicaId, navigate]);
@@ -82,7 +82,7 @@ function EntrarPage() {
                 <Button type="submit" disabled={busy} className="w-full">
                   {busy && <Loader2 className="size-4 animate-spin mr-2" />}Iniciar sesión
                 </Button>
-                <Link to="/esqueci-senha" className="text-sm text-muted-foreground hover:text-primary block text-center">Olvidé mi contraseña</Link>
+                <Link to="/olvide-contrasena" className="text-sm text-muted-foreground hover:text-primary block text-center">Olvidé mi contraseña</Link>
               </form>
             </TabsContent>
             <TabsContent value="signup">

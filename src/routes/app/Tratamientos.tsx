@@ -15,7 +15,7 @@ import { Plus, Pencil, Trash2, Activity, Stethoscope } from "lucide-react";
 import { brl, dateBR } from "@/lib/format";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/app/Tratamentos")({ component: Page });
+export const Route = createFileRoute("/app/Tratamientos")({ component: Page });
 
 const STATUS = [
   { value: "planificado", label: "Planificado" },

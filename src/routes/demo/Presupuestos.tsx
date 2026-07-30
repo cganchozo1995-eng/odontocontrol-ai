@@ -10,7 +10,7 @@ import { brl, dateBR } from "@/lib/format";
 import { ChevronDown, Search, Check, X, Send, AlertCircle, FileText } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/demo/Orcamentos")({ component: Page });
+export const Route = createFileRoute("/demo/Presupuestos")({ component: Page });
 
 const ST: Record<string, { txt: string; cls: string }> = {
   aprovado:  { txt: "Aprobado",  cls: "bg-emerald-100 text-emerald-700 border-emerald-200" },

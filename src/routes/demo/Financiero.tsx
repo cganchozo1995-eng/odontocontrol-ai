@@ -11,7 +11,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } fro
 import { DollarSign, Wallet, TrendingUp, TrendingDown, Plus } from "lucide-react";
 import { format, subMonths } from "date-fns";
 
-export const Route = createFileRoute("/demo/Financeiro")({ component: Page });
+export const Route = createFileRoute("/demo/Financiero")({ component: Page });
 
 const TR: Record<string, string> = {
   Pix: "Pix",

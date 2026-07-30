@@ -8,7 +8,7 @@ import { brl } from "@/lib/format";
 import { Building2, DollarSign, AlertOctagon, TrendingUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
-export const Route = createFileRoute("/master/painel")({ component: Page });
+export const Route = createFileRoute("/master/panel")({ component: Page });
 
 function Page() {
   const { data } = useQuery({

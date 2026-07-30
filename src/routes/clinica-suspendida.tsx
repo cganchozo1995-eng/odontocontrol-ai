@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AlertOctagon } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
-export const Route = createFileRoute("/clinica-suspensa")({ component: Page });
+export const Route = createFileRoute("/clinica-suspendida")({ component: Page });
 
 function Page() {
   const { signOut } = useAuth();
@@ -18,7 +18,7 @@ function Page() {
             Su clínica está suspendida por falta de pago. Regularice el pago para reactivar.
           </p>
           <div className="flex gap-2 justify-center pt-2">
-            <Button asChild><Link to="/app/Configuracoes">Ir a facturación</Link></Button>
+            <Button asChild><Link to="/app/Configuracion">Ir a facturación</Link></Button>
             <Button variant="outline" onClick={signOut}>Salir</Button>
           </div>
         </CardContent>

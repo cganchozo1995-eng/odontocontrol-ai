@@ -15,7 +15,7 @@ import { Plus, Pencil, Trash2, Search, Clock } from "lucide-react";
 import { brl } from "@/lib/format";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/app/Procedimentos")({ component: Page });
+export const Route = createFileRoute("/app/Procedimientos")({ component: Page });
 
 function Page() {
   const { clinicaId } = useAuth();

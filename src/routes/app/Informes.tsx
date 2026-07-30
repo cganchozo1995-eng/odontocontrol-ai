@@ -8,7 +8,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, L
 import { useMoney } from "@/lib/format";
 import { format, startOfMonth, subMonths } from "date-fns";
 
-export const Route = createFileRoute("/app/Relatorios")({ component: Page });
+export const Route = createFileRoute("/app/Informes")({ component: Page });
 
 const COLORS = ["#06B6D4", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6", "#EC4899"];
 

@@ -123,13 +123,13 @@ function Page() {
         <KpiCard to="/app/Agenda" label="Citas hoy" value={consHoje.length} icon={<Calendar className="size-4" />} />
         <KpiCard to="/app/Agenda" label="Citas semana" value={consSemana.length} icon={<Calendar className="size-4" />} />
         <KpiCard to="/app/Agenda" label="Citas mes" value={consMes.length} icon={<Activity className="size-4" />} />
-        <KpiCard to="/app/Financeiro" label="Facturación mes" value={money(receitaMes)} icon={<DollarSign className="size-4" />} />
-        <KpiCard to="/app/Relatorios" label="Ticket promedio" value={money(ticketMedio)} icon={<TrendingUp className="size-4" />} />
+        <KpiCard to="/app/Financiero" label="Facturación mes" value={money(receitaMes)} icon={<DollarSign className="size-4" />} />
+        <KpiCard to="/app/Informes" label="Ticket promedio" value={money(ticketMedio)} icon={<TrendingUp className="size-4" />} />
         <KpiCard to="/app/Pacientes" label="Pacientes activos" value={pacAtivos} icon={<Users className="size-4" />} />
-        <KpiCard to="/app/Relatorios" label="Tasa de retorno 90d" value={`${taxaRetorno.toFixed(1)}%`} icon={<Repeat className="size-4" />} />
+        <KpiCard to="/app/Informes" label="Tasa de retorno 90d" value={`${taxaRetorno.toFixed(1)}%`} icon={<Repeat className="size-4" />} />
         <KpiCard to="/app/Agenda" label="No-show" value={`${noShowRate.toFixed(1)}%`} icon={<AlertTriangle className="size-4" />} />
-        <KpiCard to="/app/Orcamentos" label="Presupuestos pendientes" value={orcPendentes} icon={<Receipt className="size-4" />} />
-        <KpiCard to="/app/AIGrowth" label="Alertas AI Growth" value={aiAlerts} icon={<ClipboardList className="size-4" />} />
+        <KpiCard to="/app/Presupuestos" label="Presupuestos pendientes" value={orcPendentes} icon={<Receipt className="size-4" />} />
+        <KpiCard to="/app/CrecimientoIA" label="Alertas AI Growth" value={aiAlerts} icon={<ClipboardList className="size-4" />} />
       </div>
 
       <div className="grid lg:grid-cols-3 gap-4 mt-6">

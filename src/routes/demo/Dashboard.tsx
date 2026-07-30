@@ -210,7 +210,7 @@ function Page() {
             <p className="text-sm opacity-90 mt-1">Mensajes listos para enviar vía WhatsApp en 1 clic.</p>
           </div>
           <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-            <Link to="/demo/AIGrowth">Ver todas <ArrowRight className="size-4 ml-1" /></Link>
+            <Link to="/demo/CrecimientoIA">Ver todas <ArrowRight className="size-4 ml-1" /></Link>
           </Button>
         </CardContent>
       </Card>

@@ -10,7 +10,7 @@ import { Sparkles, UserMinus, ReceiptText, PauseCircle, TrendingDown, MessageCir
 import { brl, dateBR } from "@/lib/format";
 import { format, subDays } from "date-fns";
 
-export const Route = createFileRoute("/app/AIGrowth")({ component: Page });
+export const Route = createFileRoute("/app/CrecimientoIA")({ component: Page });
 
 function Page() {
   const { clinicaId } = useAuth();
@@ -76,7 +76,7 @@ function Page() {
       count: orcVelhos.length,
       impacto: `Valor estancado: ${brl(orcVelhos.reduce((a: number, o: any) => a + Number(o.total_com_desconto ?? o.total ?? 0), 0))}`,
       preview: orcVelhos.slice(0, 5).map((o: any) => `${o.paciente_nome} · ${brl(o.total_com_desconto ?? o.total)}`),
-      cta: { to: "/app/Orcamentos", label: "Ver presupuestos" },
+      cta: { to: "/app/Presupuestos", label: "Ver presupuestos" },
     },
     {
       icon: PauseCircle, color: "text-purple-600 bg-purple-50",
@@ -85,7 +85,7 @@ function Page() {
       count: tratParalisados.length,
       impacto: `Ingresos en riesgo: ${brl(tratParalisados.reduce((a: number, t: any) => a + Number(t.valor_total ?? 0), 0))}`,
       preview: tratParalisados.slice(0, 5).map((t: any) => `${t.paciente_nome} · ${t.descricao}`),
-      cta: { to: "/app/Tratamentos", label: "Ver tratamientos" },
+      cta: { to: "/app/Tratamientos", label: "Ver tratamientos" },
     },
     {
       icon: TrendingDown, color: "text-emerald-600 bg-emerald-50",
@@ -94,7 +94,7 @@ function Page() {
       count: procsBaixaDemanda.length,
       impacto: "Aumente el ticket promedio con ventas cruzadas",
       preview: procsBaixaDemanda.slice(0, 5).map((p: any) => `${p.nome} · ${brl(p.valor)}`),
-      cta: { to: "/app/Procedimentos", label: "Ver procedimientos" },
+      cta: { to: "/app/Procedimientos", label: "Ver procedimientos" },
     },
   ];
 

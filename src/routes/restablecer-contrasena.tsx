@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/reset-senha")({ component: Page });
+export const Route = createFileRoute("/restablecer-contrasena")({ component: Page });
 
 function Page() {
   const [pw, setPw] = useState("");

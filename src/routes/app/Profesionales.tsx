@@ -17,7 +17,7 @@ import { addDays, format, startOfWeek } from "date-fns";
 import { es } from "date-fns/locale";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/app/Profissionais")({ component: Page });
+export const Route = createFileRoute("/app/Profesionales")({ component: Page });
 
 const ESPS: { value: string; label: string }[] = [
   { value: "odontologia_general", label: "Odontología General" },

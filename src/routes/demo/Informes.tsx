@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { Download, TrendingUp, Calendar, Users, DollarSign } from "lucide-react";
 
-export const Route = createFileRoute("/demo/Relatorios")({ component: Page });
+export const Route = createFileRoute("/demo/Informes")({ component: Page });
 
 const C = ["#0EA5E9", "#8B5CF6", "#10B981", "#F59E0B", "#EF4444", "#EC4899", "#14B8A6", "#6366F1"];
 

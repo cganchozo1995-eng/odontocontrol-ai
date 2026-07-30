@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { dateBR } from "@/lib/format";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/master/clinicasSuspensas")({ component: Page });
+export const Route = createFileRoute("/master/clinicasSuspendidas")({ component: Page });
 
 function Page() {
   const qc = useQueryClient();

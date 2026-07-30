@@ -22,7 +22,7 @@ import {
   getHotmartHottok,
 } from "@/lib/hotmart.functions";
 
-export const Route = createFileRoute("/master/configuracoes")({ component: Page });
+export const Route = createFileRoute("/master/configuracion")({ component: Page });
 
 type Plano = {
   id: string;

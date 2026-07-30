@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/esqueci-senha")({ component: Page });
+export const Route = createFileRoute("/olvide-contrasena")({ component: Page });
 
 function Page() {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ function Page() {
     setBusy(true);
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: window.location.origin + "/reset-senha",
+        redirectTo: window.location.origin + "/restablecer-contrasena",
       });
       if (error) throw error;
       toast.success("Correo enviado, revise su bandeja de entrada.");
