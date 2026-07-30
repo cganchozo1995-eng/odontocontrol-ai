@@ -194,8 +194,8 @@ export const demoPresupuestos = Array.from({ length: 14 }).map((_, i) => {
   const pac = demoPacientes[i % demoPacientes.length];
   const prof = demoProfesionales[i % 4];
   const procs = [demoProcedimientos[(i + 2) % demoProcedimientos.length], demoProcedimientos[(i + 5) % demoProcedimientos.length], demoProcedimientos[(i + 7) % demoProcedimientos.length]].slice(0, 1 + (i % 3));
-  const itens = procs.map((p) => ({ nome: p.nome, valor: p.valor, qtd: 1 + (i % 2), descricao: p.categoria }));
-  const total = itens.reduce((a, it) => a + it.valor * it.qtd, 0);
+  const itens = procs.map((p) => ({ nome: p.nome, valor: p.valor, cant: 1 + (i % 2), descricao: p.categoria }));
+  const total = itens.reduce((a, it) => a + it.valor * it.cant, 0);
   const desconto = i % 4 === 0 ? 10 : 0;
   const diasEnv = i * 3 + 1;
   return {

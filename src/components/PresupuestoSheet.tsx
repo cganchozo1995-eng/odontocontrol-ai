@@ -46,7 +46,7 @@ export function PresupuestoSheet({
       id: it.id ?? `i-${i}-${Date.now()}`,
       nome: it.nome ?? "",
       valor: Number(it.valor ?? 0),
-      cant: Number(it.cant ?? 1),
+      cant: Number(it.cant ?? it.qtd ?? 1),
     })));
   }, [presupuesto]);
 
