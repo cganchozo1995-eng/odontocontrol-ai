@@ -87,10 +87,10 @@ export function PresupuestoSheet({
         observacoes: draft.observacoes ?? null,
       };
       if (draft.id) {
-        const { error } = await supabase.from("presupuesto").update(payload).eq("id", draft.id);
+        const { error } = await supabase.from("orcamento").update(payload).eq("id", draft.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from("presupuesto").insert({ ...payload, clinica_id: clinicaId! });
+        const { error } = await supabase.from("orcamento").insert({ ...payload, clinica_id: clinicaId! });
         if (error) throw error;
       }
       toast.success("Presupuesto guardado");
@@ -103,7 +103,7 @@ export function PresupuestoSheet({
     if (!confirm("¿Aprobar y generar tratamiento + lanzamiento financiero?")) return;
     try {
       const descTxt = items.map((it) => `${it.cant}x ${it.nome}`).join("; ");
-      await supabase.from("presupuesto").update({ status: "aprobado" }).eq("id", draft.id);
+      await supabase.from("orcamento").update({ status: "aprobado" }).eq("id", draft.id);
       await supabase.from("tratamento").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, paciente_nome: draft.paciente_nome,
         profissional_id: draft.profissional_id ?? null, descricao: descTxt || draft.numero,

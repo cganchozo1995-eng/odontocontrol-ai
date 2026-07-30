@@ -70,7 +70,7 @@ function Page() {
       <PresupuestoSheet
         open={open}
         onOpenChange={(o) => { setOpen(o); if (!o) setSel(null); }}
-        orcamento={sel}
+        presupuesto={sel}
         procs={procs as any[]}
         pacs={pacs as any[]}
         onSaved={() => qc.invalidateQueries({ queryKey: ["orcamento", clinicaId] })}
