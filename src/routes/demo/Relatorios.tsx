@@ -69,7 +69,7 @@ function Page() {
                 <XAxis dataKey="mes" stroke="#94a3b8" fontSize={11} />
                 <YAxis stroke="#94a3b8" fontSize={11} />
                 <Tooltip formatter={(v: any) => brl(Number(v))} contentStyle={{ borderRadius: 8 }} />
-                <Line type="monotone" dataKey="valor" stroke="#0EA5E9" strokeWidth={3} dot={{ r: 4, fill: "#0EA5E9" }} />
+                <Line type="monotone" dataKey="valor" name="Facturación" stroke="#0EA5E9" strokeWidth={3} dot={{ r: 4, fill: "#0EA5E9" }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -86,7 +86,7 @@ function Page() {
                   <XAxis dataKey="nome" stroke="#94a3b8" fontSize={11} />
                   <YAxis stroke="#94a3b8" fontSize={11} />
                   <Tooltip />
-                  <Bar dataKey="consultas" fill="#0EA5E9" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="consultas" name="Citas" fill="#0EA5E9" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -135,7 +135,7 @@ function Page() {
                   <XAxis type="number" stroke="#94a3b8" fontSize={11} />
                   <YAxis dataKey="nome" type="category" stroke="#94a3b8" fontSize={11} width={80} />
                   <Tooltip formatter={(v: any) => brl(Number(v))} />
-                  <Bar dataKey="faturamento" fill="#10B981" radius={[0, 6, 6, 0]} />
+                  <Bar dataKey="faturamento" name="Facturación" fill="#10B981" radius={[0, 6, 6, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

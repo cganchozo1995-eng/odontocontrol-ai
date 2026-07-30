@@ -180,7 +180,7 @@ function Page() {
                     <XAxis type="number" allowDecimals={false} />
                     <YAxis dataKey="nome" type="category" width={120} fontSize={11} />
                     <Tooltip />
-                    <Bar dataKey="qtd" fill="#06B6D4" />
+                    <Bar dataKey="qtd" fill="#06B6D4" name="Citas" />
                   </BarChart>
                 </ResponsiveContainer>
               ) : <Empty />}

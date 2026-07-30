@@ -165,7 +165,7 @@ function Page() {
           <div className="h-64">{isLoading ? empty("Cargando…") : topProc.length ? (<ResponsiveContainer>
             <BarChart data={topProc} layout="vertical">
               <XAxis type="number" /><YAxis type="category" dataKey="nome" width={140} /><Tooltip />
-              <Bar dataKey="qtd" fill="#8B5CF6" name="Cant" />
+              <Bar dataKey="qtd" fill="#8B5CF6" name="Cantidad" />
             </BarChart>
           </ResponsiveContainer>) : empty()}</div>
         </CardContent></Card>
