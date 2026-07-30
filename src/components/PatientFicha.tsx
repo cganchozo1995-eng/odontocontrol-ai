@@ -60,8 +60,8 @@ export function PatientFicha({ pacienteId, open, onOpenChange }: {
                 <TabsTrigger value="anamnese"><Heart className="size-3 mr-1" />Anamnesis</TabsTrigger>
                 <TabsTrigger value="historico"><ClipboardList className="size-3 mr-1" />Historial</TabsTrigger>
                 <TabsTrigger value="prontuario"><Stethoscope className="size-3 mr-1" />Expediente</TabsTrigger>
-                <TabsTrigger value="orcamentos"><Receipt className="size-3 mr-1" />Presupuestos</TabsTrigger>
-                <TabsTrigger value="tratamentos"><Activity className="size-3 mr-1" />Tratamientos</TabsTrigger>
+                <TabsTrigger value="presupuestos"><Receipt className="size-3 mr-1" />Presupuestos</TabsTrigger>
+                <TabsTrigger value="tratamientos"><Activity className="size-3 mr-1" />Tratamientos</TabsTrigger>
               </TabsList>
 
               <TabsContent value="datos" className="space-y-2 text-sm pt-4">
@@ -113,7 +113,7 @@ export function PatientFicha({ pacienteId, open, onOpenChange }: {
                 ))}
               </TabsContent>
 
-              <TabsContent value="orcamentos" className="space-y-2 pt-4">
+              <TabsContent value="presupuestos" className="space-y-2 pt-4">
                 {data.orc.length === 0 && <Empty label="Ninguno orçamento." />}
                 {data.orc.map((o: any) => (
                   <div key={o.id} className="border rounded-md p-3 text-sm bg-card flex justify-between items-center">
@@ -129,8 +129,8 @@ export function PatientFicha({ pacienteId, open, onOpenChange }: {
                 ))}
               </TabsContent>
 
-              <TabsContent value="tratamentos" className="space-y-2 pt-4">
-                {data.trat.length === 0 && <Empty label="Ninguno tratamento." />}
+              <TabsContent value="tratamientos" className="space-y-2 pt-4">
+                {data.trat.length === 0 && <Empty label="Ningún tratamiento." />}
                 {data.trat.map((t: any) => (
                   <div key={t.id} className="border rounded-md p-3 text-sm bg-card">
                     <div className="flex justify-between"><span className="font-medium">{t.descricao}</span><Badge>{t.status}</Badge></div>

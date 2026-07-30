@@ -44,7 +44,7 @@ export const demoProcedimientos = [
 type Pac = {
   id: string; nome: string; cpf: string; telefone: string; email: string;
   convenio: string; data_nascimento: string;
-  status: "activo" | "inactivo" | "novo" | "retorno_pendente";
+  status: "activo" | "inactivo" | "nuevo" | "retorno_pendiente";
   tags: string[];
   ultima_consulta: string; dias_sem_consulta: number;
   total_consultas: number; valor_historico: number;
@@ -102,7 +102,7 @@ export const demoPacientes: Pac[] = [
   build(15, "activo", ["recurrente"], 16, 15, 6700),
   build(16, "activo", ["vip"], 13, 17, 11900),
   build(17, "activo", ["recurrente","revisión_pendiente"], 21, 12, 5600),
-  // 8 inativos (>60 dias)
+  // 8 inactivos (>60 días)
   build(18, "inactivo", ["inactivo","vip"], 68, 18, 12800),
   build(19, "inactivo", ["inactivo"], 82, 9, 3400),
   build(20, "inactivo", ["inactivo","tratamiento_pausado"], 95, 14, 9200),
@@ -112,10 +112,10 @@ export const demoPacientes: Pac[] = [
   build(24, "inactivo", ["inactivo"], 72, 8, 2900),
   build(25, "inactivo", ["inactivo","vip"], 102, 16, 10200),
   // 4 novos
-  build(26, "novo", ["novo"], 2, 1, 150),
-  build(27, "novo", ["novo"], 5, 1, 150),
-  build(28, "novo", ["novo"], 1, 1, 150),
-  build(29, "novo", ["novo"], 7, 2, 480),
+  build(26, "nuevo", ["nuevo"], 2, 1, 150),
+  build(27, "nuevo", ["nuevo"], 5, 1, 150),
+  build(28, "nuevo", ["nuevo"], 1, 1, 150),
+  build(29, "nuevo", ["nuevo"], 7, 2, 480),
 ];
 
 // ===================== CONSULTAS DE HOJE (12) =====================
@@ -371,14 +371,14 @@ export const demoHistorico = Array.from({ length: 30 }).map((_, i) => {
 // Compat
 export const demoData = {
   clinica: demoClinica,
-  profissionais: demoProfesionales,
-  procedimentos: demoProcedimientos,
+  profesionales: demoProfesionales,
+  procedimientos: demoProcedimientos,
   pacientes: demoPacientes,
   consultas: demoConsultas,
   citasHoy,
-  tratamentos: demoTratamientos,
-  orcamentos: demoPresupuestos,
-  financeiro: demoFinanzas,
+  tratamientos: demoTratamientos,
+  presupuestos: demoPresupuestos,
+  finanzas: demoFinanzas,
   historico: demoHistorico,
   kpi: DEMO_KPI,
   alertas: DEMO_ALERTAS,

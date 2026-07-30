@@ -1,13 +1,13 @@
 // Layout de impressão A4 para orçamento, usado com window.print()
 import { money, fechaES } from "@/lib/format";
 
-export type OrcamentoPdfData = {
+export type PresupuestoPdfData = {
   clinica?: { nome?: string; cnpj?: string | null; telefone?: string | null; email?: string | null };
-  orcamento: any;
+  presupuesto: any;
 };
 
-export function OrcamentoPdf({ data }: { data: OrcamentoPdfData }) {
-  const o = data.orcamento;
+export function PresupuestoPdf({ data }: { data: PresupuestoPdfData }) {
+  const o = data.presupuesto;
   const itens: any[] = Array.isArray(o.itens) ? o.itens : [];
   return (
     <div className="orc-pdf p-8 max-w-3xl mx-auto bg-white text-black">
@@ -48,9 +48,9 @@ export function OrcamentoPdf({ data }: { data: OrcamentoPdfData }) {
           {itens.map((it, i) => (
             <tr key={i} className="border-b">
               <td className="py-2">{it.nome ?? it.descricao}</td>
-              <td className="text-right">{it.qtd ?? 1}</td>
+              <td className="text-right">{it.cant ?? 1}</td>
               <td className="text-right">{money(it.valor)}</td>
-              <td className="text-right">{money((it.valor ?? 0) * (it.qtd ?? 1))}</td>
+              <td className="text-right">{money((it.valor ?? 0) * (it.cant ?? 1))}</td>
             </tr>
           ))}
         </tbody>

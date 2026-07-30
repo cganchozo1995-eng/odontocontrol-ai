@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { PageHeader } from "@/components/PageHeader";
 import { DataTable } from "@/components/DataTable";
-import { OrcamentoSheet } from "@/components/OrcamentoSheet";
+import { PresupuestoSheet } from "@/components/PresupuestoSheet";
 import { Button } from "@/components/ui/button";
 import { Plus, Eye, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -67,7 +67,7 @@ function Page() {
         ]}
         onRowClick={(r: any) => openOne(r)}
       />
-      <OrcamentoSheet
+      <PresupuestoSheet
         open={open}
         onOpenChange={(o) => { setOpen(o); if (!o) setSel(null); }}
         orcamento={sel}

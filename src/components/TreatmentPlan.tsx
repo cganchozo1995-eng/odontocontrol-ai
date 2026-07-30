@@ -1,4 +1,4 @@
-// Plano de tratamento: lista de etapas para um tratamento.
+// Plan de tratamiento: lista de etapas de un tratamiento.
 import { money, fechaES } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 
