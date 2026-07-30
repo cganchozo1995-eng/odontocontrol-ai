@@ -22,7 +22,7 @@ import { Route as MasterPanelRouteImport } from './routes/master/panel'
 import { Route as MasterNuevaClinicaRouteImport } from './routes/master/nuevaClinica'
 import { Route as MasterListaClinicasRouteImport } from './routes/master/listaClinicas'
 import { Route as MasterConfiguracionRouteImport } from './routes/master/configuracion'
-import { Route as MasterClinicasSuspensasRouteImport } from './routes/master/clinicasSuspensas'
+import { Route as MasterClinicasSuspendidasRouteImport } from './routes/master/clinicasSuspendidas'
 import { Route as DemoTratamientosRouteImport } from './routes/demo/Tratamientos'
 import { Route as DemoPresupuestosRouteImport } from './routes/demo/Presupuestos'
 import { Route as DemoPacientesRouteImport } from './routes/demo/Pacientes'
@@ -112,11 +112,12 @@ const MasterConfiguracionRoute = MasterConfiguracionRouteImport.update({
   path: '/configuracion',
   getParentRoute: () => MasterRoute,
 } as any)
-const MasterClinicasSuspensasRoute = MasterClinicasSuspensasRouteImport.update({
-  id: '/clinicasSuspensas',
-  path: '/clinicasSuspensas',
-  getParentRoute: () => MasterRoute,
-} as any)
+const MasterClinicasSuspendidasRoute =
+  MasterClinicasSuspendidasRouteImport.update({
+    id: '/clinicasSuspendidas',
+    path: '/clinicasSuspendidas',
+    getParentRoute: () => MasterRoute,
+  } as any)
 const DemoTratamientosRoute = DemoTratamientosRouteImport.update({
   id: '/Tratamientos',
   path: '/Tratamientos',
@@ -265,7 +266,7 @@ export interface FileRoutesByFullPath {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
-  '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
@@ -304,7 +305,7 @@ export interface FileRoutesByTo {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
-  '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
@@ -344,7 +345,7 @@ export interface FileRoutesById {
   '/demo/Pacientes': typeof DemoPacientesRoute
   '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Tratamientos': typeof DemoTratamientosRoute
-  '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
@@ -385,7 +386,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Tratamientos'
-    | '/master/clinicasSuspensas'
+    | '/master/clinicasSuspendidas'
     | '/master/configuracion'
     | '/master/listaClinicas'
     | '/master/nuevaClinica'
@@ -424,7 +425,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Tratamientos'
-    | '/master/clinicasSuspensas'
+    | '/master/clinicasSuspendidas'
     | '/master/configuracion'
     | '/master/listaClinicas'
     | '/master/nuevaClinica'
@@ -463,7 +464,7 @@ export interface FileRouteTypes {
     | '/demo/Pacientes'
     | '/demo/Presupuestos'
     | '/demo/Tratamientos'
-    | '/master/clinicasSuspensas'
+    | '/master/clinicasSuspendidas'
     | '/master/configuracion'
     | '/master/listaClinicas'
     | '/master/nuevaClinica'
@@ -578,11 +579,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MasterConfiguracionRouteImport
       parentRoute: typeof MasterRoute
     }
-    '/master/clinicasSuspensas': {
-      id: '/master/clinicasSuspensas'
-      path: '/clinicasSuspensas'
-      fullPath: '/master/clinicasSuspensas'
-      preLoaderRoute: typeof MasterClinicasSuspensasRouteImport
+    '/master/clinicasSuspendidas': {
+      id: '/master/clinicasSuspendidas'
+      path: '/clinicasSuspendidas'
+      fullPath: '/master/clinicasSuspendidas'
+      preLoaderRoute: typeof MasterClinicasSuspendidasRouteImport
       parentRoute: typeof MasterRoute
     }
     '/demo/Tratamientos': {
@@ -808,7 +809,7 @@ const DemoRouteChildren: DemoRouteChildren = {
 const DemoRouteWithChildren = DemoRoute._addFileChildren(DemoRouteChildren)
 
 interface MasterRouteChildren {
-  MasterClinicasSuspensasRoute: typeof MasterClinicasSuspensasRoute
+  MasterClinicasSuspendidasRoute: typeof MasterClinicasSuspendidasRoute
   MasterConfiguracionRoute: typeof MasterConfiguracionRoute
   MasterListaClinicasRoute: typeof MasterListaClinicasRoute
   MasterNuevaClinicaRoute: typeof MasterNuevaClinicaRoute
@@ -816,7 +817,7 @@ interface MasterRouteChildren {
 }
 
 const MasterRouteChildren: MasterRouteChildren = {
-  MasterClinicasSuspensasRoute: MasterClinicasSuspensasRoute,
+  MasterClinicasSuspendidasRoute: MasterClinicasSuspendidasRoute,
   MasterConfiguracionRoute: MasterConfiguracionRoute,
   MasterListaClinicasRoute: MasterListaClinicasRoute,
   MasterNuevaClinicaRoute: MasterNuevaClinicaRoute,
@@ -842,13 +843,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
