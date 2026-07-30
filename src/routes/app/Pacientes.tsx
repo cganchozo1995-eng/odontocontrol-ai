@@ -10,7 +10,7 @@ import { SimpleForm } from "@/components/SimpleForm";
 import { PatientFicha } from "@/components/PatientFicha";
 import { Button } from "@/components/ui/button";
 import { Plus, Eye, Pencil, Trash2 } from "lucide-react";
-import { dateBR } from "@/lib/format";
+import { fechaES } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
@@ -79,7 +79,7 @@ function Page() {
           { key: "cpf", header: "C.I / RUC" },
           { key: "telefone", header: "Teléfono" },
           { key: "convenio", header: "Convenio" },
-          { key: "data_nascimento", header: "Nac.", render: (r: any) => dateBR(r.data_nascimento) },
+          { key: "data_nascimento", header: "Nac.", render: (r: any) => fechaES(r.data_nascimento) },
           { key: "alergias", header: "Alergias", render: (r: any) => r.alergias?.length ? <Badge variant="destructive">{r.alergias.length}</Badge> : "—" },
           { key: "_a", header: "", className: "w-28 text-right", render: (r: any) => (
             <div className="flex justify-end gap-1">

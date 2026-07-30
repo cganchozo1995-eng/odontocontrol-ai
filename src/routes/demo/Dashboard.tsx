@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DEMO_KPI, DEMO_ALERTAS, consultasHoje, demoAIOportunidades } from "@/lib/demo-seed";
-import { brl } from "@/lib/format";
+import { DEMO_KPI, DEMO_ALERTAS, citasHoy, demoAIOportunidades } from "@/lib/demo-seed";
+import { money } from "@/lib/format";
 import {
   Calendar, Users, DollarSign, Wallet, RotateCcw, Activity, Receipt, TrendingUp,
   AlertTriangle, Star, Sparkles, ArrowRight, Clock, Play, Check,
@@ -17,14 +17,14 @@ import { es } from "date-fns/locale";
 export const Route = createFileRoute("/demo/Dashboard")({ component: Page });
 
 const KPIS = [
-  { label: "Citas hoy",         value: DEMO_KPI.consultasHoje,             icon: Calendar,   color: "text-sky-500 bg-sky-50" },
-  { label: "Pacientes activos",       value: DEMO_KPI.pacientesAtivos,           icon: Users,      color: "text-emerald-500 bg-emerald-50" },
-  { label: "Facturación del mes",     value: brl(DEMO_KPI.faturamentoMes),       icon: DollarSign, color: "text-violet-500 bg-violet-50" },
-  { label: "Por cobrar",              value: brl(DEMO_KPI.aReceber),             icon: Wallet,     color: "text-amber-500 bg-amber-50" },
-  { label: "Revisiones pendientes",     value: DEMO_KPI.revisoesPendentes,         icon: RotateCcw,  color: "text-orange-500 bg-orange-50" },
-  { label: "Tratamientos en curso", value: DEMO_KPI.tratamentosAndamento,    icon: Activity,   color: "text-cyan-500 bg-cyan-50" },
-  { label: "Presupuestos pendientes",   value: DEMO_KPI.orcamentosPendentes,       icon: Receipt,    color: "text-rose-500 bg-rose-50" },
-  { label: "Cobrado en el mes",        value: brl(DEMO_KPI.recebidoMes),          icon: TrendingUp, color: "text-teal-500 bg-teal-50" },
+  { label: "Citas hoy",         value: DEMO_KPI.citasHoy,             icon: Calendar,   color: "text-sky-500 bg-sky-50" },
+  { label: "Pacientes activos",       value: DEMO_KPI.pacientesActivos,           icon: Users,      color: "text-emerald-500 bg-emerald-50" },
+  { label: "Facturación del mes",     value: money(DEMO_KPI.facturacionMes),       icon: DollarSign, color: "text-violet-500 bg-violet-50" },
+  { label: "Por cobrar",              value: money(DEMO_KPI.porCobrar),             icon: Wallet,     color: "text-amber-500 bg-amber-50" },
+  { label: "Revisiones pendientes",     value: DEMO_KPI.revisionesPendientes,         icon: RotateCcw,  color: "text-orange-500 bg-orange-50" },
+  { label: "Tratamientos en curso", value: DEMO_KPI.tratamientosEnCurso,    icon: Activity,   color: "text-cyan-500 bg-cyan-50" },
+  { label: "Presupuestos pendientes",   value: DEMO_KPI.presupuestosPendientes,       icon: Receipt,    color: "text-rose-500 bg-rose-50" },
+  { label: "Cobrado en el mes",        value: money(DEMO_KPI.recibidoMes),          icon: TrendingUp, color: "text-teal-500 bg-teal-50" },
 ];
 
 const ALERT_TONE: Record<string, string> = {
@@ -169,12 +169,12 @@ function Page() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="font-bold">Citas de hoy</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">{consultasHoje.length} citas programadas</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{citasHoy.length} citas programadas</p>
             </div>
             <Button asChild variant="outline" size="sm"><Link to="/demo/Agenda">Ver todas</Link></Button>
           </div>
           <div className="space-y-2">
-            {consultasHoje.slice(0, 8).map((c) => {
+            {citasHoy.slice(0, 8).map((c) => {
               const st = STATUS_HOJE[c.status] ?? STATUS_HOJE.agendada;
               return (
                 <div key={c.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/40 border">
@@ -206,11 +206,11 @@ function Page() {
           </div>
           <div className="flex-1 min-w-[240px]">
             <div className="text-xs font-semibold tracking-wider opacity-80">AI GROWTH ENGINE</div>
-            <h3 className="text-xl font-extrabold mt-1">5 oportunidades identificadas · {brl(totalAI)} de facturación recuperable</h3>
+            <h3 className="text-xl font-extrabold mt-1">5 oportunidades identificadas · {money(totalAI)} de facturación recuperable</h3>
             <p className="text-sm opacity-90 mt-1">Mensajes listos para enviar vía WhatsApp en 1 clic.</p>
           </div>
           <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-            <Link to="/demo/AIGrowth">Ver todas <ArrowRight className="size-4 ml-1" /></Link>
+            <Link to="/demo/CrecimientoIA">Ver todas <ArrowRight className="size-4 ml-1" /></Link>
           </Button>
         </CardContent>
       </Card>

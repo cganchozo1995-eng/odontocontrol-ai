@@ -11,16 +11,16 @@ import { useMoney } from "@/lib/format";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
-import { OrcamentoPdf } from "./OrcamentoPdf";
+import { PresupuestoPdf } from "./PresupuestoPdf";
 
-type Item = { id: string; nome: string; valor: number; qtd: number };
+type Item = { id: string; nome: string; valor: number; cant: number };
 
-export function OrcamentoSheet({
-  open, onOpenChange, orcamento, procs, pacs, onSaved,
+export function PresupuestoSheet({
+  open, onOpenChange, presupuesto, procs, pacs, onSaved,
 }: {
   open: boolean;
   onOpenChange: (o: boolean) => void;
-  orcamento: any | null;
+  presupuesto: any | null;
   procs: any[];
   pacs: any[];
   onSaved: () => void;
@@ -33,24 +33,24 @@ export function OrcamentoSheet({
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (!orcamento) return;
+    if (!presupuesto) return;
     setDraft({
-      ...orcamento,
-      data: orcamento.data ?? new Date().toISOString().slice(0, 10),
-      desconto_pct: Number(orcamento.desconto_pct ?? 0),
-      parcelas: Number(orcamento.parcelas ?? 1),
-      status: orcamento.status ?? "pendiente",
+      ...presupuesto,
+      data: presupuesto.data ?? new Date().toISOString().slice(0, 10),
+      desconto_pct: Number(presupuesto.desconto_pct ?? 0),
+      parcelas: Number(presupuesto.parcelas ?? 1),
+      status: presupuesto.status ?? "pendiente",
     });
-    const raw = Array.isArray(orcamento.itens) ? orcamento.itens : [];
+    const raw = Array.isArray(presupuesto.itens) ? presupuesto.itens : [];
     setItems(raw.map((it: any, i: number) => ({
       id: it.id ?? `i-${i}-${Date.now()}`,
       nome: it.nome ?? "",
       valor: Number(it.valor ?? 0),
-      qtd: Number(it.qtd ?? 1),
+      cant: Number(it.cant ?? it.qtd ?? 1),
     })));
-  }, [orcamento]);
+  }, [presupuesto]);
 
-  const total = useMemo(() => items.reduce((a, it) => a + it.valor * it.qtd, 0), [items]);
+  const total = useMemo(() => items.reduce((a, it) => a + it.valor * it.cant, 0), [items]);
   const desc = Number(draft?.desconto_pct ?? 0);
   const totalDesc = total - (total * desc) / 100;
 
@@ -66,9 +66,9 @@ export function OrcamentoSheet({
     if (procId) {
       const p = procs.find((x) => x.id === procId);
       if (!p) return;
-      setItems([...items, { id: `i-${Date.now()}`, nome: p.nome, valor: Number(p.valor ?? 0), qtd: 1 }]);
+      setItems([...items, { id: `i-${Date.now()}`, nome: p.nome, valor: Number(p.valor ?? 0), cant: 1 }]);
     } else {
-      setItems([...items, { id: `i-${Date.now()}`, nome: "", valor: 0, qtd: 1 }]);
+      setItems([...items, { id: `i-${Date.now()}`, nome: "", valor: 0, cant: 1 }]);
     }
   };
 
@@ -102,7 +102,7 @@ export function OrcamentoSheet({
     if (!draft?.id) { toast.error("Guarde primero"); return; }
     if (!confirm("¿Aprobar y generar tratamiento + lanzamiento financiero?")) return;
     try {
-      const descTxt = items.map((it) => `${it.qtd}x ${it.nome}`).join("; ");
+      const descTxt = items.map((it) => `${it.cant}x ${it.nome}`).join("; ");
       await supabase.from("orcamento").update({ status: "aprobado" }).eq("id", draft.id);
       await supabase.from("tratamento").insert({
         clinica_id: clinicaId!, paciente_id: draft.paciente_id, paciente_nome: draft.paciente_nome,
@@ -182,8 +182,8 @@ export function OrcamentoSheet({
                               <span {...p.dragHandleProps} className="text-muted-foreground cursor-grab"><GripVertical className="size-4" /></span>
                               <Input value={it.nome} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, nome: e.target.value } : x))} placeholder="Ítem" className="h-8 flex-1" />
                               <Input type="number" step="0.01" value={it.valor} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, valor: Number(e.target.value) } : x))} className="h-8 w-24" />
-                              <Input type="number" value={it.qtd} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, qtd: Number(e.target.value) } : x))} className="h-8 w-14" />
-                              <div className="text-xs w-20 text-right font-medium">{money(it.valor * it.qtd)}</div>
+                              <Input type="number" value={it.cant} onChange={(e) => setItems(items.map((x) => x.id === it.id ? { ...x, cant: Number(e.target.value) } : x))} className="h-8 w-14" />
+                              <div className="text-xs w-20 text-right font-medium">{money(it.valor * it.cant)}</div>
                               <Button size="icon" variant="ghost" className="h-7 w-7" onClick={() => setItems(items.filter((x) => x.id !== it.id))}><Trash2 className="size-3" /></Button>
                             </div>
                           )}
@@ -223,7 +223,7 @@ export function OrcamentoSheet({
           <SheetHeader><SheetTitle>Visualización — Presupuesto</SheetTitle></SheetHeader>
           <div className="mt-4">
             <div className="flex justify-end mb-2 no-print"><Button onClick={() => window.print()}><Printer className="size-4 mr-1" />Imprimir / Guardar PDF</Button></div>
-            <OrcamentoPdf data={{ clinica: clinica ?? undefined, orcamento: { ...draft, itens: items, total, total_com_desconto: totalDesc } }} />
+            <PresupuestoPdf data={{ clinica: clinica ?? undefined, presupuesto: { ...draft, itens: items, total, total_com_desconto: totalDesc } }} />
           </div>
         </SheetContent>
       </Sheet>

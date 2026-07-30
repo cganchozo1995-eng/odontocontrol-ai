@@ -7,11 +7,11 @@ import { Building2, BarChart3, AlertOctagon, PlusCircle, LogOut, Shield, Setting
 import { useAuth } from "@/lib/auth";
 
 const items = [
-  { to: "/master/painel", label: "Panel", icon: BarChart3 },
+  { to: "/master/panel", label: "Panel", icon: BarChart3 },
   { to: "/master/listaClinicas", label: "Clínicas", icon: Building2 },
-  { to: "/master/novaClinica", label: "Nueva clínica", icon: PlusCircle },
-  { to: "/master/clinicasSuspensas", label: "Suspendidas", icon: AlertOctagon },
-  { to: "/master/configuracoes", label: "Configuración del sistema", icon: Settings },
+  { to: "/master/nuevaClinica", label: "Nueva clínica", icon: PlusCircle },
+  { to: "/master/clinicasSuspendidas", label: "Suspendidas", icon: AlertOctagon },
+  { to: "/master/configuracion", label: "Configuración del sistema", icon: Settings },
 ] as const;
 
 export function SidebarMaster() {

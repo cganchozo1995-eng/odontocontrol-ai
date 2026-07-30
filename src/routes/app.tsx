@@ -18,8 +18,8 @@ function AppLayout() {
     if (loading) return;
     if (!session) { navigate({ to: "/entrar" }); return; }
     if (!clinicaId && path !== "/app/Onboarding") { navigate({ to: "/app/Onboarding" }); return; }
-    if (clinica?.status_cobranca === "suspenso" && path !== "/app/Configuracoes") {
-      navigate({ to: "/clinica-suspensa" });
+    if (clinica?.status_cobranca === "suspenso" && path !== "/app/Configuracion") {
+      navigate({ to: "/clinica-suspendida" });
     }
   }, [loading, session, clinicaId, clinica, path, navigate]);
 

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 import { toast } from "sonner";
 import { MoreHorizontal, KeyRound, AlertTriangle, Copy } from "lucide-react";
 
@@ -62,9 +62,9 @@ function Page() {
           { key: "nome", header: "Nombre" },
           { key: "owner_email", header: "Admin" },
           { key: "plano", header: "Plan", render: (r: any) => <Badge>{r.plano}</Badge> },
-          { key: "valor_mensal", header: "MRR", render: (r: any) => brl(r.valor_mensal) },
+          { key: "valor_mensal", header: "MRR", render: (r: any) => money(r.valor_mensal) },
           { key: "status_cobranca", header: "Cobro", render: (r: any) => <Badge variant={r.status_cobranca === "ativo" ? "default" : "destructive"}>{r.status_cobranca}</Badge> },
-          { key: "created_at", header: "Creada", render: (r: any) => dateBR(r.created_at) },
+          { key: "created_at", header: "Creada", render: (r: any) => fechaES(r.created_at) },
           {
             key: "_a", header: "", className: "w-12 text-right", render: (r: any) => (
               <DropdownMenu>

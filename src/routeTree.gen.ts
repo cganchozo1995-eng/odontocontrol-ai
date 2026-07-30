@@ -10,38 +10,60 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrocarSenhaRouteImport } from './routes/trocar-senha'
+import { Route as RestablecerContrasenaRouteImport } from './routes/restablecer-contrasena'
 import { Route as ResetSenhaRouteImport } from './routes/reset-senha'
+import { Route as OlvideContrasenaRouteImport } from './routes/olvide-contrasena'
 import { Route as MasterRouteImport } from './routes/master'
 import { Route as EsqueciSenhaRouteImport } from './routes/esqueci-senha'
 import { Route as EntrarRouteImport } from './routes/entrar'
 import { Route as DemoRouteImport } from './routes/demo'
 import { Route as ClinicaSuspensaRouteImport } from './routes/clinica-suspensa'
+import { Route as ClinicaSuspendidaRouteImport } from './routes/clinica-suspendida'
+import { Route as CambiarContrasenaRouteImport } from './routes/cambiar-contrasena'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MasterPanelRouteImport } from './routes/master/panel'
 import { Route as MasterPainelRouteImport } from './routes/master/painel'
+import { Route as MasterNuevaClinicaRouteImport } from './routes/master/nuevaClinica'
 import { Route as MasterNovaClinicaRouteImport } from './routes/master/novaClinica'
 import { Route as MasterListaClinicasRouteImport } from './routes/master/listaClinicas'
 import { Route as MasterConfiguracoesRouteImport } from './routes/master/configuracoes'
+import { Route as MasterConfiguracionRouteImport } from './routes/master/configuracion'
 import { Route as MasterClinicasSuspensasRouteImport } from './routes/master/clinicasSuspensas'
+import { Route as MasterClinicasSuspendidasRouteImport } from './routes/master/clinicasSuspendidas'
+import { Route as DemoTratamientosRouteImport } from './routes/demo/Tratamientos'
 import { Route as DemoTratamentosRouteImport } from './routes/demo/Tratamentos'
 import { Route as DemoRelatoriosRouteImport } from './routes/demo/Relatorios'
+import { Route as DemoPresupuestosRouteImport } from './routes/demo/Presupuestos'
 import { Route as DemoPacientesRouteImport } from './routes/demo/Pacientes'
 import { Route as DemoOrcamentosRouteImport } from './routes/demo/Orcamentos'
+import { Route as DemoInformesRouteImport } from './routes/demo/Informes'
+import { Route as DemoFinancieroRouteImport } from './routes/demo/Financiero'
 import { Route as DemoFinanceiroRouteImport } from './routes/demo/Financeiro'
 import { Route as DemoDashboardRouteImport } from './routes/demo/Dashboard'
+import { Route as DemoCrecimientoIARouteImport } from './routes/demo/CrecimientoIA'
 import { Route as DemoAgendaRouteImport } from './routes/demo/Agenda'
 import { Route as DemoAIGrowthRouteImport } from './routes/demo/AIGrowth'
+import { Route as AppTratamientosRouteImport } from './routes/app/Tratamientos'
 import { Route as AppTratamentosRouteImport } from './routes/app/Tratamentos'
 import { Route as AppRelatoriosRouteImport } from './routes/app/Relatorios'
 import { Route as AppProfissionaisRouteImport } from './routes/app/Profissionais'
+import { Route as AppProfesionalesRouteImport } from './routes/app/Profesionales'
+import { Route as AppProcedimientosRouteImport } from './routes/app/Procedimientos'
 import { Route as AppProcedimentosRouteImport } from './routes/app/Procedimentos'
+import { Route as AppPresupuestosRouteImport } from './routes/app/Presupuestos'
 import { Route as AppPacientesRouteImport } from './routes/app/Pacientes'
 import { Route as AppOrcamentosRouteImport } from './routes/app/Orcamentos'
 import { Route as AppOnboardingRouteImport } from './routes/app/Onboarding'
+import { Route as AppInformesRouteImport } from './routes/app/Informes'
+import { Route as AppFinancieroRouteImport } from './routes/app/Financiero'
 import { Route as AppFinanceiroRouteImport } from './routes/app/Financeiro'
+import { Route as AppEquipoRouteImport } from './routes/app/Equipo'
 import { Route as AppEquipeRouteImport } from './routes/app/Equipe'
 import { Route as AppDashboardRouteImport } from './routes/app/Dashboard'
+import { Route as AppCrecimientoIARouteImport } from './routes/app/CrecimientoIA'
 import { Route as AppConfiguracoesRouteImport } from './routes/app/Configuracoes'
+import { Route as AppConfiguracionRouteImport } from './routes/app/Configuracion'
 import { Route as AppAgendaRouteImport } from './routes/app/Agenda'
 import { Route as AppAIGrowthRouteImport } from './routes/app/AIGrowth'
 import { Route as AgendarSlugRouteImport } from './routes/agendar.$slug'
@@ -52,9 +74,19 @@ const TrocarSenhaRoute = TrocarSenhaRouteImport.update({
   path: '/trocar-senha',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RestablecerContrasenaRoute = RestablecerContrasenaRouteImport.update({
+  id: '/restablecer-contrasena',
+  path: '/restablecer-contrasena',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResetSenhaRoute = ResetSenhaRouteImport.update({
   id: '/reset-senha',
   path: '/reset-senha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OlvideContrasenaRoute = OlvideContrasenaRouteImport.update({
+  id: '/olvide-contrasena',
+  path: '/olvide-contrasena',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MasterRoute = MasterRouteImport.update({
@@ -82,6 +114,16 @@ const ClinicaSuspensaRoute = ClinicaSuspensaRouteImport.update({
   path: '/clinica-suspensa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClinicaSuspendidaRoute = ClinicaSuspendidaRouteImport.update({
+  id: '/clinica-suspendida',
+  path: '/clinica-suspendida',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CambiarContrasenaRoute = CambiarContrasenaRouteImport.update({
+  id: '/cambiar-contrasena',
+  path: '/cambiar-contrasena',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -92,9 +134,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MasterPanelRoute = MasterPanelRouteImport.update({
+  id: '/panel',
+  path: '/panel',
+  getParentRoute: () => MasterRoute,
+} as any)
 const MasterPainelRoute = MasterPainelRouteImport.update({
   id: '/painel',
   path: '/painel',
+  getParentRoute: () => MasterRoute,
+} as any)
+const MasterNuevaClinicaRoute = MasterNuevaClinicaRouteImport.update({
+  id: '/nuevaClinica',
+  path: '/nuevaClinica',
   getParentRoute: () => MasterRoute,
 } as any)
 const MasterNovaClinicaRoute = MasterNovaClinicaRouteImport.update({
@@ -112,10 +164,26 @@ const MasterConfiguracoesRoute = MasterConfiguracoesRouteImport.update({
   path: '/configuracoes',
   getParentRoute: () => MasterRoute,
 } as any)
+const MasterConfiguracionRoute = MasterConfiguracionRouteImport.update({
+  id: '/configuracion',
+  path: '/configuracion',
+  getParentRoute: () => MasterRoute,
+} as any)
 const MasterClinicasSuspensasRoute = MasterClinicasSuspensasRouteImport.update({
   id: '/clinicasSuspensas',
   path: '/clinicasSuspensas',
   getParentRoute: () => MasterRoute,
+} as any)
+const MasterClinicasSuspendidasRoute =
+  MasterClinicasSuspendidasRouteImport.update({
+    id: '/clinicasSuspendidas',
+    path: '/clinicasSuspendidas',
+    getParentRoute: () => MasterRoute,
+  } as any)
+const DemoTratamientosRoute = DemoTratamientosRouteImport.update({
+  id: '/Tratamientos',
+  path: '/Tratamientos',
+  getParentRoute: () => DemoRoute,
 } as any)
 const DemoTratamentosRoute = DemoTratamentosRouteImport.update({
   id: '/Tratamentos',
@@ -125,6 +193,11 @@ const DemoTratamentosRoute = DemoTratamentosRouteImport.update({
 const DemoRelatoriosRoute = DemoRelatoriosRouteImport.update({
   id: '/Relatorios',
   path: '/Relatorios',
+  getParentRoute: () => DemoRoute,
+} as any)
+const DemoPresupuestosRoute = DemoPresupuestosRouteImport.update({
+  id: '/Presupuestos',
+  path: '/Presupuestos',
   getParentRoute: () => DemoRoute,
 } as any)
 const DemoPacientesRoute = DemoPacientesRouteImport.update({
@@ -137,6 +210,16 @@ const DemoOrcamentosRoute = DemoOrcamentosRouteImport.update({
   path: '/Orcamentos',
   getParentRoute: () => DemoRoute,
 } as any)
+const DemoInformesRoute = DemoInformesRouteImport.update({
+  id: '/Informes',
+  path: '/Informes',
+  getParentRoute: () => DemoRoute,
+} as any)
+const DemoFinancieroRoute = DemoFinancieroRouteImport.update({
+  id: '/Financiero',
+  path: '/Financiero',
+  getParentRoute: () => DemoRoute,
+} as any)
 const DemoFinanceiroRoute = DemoFinanceiroRouteImport.update({
   id: '/Financeiro',
   path: '/Financeiro',
@@ -145,6 +228,11 @@ const DemoFinanceiroRoute = DemoFinanceiroRouteImport.update({
 const DemoDashboardRoute = DemoDashboardRouteImport.update({
   id: '/Dashboard',
   path: '/Dashboard',
+  getParentRoute: () => DemoRoute,
+} as any)
+const DemoCrecimientoIARoute = DemoCrecimientoIARouteImport.update({
+  id: '/CrecimientoIA',
+  path: '/CrecimientoIA',
   getParentRoute: () => DemoRoute,
 } as any)
 const DemoAgendaRoute = DemoAgendaRouteImport.update({
@@ -156,6 +244,11 @@ const DemoAIGrowthRoute = DemoAIGrowthRouteImport.update({
   id: '/AIGrowth',
   path: '/AIGrowth',
   getParentRoute: () => DemoRoute,
+} as any)
+const AppTratamientosRoute = AppTratamientosRouteImport.update({
+  id: '/Tratamientos',
+  path: '/Tratamientos',
+  getParentRoute: () => AppRoute,
 } as any)
 const AppTratamentosRoute = AppTratamentosRouteImport.update({
   id: '/Tratamentos',
@@ -172,9 +265,24 @@ const AppProfissionaisRoute = AppProfissionaisRouteImport.update({
   path: '/Profissionais',
   getParentRoute: () => AppRoute,
 } as any)
+const AppProfesionalesRoute = AppProfesionalesRouteImport.update({
+  id: '/Profesionales',
+  path: '/Profesionales',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProcedimientosRoute = AppProcedimientosRouteImport.update({
+  id: '/Procedimientos',
+  path: '/Procedimientos',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppProcedimentosRoute = AppProcedimentosRouteImport.update({
   id: '/Procedimentos',
   path: '/Procedimentos',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPresupuestosRoute = AppPresupuestosRouteImport.update({
+  id: '/Presupuestos',
+  path: '/Presupuestos',
   getParentRoute: () => AppRoute,
 } as any)
 const AppPacientesRoute = AppPacientesRouteImport.update({
@@ -192,9 +300,24 @@ const AppOnboardingRoute = AppOnboardingRouteImport.update({
   path: '/Onboarding',
   getParentRoute: () => AppRoute,
 } as any)
+const AppInformesRoute = AppInformesRouteImport.update({
+  id: '/Informes',
+  path: '/Informes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFinancieroRoute = AppFinancieroRouteImport.update({
+  id: '/Financiero',
+  path: '/Financiero',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppFinanceiroRoute = AppFinanceiroRouteImport.update({
   id: '/Financeiro',
   path: '/Financeiro',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEquipoRoute = AppEquipoRouteImport.update({
+  id: '/Equipo',
+  path: '/Equipo',
   getParentRoute: () => AppRoute,
 } as any)
 const AppEquipeRoute = AppEquipeRouteImport.update({
@@ -207,9 +330,19 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/Dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCrecimientoIARoute = AppCrecimientoIARouteImport.update({
+  id: '/CrecimientoIA',
+  path: '/CrecimientoIA',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppConfiguracoesRoute = AppConfiguracoesRouteImport.update({
   id: '/Configuracoes',
   path: '/Configuracoes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConfiguracionRoute = AppConfiguracionRouteImport.update({
+  id: '/Configuracion',
+  path: '/Configuracion',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAgendaRoute = AppAgendaRouteImport.update({
@@ -236,119 +369,185 @@ const ApiPublicHotmartWebhookRoute = ApiPublicHotmartWebhookRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/cambiar-contrasena': typeof CambiarContrasenaRoute
+  '/clinica-suspendida': typeof ClinicaSuspendidaRoute
   '/clinica-suspensa': typeof ClinicaSuspensaRoute
   '/demo': typeof DemoRouteWithChildren
   '/entrar': typeof EntrarRoute
   '/esqueci-senha': typeof EsqueciSenhaRoute
   '/master': typeof MasterRouteWithChildren
+  '/olvide-contrasena': typeof OlvideContrasenaRoute
   '/reset-senha': typeof ResetSenhaRoute
+  '/restablecer-contrasena': typeof RestablecerContrasenaRoute
   '/trocar-senha': typeof TrocarSenhaRoute
   '/agendar/$slug': typeof AgendarSlugRoute
   '/app/AIGrowth': typeof AppAIGrowthRoute
   '/app/Agenda': typeof AppAgendaRoute
+  '/app/Configuracion': typeof AppConfiguracionRoute
   '/app/Configuracoes': typeof AppConfiguracoesRoute
+  '/app/CrecimientoIA': typeof AppCrecimientoIARoute
   '/app/Dashboard': typeof AppDashboardRoute
   '/app/Equipe': typeof AppEquipeRoute
+  '/app/Equipo': typeof AppEquipoRoute
   '/app/Financeiro': typeof AppFinanceiroRoute
+  '/app/Financiero': typeof AppFinancieroRoute
+  '/app/Informes': typeof AppInformesRoute
   '/app/Onboarding': typeof AppOnboardingRoute
   '/app/Orcamentos': typeof AppOrcamentosRoute
   '/app/Pacientes': typeof AppPacientesRoute
+  '/app/Presupuestos': typeof AppPresupuestosRoute
   '/app/Procedimentos': typeof AppProcedimentosRoute
+  '/app/Procedimientos': typeof AppProcedimientosRoute
+  '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
   '/app/Tratamentos': typeof AppTratamentosRoute
+  '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
+  '/demo/CrecimientoIA': typeof DemoCrecimientoIARoute
   '/demo/Dashboard': typeof DemoDashboardRoute
   '/demo/Financeiro': typeof DemoFinanceiroRoute
+  '/demo/Financiero': typeof DemoFinancieroRoute
+  '/demo/Informes': typeof DemoInformesRoute
   '/demo/Orcamentos': typeof DemoOrcamentosRoute
   '/demo/Pacientes': typeof DemoPacientesRoute
+  '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
   '/demo/Tratamentos': typeof DemoTratamentosRoute
+  '/demo/Tratamientos': typeof DemoTratamientosRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/configuracoes': typeof MasterConfiguracoesRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/novaClinica': typeof MasterNovaClinicaRoute
+  '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
   '/master/painel': typeof MasterPainelRoute
+  '/master/panel': typeof MasterPanelRoute
   '/api/public/hotmart-webhook': typeof ApiPublicHotmartWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/cambiar-contrasena': typeof CambiarContrasenaRoute
+  '/clinica-suspendida': typeof ClinicaSuspendidaRoute
   '/clinica-suspensa': typeof ClinicaSuspensaRoute
   '/demo': typeof DemoRouteWithChildren
   '/entrar': typeof EntrarRoute
   '/esqueci-senha': typeof EsqueciSenhaRoute
   '/master': typeof MasterRouteWithChildren
+  '/olvide-contrasena': typeof OlvideContrasenaRoute
   '/reset-senha': typeof ResetSenhaRoute
+  '/restablecer-contrasena': typeof RestablecerContrasenaRoute
   '/trocar-senha': typeof TrocarSenhaRoute
   '/agendar/$slug': typeof AgendarSlugRoute
   '/app/AIGrowth': typeof AppAIGrowthRoute
   '/app/Agenda': typeof AppAgendaRoute
+  '/app/Configuracion': typeof AppConfiguracionRoute
   '/app/Configuracoes': typeof AppConfiguracoesRoute
+  '/app/CrecimientoIA': typeof AppCrecimientoIARoute
   '/app/Dashboard': typeof AppDashboardRoute
   '/app/Equipe': typeof AppEquipeRoute
+  '/app/Equipo': typeof AppEquipoRoute
   '/app/Financeiro': typeof AppFinanceiroRoute
+  '/app/Financiero': typeof AppFinancieroRoute
+  '/app/Informes': typeof AppInformesRoute
   '/app/Onboarding': typeof AppOnboardingRoute
   '/app/Orcamentos': typeof AppOrcamentosRoute
   '/app/Pacientes': typeof AppPacientesRoute
+  '/app/Presupuestos': typeof AppPresupuestosRoute
   '/app/Procedimentos': typeof AppProcedimentosRoute
+  '/app/Procedimientos': typeof AppProcedimientosRoute
+  '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
   '/app/Tratamentos': typeof AppTratamentosRoute
+  '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
+  '/demo/CrecimientoIA': typeof DemoCrecimientoIARoute
   '/demo/Dashboard': typeof DemoDashboardRoute
   '/demo/Financeiro': typeof DemoFinanceiroRoute
+  '/demo/Financiero': typeof DemoFinancieroRoute
+  '/demo/Informes': typeof DemoInformesRoute
   '/demo/Orcamentos': typeof DemoOrcamentosRoute
   '/demo/Pacientes': typeof DemoPacientesRoute
+  '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
   '/demo/Tratamentos': typeof DemoTratamentosRoute
+  '/demo/Tratamientos': typeof DemoTratamientosRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/configuracoes': typeof MasterConfiguracoesRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/novaClinica': typeof MasterNovaClinicaRoute
+  '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
   '/master/painel': typeof MasterPainelRoute
+  '/master/panel': typeof MasterPanelRoute
   '/api/public/hotmart-webhook': typeof ApiPublicHotmartWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/cambiar-contrasena': typeof CambiarContrasenaRoute
+  '/clinica-suspendida': typeof ClinicaSuspendidaRoute
   '/clinica-suspensa': typeof ClinicaSuspensaRoute
   '/demo': typeof DemoRouteWithChildren
   '/entrar': typeof EntrarRoute
   '/esqueci-senha': typeof EsqueciSenhaRoute
   '/master': typeof MasterRouteWithChildren
+  '/olvide-contrasena': typeof OlvideContrasenaRoute
   '/reset-senha': typeof ResetSenhaRoute
+  '/restablecer-contrasena': typeof RestablecerContrasenaRoute
   '/trocar-senha': typeof TrocarSenhaRoute
   '/agendar/$slug': typeof AgendarSlugRoute
   '/app/AIGrowth': typeof AppAIGrowthRoute
   '/app/Agenda': typeof AppAgendaRoute
+  '/app/Configuracion': typeof AppConfiguracionRoute
   '/app/Configuracoes': typeof AppConfiguracoesRoute
+  '/app/CrecimientoIA': typeof AppCrecimientoIARoute
   '/app/Dashboard': typeof AppDashboardRoute
   '/app/Equipe': typeof AppEquipeRoute
+  '/app/Equipo': typeof AppEquipoRoute
   '/app/Financeiro': typeof AppFinanceiroRoute
+  '/app/Financiero': typeof AppFinancieroRoute
+  '/app/Informes': typeof AppInformesRoute
   '/app/Onboarding': typeof AppOnboardingRoute
   '/app/Orcamentos': typeof AppOrcamentosRoute
   '/app/Pacientes': typeof AppPacientesRoute
+  '/app/Presupuestos': typeof AppPresupuestosRoute
   '/app/Procedimentos': typeof AppProcedimentosRoute
+  '/app/Procedimientos': typeof AppProcedimientosRoute
+  '/app/Profesionales': typeof AppProfesionalesRoute
   '/app/Profissionais': typeof AppProfissionaisRoute
   '/app/Relatorios': typeof AppRelatoriosRoute
   '/app/Tratamentos': typeof AppTratamentosRoute
+  '/app/Tratamientos': typeof AppTratamientosRoute
   '/demo/AIGrowth': typeof DemoAIGrowthRoute
   '/demo/Agenda': typeof DemoAgendaRoute
+  '/demo/CrecimientoIA': typeof DemoCrecimientoIARoute
   '/demo/Dashboard': typeof DemoDashboardRoute
   '/demo/Financeiro': typeof DemoFinanceiroRoute
+  '/demo/Financiero': typeof DemoFinancieroRoute
+  '/demo/Informes': typeof DemoInformesRoute
   '/demo/Orcamentos': typeof DemoOrcamentosRoute
   '/demo/Pacientes': typeof DemoPacientesRoute
+  '/demo/Presupuestos': typeof DemoPresupuestosRoute
   '/demo/Relatorios': typeof DemoRelatoriosRoute
   '/demo/Tratamentos': typeof DemoTratamentosRoute
+  '/demo/Tratamientos': typeof DemoTratamientosRoute
+  '/master/clinicasSuspendidas': typeof MasterClinicasSuspendidasRoute
   '/master/clinicasSuspensas': typeof MasterClinicasSuspensasRoute
+  '/master/configuracion': typeof MasterConfiguracionRoute
   '/master/configuracoes': typeof MasterConfiguracoesRoute
   '/master/listaClinicas': typeof MasterListaClinicasRoute
   '/master/novaClinica': typeof MasterNovaClinicaRoute
+  '/master/nuevaClinica': typeof MasterNuevaClinicaRoute
   '/master/painel': typeof MasterPainelRoute
+  '/master/panel': typeof MasterPanelRoute
   '/api/public/hotmart-webhook': typeof ApiPublicHotmartWebhookRoute
 }
 export interface FileRouteTypes {
@@ -356,130 +555,200 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/app'
+    | '/cambiar-contrasena'
+    | '/clinica-suspendida'
     | '/clinica-suspensa'
     | '/demo'
     | '/entrar'
     | '/esqueci-senha'
     | '/master'
+    | '/olvide-contrasena'
     | '/reset-senha'
+    | '/restablecer-contrasena'
     | '/trocar-senha'
     | '/agendar/$slug'
     | '/app/AIGrowth'
     | '/app/Agenda'
+    | '/app/Configuracion'
     | '/app/Configuracoes'
+    | '/app/CrecimientoIA'
     | '/app/Dashboard'
     | '/app/Equipe'
+    | '/app/Equipo'
     | '/app/Financeiro'
+    | '/app/Financiero'
+    | '/app/Informes'
     | '/app/Onboarding'
     | '/app/Orcamentos'
     | '/app/Pacientes'
+    | '/app/Presupuestos'
     | '/app/Procedimentos'
+    | '/app/Procedimientos'
+    | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
     | '/app/Tratamentos'
+    | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
+    | '/demo/CrecimientoIA'
     | '/demo/Dashboard'
     | '/demo/Financeiro'
+    | '/demo/Financiero'
+    | '/demo/Informes'
     | '/demo/Orcamentos'
     | '/demo/Pacientes'
+    | '/demo/Presupuestos'
     | '/demo/Relatorios'
     | '/demo/Tratamentos'
+    | '/demo/Tratamientos'
+    | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
+    | '/master/configuracion'
     | '/master/configuracoes'
     | '/master/listaClinicas'
     | '/master/novaClinica'
+    | '/master/nuevaClinica'
     | '/master/painel'
+    | '/master/panel'
     | '/api/public/hotmart-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/app'
+    | '/cambiar-contrasena'
+    | '/clinica-suspendida'
     | '/clinica-suspensa'
     | '/demo'
     | '/entrar'
     | '/esqueci-senha'
     | '/master'
+    | '/olvide-contrasena'
     | '/reset-senha'
+    | '/restablecer-contrasena'
     | '/trocar-senha'
     | '/agendar/$slug'
     | '/app/AIGrowth'
     | '/app/Agenda'
+    | '/app/Configuracion'
     | '/app/Configuracoes'
+    | '/app/CrecimientoIA'
     | '/app/Dashboard'
     | '/app/Equipe'
+    | '/app/Equipo'
     | '/app/Financeiro'
+    | '/app/Financiero'
+    | '/app/Informes'
     | '/app/Onboarding'
     | '/app/Orcamentos'
     | '/app/Pacientes'
+    | '/app/Presupuestos'
     | '/app/Procedimentos'
+    | '/app/Procedimientos'
+    | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
     | '/app/Tratamentos'
+    | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
+    | '/demo/CrecimientoIA'
     | '/demo/Dashboard'
     | '/demo/Financeiro'
+    | '/demo/Financiero'
+    | '/demo/Informes'
     | '/demo/Orcamentos'
     | '/demo/Pacientes'
+    | '/demo/Presupuestos'
     | '/demo/Relatorios'
     | '/demo/Tratamentos'
+    | '/demo/Tratamientos'
+    | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
+    | '/master/configuracion'
     | '/master/configuracoes'
     | '/master/listaClinicas'
     | '/master/novaClinica'
+    | '/master/nuevaClinica'
     | '/master/painel'
+    | '/master/panel'
     | '/api/public/hotmart-webhook'
   id:
     | '__root__'
     | '/'
     | '/app'
+    | '/cambiar-contrasena'
+    | '/clinica-suspendida'
     | '/clinica-suspensa'
     | '/demo'
     | '/entrar'
     | '/esqueci-senha'
     | '/master'
+    | '/olvide-contrasena'
     | '/reset-senha'
+    | '/restablecer-contrasena'
     | '/trocar-senha'
     | '/agendar/$slug'
     | '/app/AIGrowth'
     | '/app/Agenda'
+    | '/app/Configuracion'
     | '/app/Configuracoes'
+    | '/app/CrecimientoIA'
     | '/app/Dashboard'
     | '/app/Equipe'
+    | '/app/Equipo'
     | '/app/Financeiro'
+    | '/app/Financiero'
+    | '/app/Informes'
     | '/app/Onboarding'
     | '/app/Orcamentos'
     | '/app/Pacientes'
+    | '/app/Presupuestos'
     | '/app/Procedimentos'
+    | '/app/Procedimientos'
+    | '/app/Profesionales'
     | '/app/Profissionais'
     | '/app/Relatorios'
     | '/app/Tratamentos'
+    | '/app/Tratamientos'
     | '/demo/AIGrowth'
     | '/demo/Agenda'
+    | '/demo/CrecimientoIA'
     | '/demo/Dashboard'
     | '/demo/Financeiro'
+    | '/demo/Financiero'
+    | '/demo/Informes'
     | '/demo/Orcamentos'
     | '/demo/Pacientes'
+    | '/demo/Presupuestos'
     | '/demo/Relatorios'
     | '/demo/Tratamentos'
+    | '/demo/Tratamientos'
+    | '/master/clinicasSuspendidas'
     | '/master/clinicasSuspensas'
+    | '/master/configuracion'
     | '/master/configuracoes'
     | '/master/listaClinicas'
     | '/master/novaClinica'
+    | '/master/nuevaClinica'
     | '/master/painel'
+    | '/master/panel'
     | '/api/public/hotmart-webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  CambiarContrasenaRoute: typeof CambiarContrasenaRoute
+  ClinicaSuspendidaRoute: typeof ClinicaSuspendidaRoute
   ClinicaSuspensaRoute: typeof ClinicaSuspensaRoute
   DemoRoute: typeof DemoRouteWithChildren
   EntrarRoute: typeof EntrarRoute
   EsqueciSenhaRoute: typeof EsqueciSenhaRoute
   MasterRoute: typeof MasterRouteWithChildren
+  OlvideContrasenaRoute: typeof OlvideContrasenaRoute
   ResetSenhaRoute: typeof ResetSenhaRoute
+  RestablecerContrasenaRoute: typeof RestablecerContrasenaRoute
   TrocarSenhaRoute: typeof TrocarSenhaRoute
   AgendarSlugRoute: typeof AgendarSlugRoute
   ApiPublicHotmartWebhookRoute: typeof ApiPublicHotmartWebhookRoute
@@ -494,11 +763,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrocarSenhaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/restablecer-contrasena': {
+      id: '/restablecer-contrasena'
+      path: '/restablecer-contrasena'
+      fullPath: '/restablecer-contrasena'
+      preLoaderRoute: typeof RestablecerContrasenaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reset-senha': {
       id: '/reset-senha'
       path: '/reset-senha'
       fullPath: '/reset-senha'
       preLoaderRoute: typeof ResetSenhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/olvide-contrasena': {
+      id: '/olvide-contrasena'
+      path: '/olvide-contrasena'
+      fullPath: '/olvide-contrasena'
+      preLoaderRoute: typeof OlvideContrasenaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/master': {
@@ -536,6 +819,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClinicaSuspensaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/clinica-suspendida': {
+      id: '/clinica-suspendida'
+      path: '/clinica-suspendida'
+      fullPath: '/clinica-suspendida'
+      preLoaderRoute: typeof ClinicaSuspendidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cambiar-contrasena': {
+      id: '/cambiar-contrasena'
+      path: '/cambiar-contrasena'
+      fullPath: '/cambiar-contrasena'
+      preLoaderRoute: typeof CambiarContrasenaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app': {
       id: '/app'
       path: '/app'
@@ -550,11 +847,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/master/panel': {
+      id: '/master/panel'
+      path: '/panel'
+      fullPath: '/master/panel'
+      preLoaderRoute: typeof MasterPanelRouteImport
+      parentRoute: typeof MasterRoute
+    }
     '/master/painel': {
       id: '/master/painel'
       path: '/painel'
       fullPath: '/master/painel'
       preLoaderRoute: typeof MasterPainelRouteImport
+      parentRoute: typeof MasterRoute
+    }
+    '/master/nuevaClinica': {
+      id: '/master/nuevaClinica'
+      path: '/nuevaClinica'
+      fullPath: '/master/nuevaClinica'
+      preLoaderRoute: typeof MasterNuevaClinicaRouteImport
       parentRoute: typeof MasterRoute
     }
     '/master/novaClinica': {
@@ -578,12 +889,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MasterConfiguracoesRouteImport
       parentRoute: typeof MasterRoute
     }
+    '/master/configuracion': {
+      id: '/master/configuracion'
+      path: '/configuracion'
+      fullPath: '/master/configuracion'
+      preLoaderRoute: typeof MasterConfiguracionRouteImport
+      parentRoute: typeof MasterRoute
+    }
     '/master/clinicasSuspensas': {
       id: '/master/clinicasSuspensas'
       path: '/clinicasSuspensas'
       fullPath: '/master/clinicasSuspensas'
       preLoaderRoute: typeof MasterClinicasSuspensasRouteImport
       parentRoute: typeof MasterRoute
+    }
+    '/master/clinicasSuspendidas': {
+      id: '/master/clinicasSuspendidas'
+      path: '/clinicasSuspendidas'
+      fullPath: '/master/clinicasSuspendidas'
+      preLoaderRoute: typeof MasterClinicasSuspendidasRouteImport
+      parentRoute: typeof MasterRoute
+    }
+    '/demo/Tratamientos': {
+      id: '/demo/Tratamientos'
+      path: '/Tratamientos'
+      fullPath: '/demo/Tratamientos'
+      preLoaderRoute: typeof DemoTratamientosRouteImport
+      parentRoute: typeof DemoRoute
     }
     '/demo/Tratamentos': {
       id: '/demo/Tratamentos'
@@ -597,6 +929,13 @@ declare module '@tanstack/react-router' {
       path: '/Relatorios'
       fullPath: '/demo/Relatorios'
       preLoaderRoute: typeof DemoRelatoriosRouteImport
+      parentRoute: typeof DemoRoute
+    }
+    '/demo/Presupuestos': {
+      id: '/demo/Presupuestos'
+      path: '/Presupuestos'
+      fullPath: '/demo/Presupuestos'
+      preLoaderRoute: typeof DemoPresupuestosRouteImport
       parentRoute: typeof DemoRoute
     }
     '/demo/Pacientes': {
@@ -613,6 +952,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoOrcamentosRouteImport
       parentRoute: typeof DemoRoute
     }
+    '/demo/Informes': {
+      id: '/demo/Informes'
+      path: '/Informes'
+      fullPath: '/demo/Informes'
+      preLoaderRoute: typeof DemoInformesRouteImport
+      parentRoute: typeof DemoRoute
+    }
+    '/demo/Financiero': {
+      id: '/demo/Financiero'
+      path: '/Financiero'
+      fullPath: '/demo/Financiero'
+      preLoaderRoute: typeof DemoFinancieroRouteImport
+      parentRoute: typeof DemoRoute
+    }
     '/demo/Financeiro': {
       id: '/demo/Financeiro'
       path: '/Financeiro'
@@ -625,6 +978,13 @@ declare module '@tanstack/react-router' {
       path: '/Dashboard'
       fullPath: '/demo/Dashboard'
       preLoaderRoute: typeof DemoDashboardRouteImport
+      parentRoute: typeof DemoRoute
+    }
+    '/demo/CrecimientoIA': {
+      id: '/demo/CrecimientoIA'
+      path: '/CrecimientoIA'
+      fullPath: '/demo/CrecimientoIA'
+      preLoaderRoute: typeof DemoCrecimientoIARouteImport
       parentRoute: typeof DemoRoute
     }
     '/demo/Agenda': {
@@ -640,6 +1000,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/demo/AIGrowth'
       preLoaderRoute: typeof DemoAIGrowthRouteImport
       parentRoute: typeof DemoRoute
+    }
+    '/app/Tratamientos': {
+      id: '/app/Tratamientos'
+      path: '/Tratamientos'
+      fullPath: '/app/Tratamientos'
+      preLoaderRoute: typeof AppTratamientosRouteImport
+      parentRoute: typeof AppRoute
     }
     '/app/Tratamentos': {
       id: '/app/Tratamentos'
@@ -662,11 +1029,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppProfissionaisRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/Profesionales': {
+      id: '/app/Profesionales'
+      path: '/Profesionales'
+      fullPath: '/app/Profesionales'
+      preLoaderRoute: typeof AppProfesionalesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Procedimientos': {
+      id: '/app/Procedimientos'
+      path: '/Procedimientos'
+      fullPath: '/app/Procedimientos'
+      preLoaderRoute: typeof AppProcedimientosRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/Procedimentos': {
       id: '/app/Procedimentos'
       path: '/Procedimentos'
       fullPath: '/app/Procedimentos'
       preLoaderRoute: typeof AppProcedimentosRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Presupuestos': {
+      id: '/app/Presupuestos'
+      path: '/Presupuestos'
+      fullPath: '/app/Presupuestos'
+      preLoaderRoute: typeof AppPresupuestosRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/Pacientes': {
@@ -690,11 +1078,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppOnboardingRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/Informes': {
+      id: '/app/Informes'
+      path: '/Informes'
+      fullPath: '/app/Informes'
+      preLoaderRoute: typeof AppInformesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Financiero': {
+      id: '/app/Financiero'
+      path: '/Financiero'
+      fullPath: '/app/Financiero'
+      preLoaderRoute: typeof AppFinancieroRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/Financeiro': {
       id: '/app/Financeiro'
       path: '/Financeiro'
       fullPath: '/app/Financeiro'
       preLoaderRoute: typeof AppFinanceiroRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Equipo': {
+      id: '/app/Equipo'
+      path: '/Equipo'
+      fullPath: '/app/Equipo'
+      preLoaderRoute: typeof AppEquipoRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/Equipe': {
@@ -711,11 +1120,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/CrecimientoIA': {
+      id: '/app/CrecimientoIA'
+      path: '/CrecimientoIA'
+      fullPath: '/app/CrecimientoIA'
+      preLoaderRoute: typeof AppCrecimientoIARouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/Configuracoes': {
       id: '/app/Configuracoes'
       path: '/Configuracoes'
       fullPath: '/app/Configuracoes'
       preLoaderRoute: typeof AppConfiguracoesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/Configuracion': {
+      id: '/app/Configuracion'
+      path: '/Configuracion'
+      fullPath: '/app/Configuracion'
+      preLoaderRoute: typeof AppConfiguracionRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/Agenda': {
@@ -752,33 +1175,51 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppAIGrowthRoute: typeof AppAIGrowthRoute
   AppAgendaRoute: typeof AppAgendaRoute
+  AppConfiguracionRoute: typeof AppConfiguracionRoute
   AppConfiguracoesRoute: typeof AppConfiguracoesRoute
+  AppCrecimientoIARoute: typeof AppCrecimientoIARoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppEquipeRoute: typeof AppEquipeRoute
+  AppEquipoRoute: typeof AppEquipoRoute
   AppFinanceiroRoute: typeof AppFinanceiroRoute
+  AppFinancieroRoute: typeof AppFinancieroRoute
+  AppInformesRoute: typeof AppInformesRoute
   AppOnboardingRoute: typeof AppOnboardingRoute
   AppOrcamentosRoute: typeof AppOrcamentosRoute
   AppPacientesRoute: typeof AppPacientesRoute
+  AppPresupuestosRoute: typeof AppPresupuestosRoute
   AppProcedimentosRoute: typeof AppProcedimentosRoute
+  AppProcedimientosRoute: typeof AppProcedimientosRoute
+  AppProfesionalesRoute: typeof AppProfesionalesRoute
   AppProfissionaisRoute: typeof AppProfissionaisRoute
   AppRelatoriosRoute: typeof AppRelatoriosRoute
   AppTratamentosRoute: typeof AppTratamentosRoute
+  AppTratamientosRoute: typeof AppTratamientosRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppAIGrowthRoute: AppAIGrowthRoute,
   AppAgendaRoute: AppAgendaRoute,
+  AppConfiguracionRoute: AppConfiguracionRoute,
   AppConfiguracoesRoute: AppConfiguracoesRoute,
+  AppCrecimientoIARoute: AppCrecimientoIARoute,
   AppDashboardRoute: AppDashboardRoute,
   AppEquipeRoute: AppEquipeRoute,
+  AppEquipoRoute: AppEquipoRoute,
   AppFinanceiroRoute: AppFinanceiroRoute,
+  AppFinancieroRoute: AppFinancieroRoute,
+  AppInformesRoute: AppInformesRoute,
   AppOnboardingRoute: AppOnboardingRoute,
   AppOrcamentosRoute: AppOrcamentosRoute,
   AppPacientesRoute: AppPacientesRoute,
+  AppPresupuestosRoute: AppPresupuestosRoute,
   AppProcedimentosRoute: AppProcedimentosRoute,
+  AppProcedimientosRoute: AppProcedimientosRoute,
+  AppProfesionalesRoute: AppProfesionalesRoute,
   AppProfissionaisRoute: AppProfissionaisRoute,
   AppRelatoriosRoute: AppRelatoriosRoute,
   AppTratamentosRoute: AppTratamentosRoute,
+  AppTratamientosRoute: AppTratamientosRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -786,41 +1227,59 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 interface DemoRouteChildren {
   DemoAIGrowthRoute: typeof DemoAIGrowthRoute
   DemoAgendaRoute: typeof DemoAgendaRoute
+  DemoCrecimientoIARoute: typeof DemoCrecimientoIARoute
   DemoDashboardRoute: typeof DemoDashboardRoute
   DemoFinanceiroRoute: typeof DemoFinanceiroRoute
+  DemoFinancieroRoute: typeof DemoFinancieroRoute
+  DemoInformesRoute: typeof DemoInformesRoute
   DemoOrcamentosRoute: typeof DemoOrcamentosRoute
   DemoPacientesRoute: typeof DemoPacientesRoute
+  DemoPresupuestosRoute: typeof DemoPresupuestosRoute
   DemoRelatoriosRoute: typeof DemoRelatoriosRoute
   DemoTratamentosRoute: typeof DemoTratamentosRoute
+  DemoTratamientosRoute: typeof DemoTratamientosRoute
 }
 
 const DemoRouteChildren: DemoRouteChildren = {
   DemoAIGrowthRoute: DemoAIGrowthRoute,
   DemoAgendaRoute: DemoAgendaRoute,
+  DemoCrecimientoIARoute: DemoCrecimientoIARoute,
   DemoDashboardRoute: DemoDashboardRoute,
   DemoFinanceiroRoute: DemoFinanceiroRoute,
+  DemoFinancieroRoute: DemoFinancieroRoute,
+  DemoInformesRoute: DemoInformesRoute,
   DemoOrcamentosRoute: DemoOrcamentosRoute,
   DemoPacientesRoute: DemoPacientesRoute,
+  DemoPresupuestosRoute: DemoPresupuestosRoute,
   DemoRelatoriosRoute: DemoRelatoriosRoute,
   DemoTratamentosRoute: DemoTratamentosRoute,
+  DemoTratamientosRoute: DemoTratamientosRoute,
 }
 
 const DemoRouteWithChildren = DemoRoute._addFileChildren(DemoRouteChildren)
 
 interface MasterRouteChildren {
+  MasterClinicasSuspendidasRoute: typeof MasterClinicasSuspendidasRoute
   MasterClinicasSuspensasRoute: typeof MasterClinicasSuspensasRoute
+  MasterConfiguracionRoute: typeof MasterConfiguracionRoute
   MasterConfiguracoesRoute: typeof MasterConfiguracoesRoute
   MasterListaClinicasRoute: typeof MasterListaClinicasRoute
   MasterNovaClinicaRoute: typeof MasterNovaClinicaRoute
+  MasterNuevaClinicaRoute: typeof MasterNuevaClinicaRoute
   MasterPainelRoute: typeof MasterPainelRoute
+  MasterPanelRoute: typeof MasterPanelRoute
 }
 
 const MasterRouteChildren: MasterRouteChildren = {
+  MasterClinicasSuspendidasRoute: MasterClinicasSuspendidasRoute,
   MasterClinicasSuspensasRoute: MasterClinicasSuspensasRoute,
+  MasterConfiguracionRoute: MasterConfiguracionRoute,
   MasterConfiguracoesRoute: MasterConfiguracoesRoute,
   MasterListaClinicasRoute: MasterListaClinicasRoute,
   MasterNovaClinicaRoute: MasterNovaClinicaRoute,
+  MasterNuevaClinicaRoute: MasterNuevaClinicaRoute,
   MasterPainelRoute: MasterPainelRoute,
+  MasterPanelRoute: MasterPanelRoute,
 }
 
 const MasterRouteWithChildren =
@@ -829,12 +1288,16 @@ const MasterRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  CambiarContrasenaRoute: CambiarContrasenaRoute,
+  ClinicaSuspendidaRoute: ClinicaSuspendidaRoute,
   ClinicaSuspensaRoute: ClinicaSuspensaRoute,
   DemoRoute: DemoRouteWithChildren,
   EntrarRoute: EntrarRoute,
   EsqueciSenhaRoute: EsqueciSenhaRoute,
   MasterRoute: MasterRouteWithChildren,
+  OlvideContrasenaRoute: OlvideContrasenaRoute,
   ResetSenhaRoute: ResetSenhaRoute,
+  RestablecerContrasenaRoute: RestablecerContrasenaRoute,
   TrocarSenhaRoute: TrocarSenhaRoute,
   AgendarSlugRoute: AgendarSlugRoute,
   ApiPublicHotmartWebhookRoute: ApiPublicHotmartWebhookRoute,
@@ -842,13 +1305,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

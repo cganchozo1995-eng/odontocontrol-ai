@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, CheckCircle2, Activity, ChevronLeft, ChevronRight, Clock, User, Stethoscope, Calendar } from "lucide-react";
-import { brl, initials } from "@/lib/format";
+import { money, initials } from "@/lib/format";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/agendar/$slug")({ component: Page });
@@ -147,7 +147,7 @@ function Page() {
                 {procs.map((p) => (
                   <button key={p.id} onClick={() => setSel({ ...sel, proc: p })} className={`text-left p-3 border rounded-lg hover:border-primary transition ${sel.proc?.id === p.id ? "border-primary bg-primary/5" : ""}`}>
                     <div className="font-medium text-sm">{p.nome}</div>
-                    <div className="text-xs text-muted-foreground flex justify-between mt-1"><span>{p.duracao_minutos}min</span><span className="font-semibold text-primary">{brl(p.valor)}</span></div>
+                    <div className="text-xs text-muted-foreground flex justify-between mt-1"><span>{p.duracao_minutos}min</span><span className="font-semibold text-primary">{money(p.valor)}</span></div>
                   </button>
                 ))}
                 {procs.length === 0 && <div className="col-span-full text-muted-foreground text-center py-6 text-sm">Ningún procedimiento disponible.</div>}
@@ -196,7 +196,7 @@ function Page() {
                   <div className="flex justify-between"><span className="text-muted-foreground">Procedimiento</span><span>{sel.proc?.nome}</span></div>
                   <div className="flex justify-between"><span className="text-muted-foreground">Profesional</span><span>{sel.prof?.nome}</span></div>
                   <div className="flex justify-between"><span className="text-muted-foreground">Fecha/Hora</span><span>{sel.data} {sel.hora}</span></div>
-                  <div className="flex justify-between font-semibold"><span>Valor</span><Badge className="bg-primary">{brl(sel.proc?.valor)}</Badge></div>
+                  <div className="flex justify-between font-semibold"><span>Valor</span><Badge className="bg-primary">{money(sel.proc?.valor)}</Badge></div>
                 </div>
               </div>
             )}

@@ -12,11 +12,11 @@ const items = [
   { to: "/demo/Dashboard",  label: "Tablero",   icon: LayoutDashboard },
   { to: "/demo/Agenda",     label: "Agenda",      icon: Calendar },
   { to: "/demo/Pacientes",  label: "Pacientes",   icon: Users },
-  { to: "/demo/Tratamentos",label: "Tratamientos", icon: ClipboardList },
-  { to: "/demo/Orcamentos", label: "Presupuestos",  icon: Receipt },
-  { to: "/demo/Financeiro", label: "Financiero",  icon: DollarSign },
-  { to: "/demo/Relatorios", label: "Informes",  icon: BarChart3 },
-  { to: "/demo/AIGrowth",   label: "AI Growth",   icon: Sparkles },
+  { to: "/demo/Tratamientos",label: "Tratamientos", icon: ClipboardList },
+  { to: "/demo/Presupuestos", label: "Presupuestos",  icon: Receipt },
+  { to: "/demo/Financiero", label: "Financiero",  icon: DollarSign },
+  { to: "/demo/Informes", label: "Informes",  icon: BarChart3 },
+  { to: "/demo/CrecimientoIA",   label: "AI Growth",   icon: Sparkles },
 ] as const;
 
 const extra = [

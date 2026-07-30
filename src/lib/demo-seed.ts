@@ -18,14 +18,14 @@ export const demoClinica = {
   plano: "profesional",
 };
 
-export const demoProfissionais = [
+export const demoProfesionales = [
   { id: "p1", nome: "Dra. Patricia Lima",  especialidade: "Ortodoncia",           cro_numero: "23456", cro_uf: "PICH", telefone: "+593 99 100 2001", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#0EA5E9" },
   { id: "p2", nome: "Dr. Ricardo Souza",   especialidade: "Implantología",         cro_numero: "34567", cro_uf: "PICH", telefone: "+593 99 100 2002", valor_consulta: 70, percentual_repasse: 55, ativo: true, cor: "#8B5CF6" },
   { id: "p3", nome: "Dra. Carla Méndez",   especialidade: "Endodoncia",            cro_numero: "45678", cro_uf: "PICH", telefone: "+593 99 100 2003", valor_consulta: 60, percentual_repasse: 50, ativo: true, cor: "#10B981" },
   { id: "p4", nome: "Dr. Marcos Silva",    especialidade: "Odontología General",   cro_numero: "56789", cro_uf: "PICH", telefone: "+593 99 100 2004", valor_consulta: 40, percentual_repasse: 45, ativo: true, cor: "#F59E0B" },
 ];
 
-export const demoProcedimentos = [
+export const demoProcedimientos = [
   { id: "pr1",  nome: "Evaluación inicial",         codigo_tuss: "99999014", valor: 25,   duracao_minutos: 30, categoria: "Cita" },
   { id: "pr2",  nome: "Limpieza profesional",       codigo_tuss: "99999001", valor: 40,   duracao_minutos: 45, categoria: "Prevención" },
   { id: "pr3",  nome: "Restauración de resina",     codigo_tuss: "99999002", valor: 70,   duracao_minutos: 60, categoria: "Odontología Estética" },
@@ -44,7 +44,7 @@ export const demoProcedimentos = [
 type Pac = {
   id: string; nome: string; cpf: string; telefone: string; email: string;
   convenio: string; data_nascimento: string;
-  status: "ativo" | "inativo" | "novo" | "retorno_pendente";
+  status: "activo" | "inactivo" | "nuevo" | "retorno_pendiente";
   tags: string[];
   ultima_consulta: string; dias_sem_consulta: number;
   total_consultas: number; valor_historico: number;
@@ -84,38 +84,38 @@ function build(i: number, status: Pac["status"], tags: string[], diasSem: number
 
 export const demoPacientes: Pac[] = [
   // 18 ativos
-  build(0,  "ativo", ["vip","recurrente"], 8,  24, 18400),
-  build(1,  "ativo", ["vip"], 12, 18, 22500),
-  build(2,  "ativo", ["recurrente"], 5, 32, 11800),
-  build(3,  "ativo", ["recurrente","revisión_pendiente"], 22, 14, 6800),
-  build(4,  "ativo", [], 18, 8, 4200),
-  build(5,  "ativo", ["vip","recurrente"], 9, 28, 16200),
-  build(6,  "ativo", ["recurrente"], 14, 22, 9400),
-  build(7,  "ativo", [], 26, 6, 2800),
-  build(8,  "ativo", ["recurrente"], 3, 19, 7800),
-  build(9,  "ativo", ["vip"], 11, 21, 19600),
-  build(10, "ativo", ["recurrente"], 17, 11, 5400),
-  build(11, "ativo", [], 28, 7, 3200),
-  build(12, "ativo", ["recurrente","revisión_pendiente"], 20, 13, 6100),
-  build(13, "ativo", ["vip","recurrente"], 7, 26, 14200),
-  build(14, "ativo", [], 24, 9, 4800),
-  build(15, "ativo", ["recurrente"], 16, 15, 6700),
-  build(16, "ativo", ["vip"], 13, 17, 11900),
-  build(17, "ativo", ["recurrente","revisión_pendiente"], 21, 12, 5600),
-  // 8 inativos (>60 dias)
-  build(18, "inativo", ["inativo","vip"], 68, 18, 12800),
-  build(19, "inativo", ["inativo"], 82, 9, 3400),
-  build(20, "inativo", ["inativo","tratamiento_pausado"], 95, 14, 9200),
-  build(21, "inativo", ["inativo","vip"], 75, 21, 15600),
-  build(22, "inativo", ["inativo"], 110, 6, 1800),
-  build(23, "inativo", ["inativo","tratamiento_pausado"], 88, 11, 7400),
-  build(24, "inativo", ["inativo"], 72, 8, 2900),
-  build(25, "inativo", ["inativo","vip"], 102, 16, 10200),
+  build(0,  "activo", ["vip","recurrente"], 8,  24, 18400),
+  build(1,  "activo", ["vip"], 12, 18, 22500),
+  build(2,  "activo", ["recurrente"], 5, 32, 11800),
+  build(3,  "activo", ["recurrente","revisión_pendiente"], 22, 14, 6800),
+  build(4,  "activo", [], 18, 8, 4200),
+  build(5,  "activo", ["vip","recurrente"], 9, 28, 16200),
+  build(6,  "activo", ["recurrente"], 14, 22, 9400),
+  build(7,  "activo", [], 26, 6, 2800),
+  build(8,  "activo", ["recurrente"], 3, 19, 7800),
+  build(9,  "activo", ["vip"], 11, 21, 19600),
+  build(10, "activo", ["recurrente"], 17, 11, 5400),
+  build(11, "activo", [], 28, 7, 3200),
+  build(12, "activo", ["recurrente","revisión_pendiente"], 20, 13, 6100),
+  build(13, "activo", ["vip","recurrente"], 7, 26, 14200),
+  build(14, "activo", [], 24, 9, 4800),
+  build(15, "activo", ["recurrente"], 16, 15, 6700),
+  build(16, "activo", ["vip"], 13, 17, 11900),
+  build(17, "activo", ["recurrente","revisión_pendiente"], 21, 12, 5600),
+  // 8 inactivos (>60 días)
+  build(18, "inactivo", ["inactivo","vip"], 68, 18, 12800),
+  build(19, "inactivo", ["inactivo"], 82, 9, 3400),
+  build(20, "inactivo", ["inactivo","tratamiento_pausado"], 95, 14, 9200),
+  build(21, "inactivo", ["inactivo","vip"], 75, 21, 15600),
+  build(22, "inactivo", ["inactivo"], 110, 6, 1800),
+  build(23, "inactivo", ["inactivo","tratamiento_pausado"], 88, 11, 7400),
+  build(24, "inactivo", ["inactivo"], 72, 8, 2900),
+  build(25, "inactivo", ["inactivo","vip"], 102, 16, 10200),
   // 4 novos
-  build(26, "novo", ["novo"], 2, 1, 150),
-  build(27, "novo", ["novo"], 5, 1, 150),
-  build(28, "novo", ["novo"], 1, 1, 150),
-  build(29, "novo", ["novo"], 7, 2, 480),
+  build(26, "nuevo", ["nuevo"], 2, 1, 150),
+  build(27, "nuevo", ["nuevo"], 5, 1, 150),
+  build(28, "nuevo", ["nuevo"], 1, 1, 150),
+  build(29, "nuevo", ["nuevo"], 7, 2, 480),
 ];
 
 // ===================== CONSULTAS DE HOJE (12) =====================
@@ -124,9 +124,9 @@ const PROCS_NM = ["Limpieza","Evaluación","Restauración","Endodoncia","Manteni
 const STATUS_HJ = ["concluida","concluida","concluida","en_atención","programada","confirmada","confirmada","programada","programada","ausente","programada","confirmada"];
 const HORAS_HJ  = ["08:00","08:30","09:00","09:30","10:00","10:30","11:00","13:30","14:00","14:30","16:00","17:30"];
 
-export const consultasHoje = HORAS_HJ.map((hora, i) => {
+export const citasHoy = HORAS_HJ.map((hora, i) => {
   const pac = demoPacientes[i];
-  const prof = demoProfissionais[i % 4];
+  const prof = demoProfesionales[i % 4];
   const proc = PROCS_NM[i % PROCS_NM.length];
   return {
     id: `ch${i}`, paciente_id: pac.id, paciente_nome: pac.nome,
@@ -140,10 +140,10 @@ export const consultasHoje = HORAS_HJ.map((hora, i) => {
 // Outras consultas (semana inteira + histórico)
 const STATUS_W = ["programada","confirmada","concluida","concluida","concluida","cancelada","ausente"];
 export const demoConsultas = [
-  ...consultasHoje,
+  ...citasHoy,
   ...Array.from({ length: 78 }).map((_, i) => {
     const pac = demoPacientes[i % demoPacientes.length];
-    const prof = demoProfissionais[i % 4];
+    const prof = demoProfesionales[i % 4];
     const offset = ((i % 21) - 14);
     const st = offset > 0 ? (i % 3 === 0 ? "confirmada" : "programada") : STATUS_W[i % STATUS_W.length];
     return {
@@ -166,9 +166,9 @@ const TIPOS_T = [
 ];
 const ST_T = ["en_curso","en_curso","en_curso","en_curso","pausado","iniciado","concluido"];
 
-export const demoTratamentos = Array.from({ length: 24 }).map((_, i) => {
+export const demoTratamientos = Array.from({ length: 24 }).map((_, i) => {
   const pac = demoPacientes[i % demoPacientes.length];
-  const prof = demoProfissionais[i % 4];
+  const prof = demoProfesionales[i % 4];
   const tipo = TIPOS_T[i % TIPOS_T.length];
   const status = ST_T[i % ST_T.length];
   const etapas = 4 + (i % 8);
@@ -190,12 +190,12 @@ export const demoTratamentos = Array.from({ length: 24 }).map((_, i) => {
 // ===================== ORÇAMENTOS (14) =====================
 const ST_ORC = ["aprobado","pendiente","pendiente","enviado","aprobado","rechazado","pendiente","aprobado","enviado","pendiente","pendiente","aprobado","rechazado","pendiente"];
 
-export const demoOrcamentos = Array.from({ length: 14 }).map((_, i) => {
+export const demoPresupuestos = Array.from({ length: 14 }).map((_, i) => {
   const pac = demoPacientes[i % demoPacientes.length];
-  const prof = demoProfissionais[i % 4];
-  const procs = [demoProcedimentos[(i + 2) % demoProcedimentos.length], demoProcedimentos[(i + 5) % demoProcedimentos.length], demoProcedimentos[(i + 7) % demoProcedimentos.length]].slice(0, 1 + (i % 3));
-  const itens = procs.map((p) => ({ nome: p.nome, valor: p.valor, qtd: 1 + (i % 2), descricao: p.categoria }));
-  const total = itens.reduce((a, it) => a + it.valor * it.qtd, 0);
+  const prof = demoProfesionales[i % 4];
+  const procs = [demoProcedimientos[(i + 2) % demoProcedimientos.length], demoProcedimientos[(i + 5) % demoProcedimientos.length], demoProcedimientos[(i + 7) % demoProcedimientos.length]].slice(0, 1 + (i % 3));
+  const itens = procs.map((p) => ({ nome: p.nome, valor: p.valor, cant: 1 + (i % 2), descricao: p.categoria }));
+  const total = itens.reduce((a, it) => a + it.valor * it.cant, 0);
   const desconto = i % 4 === 0 ? 10 : 0;
   const diasEnv = i * 3 + 1;
   return {
@@ -226,9 +226,9 @@ const CAT_DESP = [
   ["Energía", 184], ["Internet", 76], ["Limpieza", 96], ["Otros", 64],
 ] as const;
 
-export const demoFinanceiro = (() => {
+export const demoFinanzas = (() => {
   const lst: any[] = [];
-  // 60 receitas distribuídas no mês
+  // 60 ingresos distribuídas no mês
   for (let i = 0; i < 60; i++) {
     const [cat, min, max] = CAT_REC[i % CAT_REC.length];
     lst.push({
@@ -242,7 +242,7 @@ export const demoFinanceiro = (() => {
       status: i % 9 === 0 ? "pendiente" : i % 13 === 0 ? "atrasado" : "pagado",
     });
   }
-  // 25 despesas
+  // 25 egresos
   for (let i = 0; i < 25; i++) {
     const [c, v] = CAT_DESP[i % CAT_DESP.length];
     lst.push({
@@ -261,22 +261,22 @@ export const demoFinanceiro = (() => {
 
 // ===================== KPIs DEMO =====================
 export const DEMO_KPI = {
-  consultasHoje: 12,
-  consultasSemana: 78,
-  consultasMes: 287,
-  pacientesAtivos: 412,
-  pacientesInativos: 38,
-  revisoesPendentes: 18,
-  tratamentosAndamento: 24,
-  orcamentosPendentes: 14,
-  faturamentoMes: 9560,
-  aReceber: 3680,
-  recebidoMes: 5880,
-  despesasMes: 4480,
-  ticketMedio: 57,
-  taxaOcupacao: 0.82,
-  taxaCancelamento: 0.06,
-  taxaFaltasHoje: 0.16,
+  citasHoy: 12,
+  citasSemana: 78,
+  citasMes: 287,
+  pacientesActivos: 412,
+  pacientesInactivos: 38,
+  revisionesPendientes: 18,
+  tratamientosEnCurso: 24,
+  presupuestosPendientes: 14,
+  facturacionMes: 9560,
+  porCobrar: 3680,
+  recibidoMes: 5880,
+  gastosMes: 4480,
+  ticketPromedio: 57,
+  tasaOcupacion: 0.82,
+  tasaCancelacion: 0.06,
+  tasaAusenciasHoy: 0.16,
 };
 
 // ===================== ALERTAS DASHBOARD =====================
@@ -320,7 +320,7 @@ export const demoAIOportunidades = [
     titulo: "5 tratamientos pausados hace +30 días",
     desc: "Continúe los tratamientos y recupere ingresos detenidos.",
     impacto: 4800,
-    pacientes: demoTratamentos.filter((t) => t.status === "pausado").slice(0, 4).map((t) => ({
+    pacientes: demoTratamientos.filter((t) => t.status === "pausado").slice(0, 4).map((t) => ({
       nome: t.paciente_nome, telefone: "+593 99 000 0000", dias: 35, valor: t.valor_total,
     })),
     mensagem: "¡Hola [Nombre]! Nos gustaría dar continuidad a su tratamiento. Tenemos horarios disponibles esta semana, ¿puedo agendarle?",
@@ -332,7 +332,7 @@ export const demoAIOportunidades = [
     titulo: "6 presupuestos sin respuesta +14 días",
     desc: "El seguimiento genera un 32% de aprobación extra.",
     impacto: 2620,
-    pacientes: demoOrcamentos.filter((o) => o.status === "pendiente" && o.dias_desde_envio > 14).slice(0, 5).map((o) => ({
+    pacientes: demoPresupuestos.filter((o) => o.status === "pendiente" && o.dias_desde_envio > 14).slice(0, 5).map((o) => ({
       nome: o.paciente_nome, telefone: "+593 99 000 0000", dias: o.dias_desde_envio, valor: o.total_com_desconto,
     })),
     mensagem: "¡Hola [Nombre]! Pasamos para ver si quedó alguna duda sobre el presupuesto que presentamos. ¡Estamos a disposición para conversar y ofrecer condiciones especiales!",
@@ -364,21 +364,21 @@ export const demoHistorico = Array.from({ length: 30 }).map((_, i) => {
       "Receta de amoxicilina 500mg, 7 días.",
     ][i % 5],
     data: format(subDays(today, i * 4), "yyyy-MM-dd"),
-    profissional_nome: demoProfissionais[i % demoProfissionais.length].nome,
+    profissional_nome: demoProfesionales[i % demoProfesionales.length].nome,
   };
 });
 
 // Compat
 export const demoData = {
   clinica: demoClinica,
-  profissionais: demoProfissionais,
-  procedimentos: demoProcedimentos,
+  profesionales: demoProfesionales,
+  procedimientos: demoProcedimientos,
   pacientes: demoPacientes,
   consultas: demoConsultas,
-  consultasHoje,
-  tratamentos: demoTratamentos,
-  orcamentos: demoOrcamentos,
-  financeiro: demoFinanceiro,
+  citasHoy,
+  tratamientos: demoTratamientos,
+  presupuestos: demoPresupuestos,
+  finanzas: demoFinanzas,
   historico: demoHistorico,
   kpi: DEMO_KPI,
   alertas: DEMO_ALERTAS,
