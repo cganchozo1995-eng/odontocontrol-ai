@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/PageHeader";
-import { demoTratamentos } from "@/lib/demo-seed";
-import { brl, dateBR } from "@/lib/format";
+import { demoTratamientos } from "@/lib/demo-seed";
+import { money, fechaES } from "@/lib/format";
 import { Search, Play, Pause, Check, Eye, Activity } from "lucide-react";
 
 export const Route = createFileRoute("/demo/Tratamientos")({ component: Page });
@@ -23,7 +23,7 @@ const TR_MAP: Record<string, string> = {
   "Prótese Parcial": "Prótesis Parcial",
 };
 const ST: Record<string, { txt: string; cls: string }> = {
-  em_andamento: { txt: "En curso", cls: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+  en_curso: { txt: "En curso", cls: "bg-emerald-100 text-emerald-700 border-emerald-200" },
   pausado:      { txt: "Pausado",      cls: "bg-amber-100 text-amber-700 border-amber-200" },
   iniciado:     { txt: "Iniciado",     cls: "bg-sky-100 text-sky-700 border-sky-200" },
   concluido:    { txt: "Realizado",    cls: "bg-slate-100 text-slate-600 border-slate-200" },
@@ -33,23 +33,23 @@ function Page() {
   const [q, setQ] = useState("");
   const [filtro, setFiltro] = useState<string>("todos");
 
-  const rows = useMemo(() => demoTratamentos.filter((t) => {
+  const rows = useMemo(() => demoTratamientos.filter((t) => {
     if (filtro !== "todos" && t.status !== filtro) return false;
     if (q && !t.paciente_nome.toLowerCase().includes(q.toLowerCase()) && !t.descricao.toLowerCase().includes(q.toLowerCase())) return false;
     return true;
   }), [q, filtro]);
 
   const totals = {
-    todos:        demoTratamentos.length,
-    em_andamento: demoTratamentos.filter(t=>t.status==="em_andamento").length,
-    pausado:      demoTratamentos.filter(t=>t.status==="pausado").length,
-    iniciado:     demoTratamentos.filter(t=>t.status==="iniciado").length,
-    concluido:    demoTratamentos.filter(t=>t.status==="concluido").length,
+    todos:        demoTratamientos.length,
+    en_curso: demoTratamientos.filter(t=>t.status==="en_curso").length,
+    pausado:      demoTratamientos.filter(t=>t.status==="pausado").length,
+    iniciado:     demoTratamientos.filter(t=>t.status==="iniciado").length,
+    concluido:    demoTratamientos.filter(t=>t.status==="concluido").length,
   };
 
   return (
     <div className="space-y-5 animate-fade-in">
-      <PageHeader title="Tratamientos" description={`${demoTratamentos.length} planes de tratamiento activos`} />
+      <PageHeader title="Tratamientos" description={`${demoTratamientos.length} planes de tratamiento activos`} />
 
       <div className="flex flex-wrap items-center gap-3">
         <div className="relative flex-1 max-w-md">
@@ -57,7 +57,7 @@ function Page() {
           <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar paciente o tratamiento..." className="pl-9 bg-white" />
         </div>
         <div className="flex gap-1.5 flex-wrap">
-          {(["todos","em_andamento","pausado","iniciado","concluido"] as const).map((s) => (
+          {(["todos","en_curso","pausado","iniciado","concluido"] as const).map((s) => (
             <button
               key={s}
               onClick={() => setFiltro(s)}
@@ -99,11 +99,11 @@ function Page() {
                 <div className="mt-4 flex items-end justify-between">
                   <div>
                     <div className="text-xs text-muted-foreground">Valor estimado</div>
-                    <div className="text-xl font-extrabold text-primary">{brl(t.valor_total)}</div>
+                    <div className="text-xl font-extrabold text-primary">{money(t.valor_total)}</div>
                   </div>
                   <div className="text-right">
                     <div className="text-xs text-muted-foreground">Inicio</div>
-                    <div className="text-xs font-medium">{dateBR(t.data_inicio)}</div>
+                    <div className="text-xs font-medium">{fechaES(t.data_inicio)}</div>
                   </div>
                 </div>
 
@@ -119,7 +119,7 @@ function Page() {
                 </div>
 
                 <div className="mt-4 flex gap-1.5">
-                  {t.status === "em_andamento" && (<>
+                  {t.status === "en_curso" && (<>
                     <Button size="sm" variant="outline" className="flex-1"><Pause className="size-3.5 mr-1" />Pausar</Button>
                     <Button size="sm" className="flex-1 gradient-primary text-white"><Check className="size-3.5 mr-1" />Finalizar</Button>
                   </>)}

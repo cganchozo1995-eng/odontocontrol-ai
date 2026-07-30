@@ -81,11 +81,11 @@ function Page() {
     const rows = (data?.fin ?? []).filter((x: any) => monthKey(x.data) === key);
     const r = rows.filter((x: any) => isIngreso(x.tipo)).reduce((a: number, x: any) => a + Number(x.valor ?? 0), 0);
     const dsp = rows.filter((x: any) => isEgreso(x.tipo)).reduce((a: number, x: any) => a + Number(x.valor ?? 0), 0);
-    return { mes: format(d, "MM/yy"), receita: r, despesa: dsp, lucro: r - dsp };
+    return { mes: format(d, "MM/yy"), ingreso: r, egreso: dsp, ganancia: r - dsp };
   });
 
-  const hayFinanciero = meses.some((m) => m.receita > 0 || m.despesa > 0);
-  const hayLucro = meses.some((m) => m.lucro !== 0);
+  const hayFinanciero = meses.some((m) => m.ingreso > 0 || m.egreso > 0);
+  const hayLucro = meses.some((m) => m.ganancia !== 0);
 
   // Citas por estado — se agrupa dinámicamente por el valor real almacenado
   const consByStatus: Record<string, number> = {};
@@ -118,7 +118,7 @@ function Page() {
           <div className="h-64">{isLoading ? empty("Cargando…") : hayFinanciero ? (<ResponsiveContainer>
             <BarChart data={meses}>
               <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
-              <Legend /><Bar dataKey="receita" fill="#10B981" name="Ingreso" /><Bar dataKey="despesa" fill="#EF4444" name="Egreso" />
+              <Legend /><Bar dataKey="ingreso" fill="#10B981" name="Ingreso" /><Bar dataKey="egreso" fill="#EF4444" name="Egreso" />
             </BarChart>
           </ResponsiveContainer>) : empty()}</div>
         </CardContent></Card>
@@ -127,7 +127,7 @@ function Page() {
           <div className="h-64">{isLoading ? empty("Cargando…") : hayLucro ? (<ResponsiveContainer>
             <LineChart data={meses}>
               <XAxis dataKey="mes" /><YAxis /><Tooltip formatter={(v: any) => money(Number(v))} />
-              <Line type="monotone" dataKey="lucro" stroke="#06B6D4" strokeWidth={3} name="Ganancia" />
+              <Line type="monotone" dataKey="ganancia" stroke="#06B6D4" strokeWidth={3} name="Ganancia" />
             </LineChart>
           </ResponsiveContainer>) : empty()}</div>
         </CardContent></Card>

@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, UserMinus, ReceiptText, PauseCircle, TrendingDown, MessageCircle } from "lucide-react";
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 import { format, subDays } from "date-fns";
 
 export const Route = createFileRoute("/app/CrecimientoIA")({ component: Page });
@@ -65,7 +65,7 @@ function Page() {
       title: "Pacientes para reactivar",
       desc: "Sin cita desde hace más de 90 días. La campaña de retorno vía WhatsApp aumenta los ingresos recurrentes.",
       count: pacInativos.length,
-      impacto: `Potencial: ${brl(pacInativos.length * 180)}/mes`,
+      impacto: `Potencial: ${money(pacInativos.length * 180)}/mes`,
       preview: pacInativos.slice(0, 5).map((p: any) => p.nome),
       cta: { to: "/app/Pacientes", label: "Ver pacientes" },
     },
@@ -74,8 +74,8 @@ function Page() {
       title: "Presupuestos sin respuesta",
       desc: "Pendientes desde hace más de 7 días. El seguimiento rápido eleva la tasa de aprobación hasta en un 35%.",
       count: orcVelhos.length,
-      impacto: `Valor estancado: ${brl(orcVelhos.reduce((a: number, o: any) => a + Number(o.total_com_desconto ?? o.total ?? 0), 0))}`,
-      preview: orcVelhos.slice(0, 5).map((o: any) => `${o.paciente_nome} · ${brl(o.total_com_desconto ?? o.total)}`),
+      impacto: `Valor estancado: ${money(orcVelhos.reduce((a: number, o: any) => a + Number(o.total_com_desconto ?? o.total ?? 0), 0))}`,
+      preview: orcVelhos.slice(0, 5).map((o: any) => `${o.paciente_nome} · ${money(o.total_com_desconto ?? o.total)}`),
       cta: { to: "/app/Presupuestos", label: "Ver presupuestos" },
     },
     {
@@ -83,7 +83,7 @@ function Page() {
       title: "Tratamientos paralizados",
       desc: "En curso, pero sin actividad reciente. Retomarlos evita la pérdida del paciente a otra clínica.",
       count: tratParalisados.length,
-      impacto: `Ingresos en riesgo: ${brl(tratParalisados.reduce((a: number, t: any) => a + Number(t.valor_total ?? 0), 0))}`,
+      impacto: `Ingresos en riesgo: ${money(tratParalisados.reduce((a: number, t: any) => a + Number(t.valor_total ?? 0), 0))}`,
       preview: tratParalisados.slice(0, 5).map((t: any) => `${t.paciente_nome} · ${t.descricao}`),
       cta: { to: "/app/Tratamientos", label: "Ver tratamientos" },
     },
@@ -93,7 +93,7 @@ function Page() {
       desc: "Poco demandados en los últimos 90 días. Inclúyalos en un paquete o destáquelos en la recepción.",
       count: procsBaixaDemanda.length,
       impacto: "Aumente el ticket promedio con ventas cruzadas",
-      preview: procsBaixaDemanda.slice(0, 5).map((p: any) => `${p.nome} · ${brl(p.valor)}`),
+      preview: procsBaixaDemanda.slice(0, 5).map((p: any) => `${p.nome} · ${money(p.valor)}`),
       cta: { to: "/app/Procedimientos", label: "Ver procedimientos" },
     },
   ];
@@ -143,7 +143,7 @@ function Page() {
         <CardContent className="p-5 text-sm text-muted-foreground">
           <strong className="text-foreground">Cómo funciona:</strong> AI Growth analiza sus pacientes,
           citas, presupuestos y tratamientos para encontrar oportunidades de ingresos accionables.
-          Actualizado el {dateBR(new Date())}.
+          Actualizado el {fechaES(new Date())}.
         </CardContent>
       </Card>
     </>

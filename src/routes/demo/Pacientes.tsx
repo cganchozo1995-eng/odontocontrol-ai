@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/PageHeader";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { demoPacientes, demoHistorico, demoOrcamentos, demoTratamentos, demoFinanceiro } from "@/lib/demo-seed";
-import { brl, dateBR } from "@/lib/format";
+import { demoPacientes, demoHistorico, demoPresupuestos, demoTratamientos, demoFinanzas } from "@/lib/demo-seed";
+import { money, fechaES } from "@/lib/format";
 import { Plus, Search, Eye, Pencil, AlertCircle, Phone, Mail, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/demo/Pacientes")({ component: Page });
@@ -56,7 +56,7 @@ function Page() {
     <div className="space-y-5 animate-fade-in">
       <PageHeader
         title="Pacientes"
-        description={`${demoPacientes.length} registrados · ${demoPacientes.filter(p=>p.status==="ativo").length} activos · ${demoPacientes.filter(p=>p.status==="inativo").length} inactivos`}
+        description={`${demoPacientes.length} registrados · ${demoPacientes.filter(p=>p.status==="activo").length} activos · ${demoPacientes.filter(p=>p.status==="inactivo").length} inactivos`}
         actions={<Button className="gradient-primary text-white shadow-premium"><Plus className="size-4 mr-1.5" />Nuevo paciente</Button>}
       />
 
@@ -66,7 +66,7 @@ function Page() {
           <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar por nombre..." className="pl-9 bg-white" />
         </div>
         <div className="flex gap-1.5 flex-wrap">
-          {(["todos","ativo","inativo","novo","retorno_pendente"] as const).map((s) => (
+          {(["todos","activo","inactivo","novo","retorno_pendente"] as const).map((s) => (
             <button
               key={s}
               onClick={() => setFiltro(s)}
@@ -123,14 +123,14 @@ function Page() {
                       </div>
                     </td>
                     <td className="px-4 py-3">
-                      <div className="text-xs">{dateBR(p.ultima_consulta)}</div>
+                      <div className="text-xs">{fechaES(p.ultima_consulta)}</div>
                       <div className={`text-[10px] mt-0.5 flex items-center gap-1 ${p.dias_sem_consulta > 60 ? "text-red-600 font-semibold" : "text-muted-foreground"}`}>
                         {p.dias_sem_consulta > 60 && <AlertCircle className="size-3" />}
                         hace {p.dias_sem_consulta} días
                       </div>
                     </td>
                     <td className="px-4 py-3 text-right font-semibold">{p.total_consultas}</td>
-                    <td className="px-4 py-3 text-right font-bold text-emerald-600">{brl(p.valor_historico)}</td>
+                    <td className="px-4 py-3 text-right font-bold text-emerald-600">{money(p.valor_historico)}</td>
                     <td className="px-4 py-3 text-xs">{p.convenio}</td>
                     <td className="px-4 py-3 text-right">
                       <div className="flex justify-end gap-1">
@@ -158,9 +158,9 @@ function Page() {
 
 function FichaContent({ paciente }: { paciente: any }) {
   const histPac = demoHistorico.filter((h) => h.paciente_id === paciente.id);
-  const tratPac = demoTratamentos.filter((t: any) => t.paciente_id === paciente.id);
-  const orcPac  = demoOrcamentos.filter((o: any) => o.paciente_id === paciente.id);
-  const finPac  = demoFinanceiro.filter((f: any) => f.descricao?.includes(paciente.nome));
+  const tratPac = demoTratamientos.filter((t: any) => t.paciente_id === paciente.id);
+  const orcPac  = demoPresupuestos.filter((o: any) => o.paciente_id === paciente.id);
+  const finPac  = demoFinanzas.filter((f: any) => f.descricao?.includes(paciente.nome));
 
   return (
     <>
@@ -182,7 +182,7 @@ function FichaContent({ paciente }: { paciente: any }) {
       <div className="grid grid-cols-3 gap-3 my-5">
         <div className="rounded-lg bg-emerald-50 p-3 text-center">
           <div className="text-xs text-muted-foreground">Historial</div>
-          <div className="text-lg font-bold text-emerald-700">{brl(paciente.valor_historico)}</div>
+          <div className="text-lg font-bold text-emerald-700">{money(paciente.valor_historico)}</div>
         </div>
         <div className="rounded-lg bg-sky-50 p-3 text-center">
           <div className="text-xs text-muted-foreground">Citas</div>
@@ -206,7 +206,7 @@ function FichaContent({ paciente }: { paciente: any }) {
         <TabsContent value="geral" className="space-y-3 mt-4 text-sm">
           <Row k="CPF" v={paciente.cpf} />
           <Row k="Email" v={paciente.email} />
-          <Row k="Nascimento" v={dateBR(paciente.data_nascimento)} />
+          <Row k="Nascimento" v={fechaES(paciente.data_nascimento)} />
           <Row k="Convênio" v={paciente.convenio} />
           <Row k="Alergias" v={paciente.alergias?.length ? paciente.alergias.join(", ") : "—"} />
           <Row k="Medicamentos" v={paciente.medicamentos_uso?.length ? paciente.medicamentos_uso.join(", ") : "—"} />
@@ -217,7 +217,7 @@ function FichaContent({ paciente }: { paciente: any }) {
             <div key={h.id} className="p-3 border rounded-lg text-sm">
               <div className="flex items-center justify-between">
                 <span className="font-semibold">{h.tipo}</span>
-                <span className="text-xs text-muted-foreground">{dateBR(h.data)}</span>
+                <span className="text-xs text-muted-foreground">{fechaES(h.data)}</span>
               </div>
               <p className="text-xs text-muted-foreground mt-1">{h.descricao}</p>
             </div>
@@ -230,7 +230,7 @@ function FichaContent({ paciente }: { paciente: any }) {
                 <span className="font-semibold">{t.descricao}</span>
                 <Badge variant="outline">{t.status}</Badge>
               </div>
-              <div className="text-xs text-muted-foreground mt-1">{brl(t.valor_total)} · {t.etapas_concluidas}/{t.etapas_total} etapas</div>
+              <div className="text-xs text-muted-foreground mt-1">{money(t.valor_total)} · {t.etapas_concluidas}/{t.etapas_total} etapas</div>
             </div>
           ))}
         </TabsContent>
@@ -239,10 +239,10 @@ function FichaContent({ paciente }: { paciente: any }) {
             <div key={o.id} className="p-3 border rounded-lg text-sm flex items-center justify-between">
               <div>
                 <div className="font-semibold">{o.numero}</div>
-                <div className="text-xs text-muted-foreground">{dateBR(o.data)}</div>
+                <div className="text-xs text-muted-foreground">{fechaES(o.data)}</div>
               </div>
               <div className="text-right">
-                <div className="font-bold text-primary">{brl(o.total_com_desconto)}</div>
+                <div className="font-bold text-primary">{money(o.total_com_desconto)}</div>
                 <Badge variant="outline" className="text-[10px]">{o.status}</Badge>
               </div>
             </div>
@@ -253,9 +253,9 @@ function FichaContent({ paciente }: { paciente: any }) {
             <div key={f.id} className="p-3 border rounded-lg text-sm flex items-center justify-between">
               <div>
                 <div className="font-semibold">{f.descricao}</div>
-                <div className="text-xs text-muted-foreground">{dateBR(f.data)} · {f.categoria}</div>
+                <div className="text-xs text-muted-foreground">{fechaES(f.data)} · {f.categoria}</div>
               </div>
-              <div className={`font-bold ${f.tipo === "receita" ? "text-emerald-600" : "text-red-600"}`}>{brl(f.valor)}</div>
+              <div className={`font-bold ${f.tipo === "ingreso" ? "text-emerald-600" : "text-red-600"}`}>{money(f.valor)}</div>
             </div>
           ))}
         </TabsContent>

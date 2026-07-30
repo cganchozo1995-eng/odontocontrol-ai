@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/PageHeader";
 import { demoAIOportunidades } from "@/lib/demo-seed";
-import { brl } from "@/lib/format";
+import { money } from "@/lib/format";
 import {
   Users, RotateCcw, Activity, FileText, Clock, Sparkles, Copy, MessageCircle,
   Wand2, ChevronDown, Check,
@@ -55,7 +55,7 @@ function Page() {
           <div className="size-14 rounded-xl bg-white/20 flex items-center justify-center"><Sparkles className="size-7" /></div>
           <div className="flex-1 min-w-[240px]">
             <div className="text-xs font-semibold tracking-wider opacity-80">FACTURACIÓN POTENCIAL RECUPERABLE</div>
-            <div className="text-4xl font-extrabold mt-1">{brl(total)}</div>
+            <div className="text-4xl font-extrabold mt-1">{money(total)}</div>
             <p className="text-sm opacity-90 mt-1">Distribuida en {demoAIOportunidades.length} oportunidades accionables.</p>
           </div>
           <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90"
@@ -87,7 +87,7 @@ function Page() {
                   </div>
                   <div className="text-right">
                     <div className="text-xs text-muted-foreground">Impacto estimado</div>
-                    <div className="text-lg font-extrabold text-emerald-600">+{brl(o.impacto)}</div>
+                    <div className="text-lg font-extrabold text-emerald-600">+{money(o.impacto)}</div>
                   </div>
                   <ChevronDown className={`size-5 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`} />
                 </button>
@@ -109,7 +109,7 @@ function Page() {
                                 <div className="font-semibold text-sm truncate">{p.nome}</div>
                                 <div className="text-xs text-muted-foreground">{p.telefone} · hace {p.dias} días</div>
                               </div>
-                              <div className="text-xs font-bold text-emerald-600">{brl(p.valor)}</div>
+                              <div className="text-xs font-bold text-emerald-600">{money(p.valor)}</div>
                             </div>
                           ))}
                         </div>

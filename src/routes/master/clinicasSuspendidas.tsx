@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { DataTable } from "@/components/DataTable";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { dateBR } from "@/lib/format";
+import { fechaES } from "@/lib/format";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/master/clinicasSuspendidas")({ component: Page });
@@ -33,7 +33,7 @@ function Page() {
           { key: "nome", header: "Nombre" },
           { key: "owner_email", header: "Owner" },
           { key: "status_cobranca", header: "Status", render: (r: any) => <Badge variant="destructive">{r.status_cobranca}</Badge> },
-          { key: "updated_at", header: "Desde", render: (r: any) => dateBR(r.updated_at) },
+          { key: "updated_at", header: "Desde", render: (r: any) => fechaES(r.updated_at) },
           { key: "_a", header: "", className: "w-32 text-right", render: (r: any) => (
             <Button size="sm" onClick={() => reativar(r.id)}>Reactivar</Button>
           )},

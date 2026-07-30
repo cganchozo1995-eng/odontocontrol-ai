@@ -58,14 +58,14 @@ export function useMoney() {
   return (n: number | null | undefined) => formatMoney(n, currency);
 }
 
-// Compatibilidad: `brl`/`usd` conservan la firma antigua pero usan USD por defecto.
-export const brl = (n: number | null | undefined) => formatMoney(n, "USD");
-export const usd = brl;
+// Compatibilidad: `money`/`usd` conservan la firma antigua pero usan USD por defecto.
+export const money = (n: number | null | undefined) => formatMoney(n, "USD");
+export const usd = money;
 
-export const dateBR = (d: string | Date | null | undefined, fmt = "dd/MM/yyyy") =>
+export const fechaES = (d: string | Date | null | undefined, fmt = "dd/MM/yyyy") =>
   d ? format(new Date(d), fmt, { locale: es }) : "—";
 
-export const dateTimeBR = (d: string | Date | null | undefined) =>
+export const fechaHoraES = (d: string | Date | null | undefined) =>
   d ? format(new Date(d), "dd/MM/yyyy 'a las' HH:mm", { locale: es }) : "—";
 
 export const initials = (s?: string | null) =>

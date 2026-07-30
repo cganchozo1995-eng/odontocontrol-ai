@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Pencil, Trash2, Search, Clock } from "lucide-react";
-import { brl } from "@/lib/format";
+import { money } from "@/lib/format";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Procedimientos")({ component: Page });
@@ -85,7 +85,7 @@ function Page() {
               {r.descricao && <p className="text-xs text-muted-foreground line-clamp-2">{r.descricao}</p>}
               <div className="flex justify-between items-end pt-2 border-t">
                 <div className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="size-3" />{r.duracao_minutos}min</div>
-                <div className="text-lg font-bold text-primary">{brl(r.valor)}</div>
+                <div className="text-lg font-bold text-primary">{money(r.valor)}</div>
               </div>
               <div className="flex gap-1 justify-end">
                 <Button size="icon" variant="ghost" onClick={() => { setEdit(r); setOpen(true); }}><Pencil className="size-4" /></Button>

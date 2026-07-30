@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/PageHeader";
-import { DEMO_KPI, demoProfissionais } from "@/lib/demo-seed";
-import { brl } from "@/lib/format";
+import { DEMO_KPI, demoProfesionales } from "@/lib/demo-seed";
+import { money } from "@/lib/format";
 import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Tooltip,
   ResponsiveContainer, Legend, CartesianGrid,
@@ -19,10 +19,10 @@ function Page() {
   const meses = ["Jul","Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar","Abr","May","Jun"];
   const fat12 = meses.map((m, i) => ({ mes: m, valor: 28000 + i * 1800 + Math.round(Math.sin(i) * 5000) + 8000 }));
 
-  const profCons = demoProfissionais.map((p, i) => ({
+  const profCons = demoProfesionales.map((p, i) => ({
     nome: p.nome.split(" ").slice(-1)[0],
     consultas: 95 - i * 18,
-    faturamento: 28000 - i * 4200,
+    facturacion: 28000 - i * 4200,
   }));
 
   const procTop = [
@@ -40,8 +40,8 @@ function Page() {
     { name: "Canceladas", value: 8 },
   ];
 
-  const ranking = demoProfissionais.map((p, i) => ({
-    ...p, consultas: 95 - i * 18, ticket: 286 - i * 22, faturamento: 28000 - i * 4200, comissao: (28000 - i * 4200) * (p.percentual_repasse / 100),
+  const ranking = demoProfesionales.map((p, i) => ({
+    ...p, consultas: 95 - i * 18, ticket: 286 - i * 22, facturacion: 28000 - i * 4200, comision: (28000 - i * 4200) * (p.percentual_repasse / 100),
   }));
 
   return (
@@ -53,10 +53,10 @@ function Page() {
       />
 
       <div className="grid md:grid-cols-4 gap-3">
-        <Kpi label="Facturación 12m" value={brl(fat12.reduce((a,r)=>a+r.valor,0))} icon={DollarSign} color="text-emerald-500 bg-emerald-50" />
+        <Kpi label="Facturación 12m" value={money(fat12.reduce((a,r)=>a+r.valor,0))} icon={DollarSign} color="text-emerald-500 bg-emerald-50" />
         <Kpi label="Citas en el período" value="287" icon={Calendar} color="text-sky-500 bg-sky-50" />
-        <Kpi label="Pacientes ativos" value={DEMO_KPI.pacientesAtivos} icon={Users} color="text-violet-500 bg-violet-50" />
-        <Kpi label="Ticket promedio" value={brl(DEMO_KPI.ticketMedio)} icon={TrendingUp} color="text-amber-500 bg-amber-50" />
+        <Kpi label="Pacientes ativos" value={DEMO_KPI.pacientesActivos} icon={Users} color="text-violet-500 bg-violet-50" />
+        <Kpi label="Ticket promedio" value={money(DEMO_KPI.ticketPromedio)} icon={TrendingUp} color="text-amber-500 bg-amber-50" />
       </div>
 
       <Card className="border-0 shadow-card">
@@ -68,7 +68,7 @@ function Page() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                 <XAxis dataKey="mes" stroke="#94a3b8" fontSize={11} />
                 <YAxis stroke="#94a3b8" fontSize={11} />
-                <Tooltip formatter={(v: any) => brl(Number(v))} contentStyle={{ borderRadius: 8 }} />
+                <Tooltip formatter={(v: any) => money(Number(v))} contentStyle={{ borderRadius: 8 }} />
                 <Line type="monotone" dataKey="valor" name="Facturación" stroke="#0EA5E9" strokeWidth={3} dot={{ r: 4, fill: "#0EA5E9" }} />
               </LineChart>
             </ResponsiveContainer>
@@ -134,8 +134,8 @@ function Page() {
                 <BarChart data={profCons} layout="vertical">
                   <XAxis type="number" stroke="#94a3b8" fontSize={11} />
                   <YAxis dataKey="nome" type="category" stroke="#94a3b8" fontSize={11} width={80} />
-                  <Tooltip formatter={(v: any) => brl(Number(v))} />
-                  <Bar dataKey="faturamento" name="Facturación" fill="#10B981" radius={[0, 6, 6, 0]} />
+                  <Tooltip formatter={(v: any) => money(Number(v))} />
+                  <Bar dataKey="facturacion" name="Facturación" fill="#10B981" radius={[0, 6, 6, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -166,9 +166,9 @@ function Page() {
                     <td className="px-4 py-3 font-semibold">{r.nome}</td>
                     <td className="px-4 py-3"><Badge variant="outline">{r.especialidade}</Badge></td>
                     <td className="px-4 py-3 text-right">{r.consultas}</td>
-                    <td className="px-4 py-3 text-right">{brl(r.ticket)}</td>
-                    <td className="px-4 py-3 text-right font-bold text-emerald-600">{brl(r.faturamento)}</td>
-                    <td className="px-4 py-3 text-right font-bold text-primary">{brl(r.comissao)}</td>
+                    <td className="px-4 py-3 text-right">{money(r.ticket)}</td>
+                    <td className="px-4 py-3 text-right font-bold text-emerald-600">{money(r.facturacion)}</td>
+                    <td className="px-4 py-3 text-right font-bold text-primary">{money(r.comision)}</td>
                   </tr>
                 ))}
               </tbody>

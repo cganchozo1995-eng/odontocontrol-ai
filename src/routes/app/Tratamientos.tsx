@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Plus, Pencil, Trash2, Activity, Stethoscope } from "lucide-react";
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Tratamientos")({ component: Page });
@@ -118,8 +118,8 @@ function Page() {
                   </div>
                 )}
                 <div className="flex justify-between items-center pt-2 border-t text-sm">
-                  <div><span className="text-muted-foreground text-xs">Valor</span><div className="font-semibold">{brl(r.valor_total)}</div></div>
-                  <div className="text-xs text-muted-foreground text-right"><div>{dateBR(r.data_inicio)}</div><div>→ {dateBR(r.data_conclusao)}</div></div>
+                  <div><span className="text-muted-foreground text-xs">Valor</span><div className="font-semibold">{money(r.valor_total)}</div></div>
+                  <div className="text-xs text-muted-foreground text-right"><div>{fechaES(r.data_inicio)}</div><div>→ {fechaES(r.data_conclusao)}</div></div>
                 </div>
                 <div className="flex gap-1 justify-end">
                   {r.status !== "concluido" && r.status !== "cancelado" && <Button size="sm" variant="outline" onClick={() => advance(r)}><Activity className="size-3 mr-1" />Avanzar</Button>}

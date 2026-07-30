@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PageHeader } from "@/components/PageHeader";
-import { demoConsultas, demoProfissionais } from "@/lib/demo-seed";
+import { demoConsultas, demoProfesionales } from "@/lib/demo-seed";
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import { format, addDays, subDays, startOfWeek, isSameDay } from "date-fns";
 import { es } from "date-fns/locale";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/demo/Agenda")({ component: Page });
 
 const HORAS = Array.from({ length: 13 }).map((_, i) => `${String(7 + i).padStart(2, "0")}:00`);
 const PROF_COLOR: Record<string, string> = {};
-demoProfissionais.forEach((p) => (PROF_COLOR[p.id] = p.cor));
+demoProfesionales.forEach((p) => (PROF_COLOR[p.id] = p.cor));
 
 const STATUS_LABELS: Record<string, string> = {
   agendada:   "programada",
@@ -59,7 +59,7 @@ function Page() {
         </div>
         <div className="flex gap-1.5 flex-wrap">
           <button onClick={() => setProf("all")} className={`px-3 py-1.5 text-xs font-medium rounded-md border ${prof === "all" ? "gradient-primary text-white border-transparent" : "bg-white"}`}>Todos</button>
-          {demoProfissionais.map((p) => (
+          {demoProfesionales.map((p) => (
             <button key={p.id} onClick={() => setProf(p.id)}
               className={`px-3 py-1.5 text-xs font-medium rounded-md border flex items-center gap-2 ${prof === p.id ? "gradient-primary text-white border-transparent" : "bg-white"}`}>
               <span className="size-2 rounded-full" style={{ background: p.cor }}></span>

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { BookingLinkCard } from "@/components/booking-link-card";
@@ -88,8 +88,8 @@ function Page() {
             <div className="grid grid-cols-2 gap-4 text-sm">
               <Info l="Plan actual" v={<Badge>{clinica?.plano}</Badge>} />
               <Info l="Estado de cobranza" v={<Badge variant={clinica?.status_cobranca === "ativo" ? "default" : "destructive"}>{clinica?.status_cobranca}</Badge>} />
-              <Info l="Valor mensual" v={brl(clinica?.valor_mensal ?? 0)} />
-              <Info l="Prueba hasta" v={dateBR(clinica?.trial_ate)} />
+              <Info l="Valor mensual" v={money(clinica?.valor_mensal ?? 0)} />
+              <Info l="Prueba hasta" v={fechaES(clinica?.trial_ate)} />
             </div>
             <p className="text-sm text-muted-foreground">Para cambiar el plan o el método de pago, póngase en contacto con el soporte.</p>
           </CardContent></Card>

@@ -9,7 +9,7 @@ import { OrcamentoSheet } from "@/components/OrcamentoSheet";
 import { Button } from "@/components/ui/button";
 import { Plus, Eye, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/Presupuestos")({ component: Page });
@@ -53,9 +53,9 @@ function Page() {
         columns={[
           { key: "numero", header: "Nº" },
           { key: "paciente_nome", header: "Paciente" },
-          { key: "data", header: "Fecha", render: (r: any) => dateBR(r.data) },
-          { key: "validade", header: "Validez", render: (r: any) => dateBR(r.validade) },
-          { key: "total_com_desconto", header: "Total", render: (r: any) => brl(r.total_com_desconto ?? r.total) },
+          { key: "data", header: "Fecha", render: (r: any) => fechaES(r.data) },
+          { key: "validade", header: "Validez", render: (r: any) => fechaES(r.validade) },
+          { key: "total_com_desconto", header: "Total", render: (r: any) => money(r.total_com_desconto ?? r.total) },
           { key: "parcelas", header: "Cuotas", render: (r: any) => `${r.parcelas}x` },
           { key: "status", header: "Estado", render: (r: any) => <Badge>{r.status}</Badge> },
           { key: "_a", header: "", className: "w-24 text-right", render: (r: any) => (

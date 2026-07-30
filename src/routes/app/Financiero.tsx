@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CrudPage } from "@/components/CrudPage";
 import { Badge } from "@/components/ui/badge";
-import { useMoney, dateBR } from "@/lib/format";
+import { useMoney, fechaES } from "@/lib/format";
 
 export const Route = createFileRoute("/app/Financiero")({ component: Page });
 
@@ -24,7 +24,7 @@ function Page() {
       searchKeys={["descricao", "categoria"] as any}
       defaults={{ tipo: "ingreso", status: "pago", data: new Date().toISOString().slice(0, 10), total_parcelas: 1, parcela_atual: 1 }}
       columns={[
-        { key: "data", header: "Fecha", render: (r: any) => dateBR(r.data) },
+        { key: "data", header: "Fecha", render: (r: any) => fechaES(r.data) },
         { key: "descricao", header: "Descripción" },
         { key: "categoria", header: "Categoría" },
         { key: "tipo", header: "Tipo", render: (r: any) => <Badge variant={r.tipo === "ingreso" ? "default" : "destructive"}>{r.tipo === "ingreso" ? "Ingreso" : "Egreso"}</Badge> },

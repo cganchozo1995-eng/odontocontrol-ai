@@ -1,5 +1,5 @@
 // Layout de impressão A4 para orçamento, usado com window.print()
-import { brl, dateBR } from "@/lib/format";
+import { money, fechaES } from "@/lib/format";
 
 export type OrcamentoPdfData = {
   clinica?: { nome?: string; cnpj?: string | null; telefone?: string | null; email?: string | null };
@@ -24,8 +24,8 @@ export function OrcamentoPdf({ data }: { data: OrcamentoPdfData }) {
         <div className="text-right">
           <div className="text-sm font-semibold">PRESUPUESTO</div>
           <div className="text-xs">Nº {o.numero ?? "—"}</div>
-          <div className="text-xs">Fecha: {dateBR(o.data)}</div>
-          <div className="text-xs">Validez: {dateBR(o.validade)}</div>
+          <div className="text-xs">Fecha: {fechaES(o.data)}</div>
+          <div className="text-xs">Validez: {fechaES(o.validade)}</div>
         </div>
       </header>
 
@@ -49,18 +49,18 @@ export function OrcamentoPdf({ data }: { data: OrcamentoPdfData }) {
             <tr key={i} className="border-b">
               <td className="py-2">{it.nome ?? it.descricao}</td>
               <td className="text-right">{it.qtd ?? 1}</td>
-              <td className="text-right">{brl(it.valor)}</td>
-              <td className="text-right">{brl((it.valor ?? 0) * (it.qtd ?? 1))}</td>
+              <td className="text-right">{money(it.valor)}</td>
+              <td className="text-right">{money((it.valor ?? 0) * (it.qtd ?? 1))}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
       <div className="ml-auto w-64 text-sm space-y-1">
-        <Row k="Total" v={brl(o.total)} />
-        {Number(o.desconto_pct) > 0 && <Row k={`Descuento (${o.desconto_pct}%)`} v={`- ${brl(Number(o.total) - Number(o.total_com_desconto ?? o.total))}`} />}
-        <Row k="Total final" v={brl(o.total_com_desconto ?? o.total)} bold />
-        <Row k="Cuotas" v={`${o.parcelas}x de ${brl(Number(o.total_com_desconto ?? o.total) / Math.max(1, o.parcelas))}`} />
+        <Row k="Total" v={money(o.total)} />
+        {Number(o.desconto_pct) > 0 && <Row k={`Descuento (${o.desconto_pct}%)`} v={`- ${money(Number(o.total) - Number(o.total_com_desconto ?? o.total))}`} />}
+        <Row k="Total final" v={money(o.total_com_desconto ?? o.total)} bold />
+        <Row k="Cuotas" v={`${o.parcelas}x de ${money(Number(o.total_com_desconto ?? o.total) / Math.max(1, o.parcelas))}`} />
       </div>
 
       {o.observacoes && <div className="mt-6 text-sm"><div className="font-medium">Observaciones</div><div className="text-gray-700">{o.observacoes}</div></div>}

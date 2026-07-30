@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/PageHeader";
-import { demoOrcamentos } from "@/lib/demo-seed";
-import { brl, dateBR } from "@/lib/format";
+import { demoPresupuestos } from "@/lib/demo-seed";
+import { money, fechaES } from "@/lib/format";
 import { ChevronDown, Search, Check, X, Send, AlertCircle, FileText } from "lucide-react";
 import { toast } from "sonner";
 
@@ -24,7 +24,7 @@ function Page() {
   const [q, setQ] = useState("");
   const [filtro, setFiltro] = useState<string>("todos");
 
-  const rows = useMemo(() => demoOrcamentos.filter((o) => {
+  const rows = useMemo(() => demoPresupuestos.filter((o) => {
     if (filtro !== "todos" && o.status !== filtro) return false;
     if (q && !o.paciente_nome.toLowerCase().includes(q.toLowerCase()) && !o.numero.toLowerCase().includes(q.toLowerCase())) return false;
     return true;
@@ -34,7 +34,7 @@ function Page() {
     <div className="space-y-5 animate-fade-in">
       <PageHeader
         title="Presupuestos"
-        description={`${demoOrcamentos.length} presupuestos · ${demoOrcamentos.filter(o=>o.status==="pendente").length} esperando respuesta`}
+        description={`${demoPresupuestos.length} presupuestos · ${demoPresupuestos.filter(o=>o.status==="pendiente").length} esperando respuesta`}
         actions={<Button className="gradient-primary text-white shadow-premium"><FileText className="size-4 mr-1.5" />Nuevo presupuesto</Button>}
       />
 
@@ -44,7 +44,7 @@ function Page() {
           <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar paciente o número..." className="pl-9 bg-white" />
         </div>
         <div className="flex gap-1.5 flex-wrap">
-          {(["todos","pendente","enviado","aprovado","recusado"] as const).map((s) => (
+          {(["todos","pendiente","enviado","aprobado","rechazado"] as const).map((s) => (
             <button
               key={s}
               onClick={() => setFiltro(s)}
@@ -62,7 +62,7 @@ function Page() {
         {rows.map((o) => {
           const st = ST[o.status];
           const isOpen = open === o.id;
-          const stale = o.dias_desde_envio > 14 && o.status !== "aprovado" && o.status !== "recusado";
+          const stale = o.dias_desde_envio > 14 && o.status !== "aprobado" && o.status !== "rechazado";
           return (
             <Card key={o.id} className="border-0 shadow-card">
               <CardContent className="p-0">
@@ -76,11 +76,11 @@ function Page() {
                       <Badge variant="outline" className="text-[10px] font-mono">{o.numero}</Badge>
                     </div>
                     <div className="text-xs text-muted-foreground mt-0.5">
-                      Enviado el {dateBR(o.data)} · {o.parcelas}x · {o.profissional_nome}
+                      Enviado el {fechaES(o.data)} · {o.parcelas}x · {o.profissional_nome}
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-extrabold text-primary">{brl(o.total_com_desconto)}</div>
+                    <div className="text-xl font-extrabold text-primary">{money(o.total_com_desconto)}</div>
                     <div className={`text-[10px] mt-0.5 flex items-center justify-end gap-1 ${stale ? "text-red-600 font-bold" : "text-muted-foreground"}`}>
                       {stale && <AlertCircle className="size-3" />}
                       hace {o.dias_desde_envio}d
@@ -100,14 +100,14 @@ function Page() {
                             <div className="font-semibold text-sm">{it.nome}</div>
                             <div className="text-xs text-muted-foreground">{it.descricao} · cant {it.cant}</div>
                           </div>
-                          <div className="font-bold">{brl(it.valor * it.cant)}</div>
+                          <div className="font-bold">{money(it.valor * it.cant)}</div>
                         </div>
                       ))}
                     </div>
                     <div className="mt-3 p-3 bg-white rounded-lg border flex justify-between items-center">
                       <div>
                         <div className="text-xs text-muted-foreground">Total con descuento ({o.desconto_pct}%)</div>
-                        <div className="text-2xl font-extrabold text-primary">{brl(o.total_com_desconto)}</div>
+                        <div className="text-2xl font-extrabold text-primary">{money(o.total_com_desconto)}</div>
                       </div>
                       <div className="text-xs text-muted-foreground">{o.observacoes}</div>
                     </div>

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { PageHeader } from "@/components/PageHeader";
 import { KpiCard } from "@/components/KpiCard";
 import { Card, CardContent } from "@/components/ui/card";
-import { brl } from "@/lib/format";
+import { money } from "@/lib/format";
 import { Building2, DollarSign, AlertOctagon, TrendingUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
@@ -35,13 +35,13 @@ function Page() {
         <KpiCard label="Clínicas" value={total} icon={<Building2 className="size-4" />} />
         <KpiCard label="Activas" value={ativas} icon={<TrendingUp className="size-4" />} />
         <KpiCard label="Suspendidas" value={suspensas} icon={<AlertOctagon className="size-4" />} />
-        <KpiCard label="MRR" value={brl(mrr)} icon={<DollarSign className="size-4" />} />
+        <KpiCard label="MRR" value={money(mrr)} icon={<DollarSign className="size-4" />} />
       </div>
       <Card className="mt-6"><CardContent className="p-5">
         <h3 className="font-semibold mb-4">MRR por plan</h3>
         <div className="h-72"><ResponsiveContainer>
           <BarChart data={porPlano}>
-            <XAxis dataKey="plano" /><YAxis /><Tooltip formatter={(v: any, k: any) => k === "mrr" ? brl(Number(v)) : v} /><Legend />
+            <XAxis dataKey="plano" /><YAxis /><Tooltip formatter={(v: any, k: any) => k === "mrr" ? money(Number(v)) : v} /><Legend />
             <Bar dataKey="clinicas" fill="#06B6D4" name="Clínicas" />
             <Bar dataKey="mrr" fill="#10B981" name="MRR" />
           </BarChart>

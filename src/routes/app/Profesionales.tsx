@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Plus, Mail, Phone, IdCard, Pencil, Trash2, CalendarDays } from "lucide-react";
-import { brl, initials } from "@/lib/format";
+import { money, initials } from "@/lib/format";
 import { addDays, format, startOfWeek } from "date-fns";
 import { es } from "date-fns/locale";
 import { toast } from "sonner";
@@ -109,7 +109,7 @@ function Page() {
                 <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t">
                   <Kpi label="Semana" value={meus.length} />
                   <Kpi label="Realizadas" value={realizadas} />
-                  <Kpi label="Facturado" value={brl(fat)} />
+                  <Kpi label="Facturado" value={money(fat)} />
                 </div>
                 <div>
                   <div className="text-xs font-medium text-muted-foreground mb-1 flex items-center gap-1"><CalendarDays className="size-3" />Semana</div>

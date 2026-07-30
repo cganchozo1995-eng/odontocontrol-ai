@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { KpiCard } from "@/components/KpiCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useMoney, dateBR } from "@/lib/format";
+import { useMoney, fechaES } from "@/lib/format";
 import {
   Calendar, Users, DollarSign, TrendingUp, Receipt, ClipboardList,
   AlertTriangle, Repeat, Activity, FileWarning,
@@ -58,11 +58,11 @@ function Page() {
   const consSemana = consultas.filter((c: any) => c.data >= weekStart && c.data <= weekEnd);
   const consMes = consultas.filter((c: any) => c.data >= monthStart && c.data <= monthEnd);
   const finMes = (data?.fin ?? []).filter((f: any) => f.data >= monthStart && f.data <= monthEnd);
-  const receitaMes = finMes
+  const ingresoMes = finMes
     .filter((f: any) => f.tipo === "ingreso" && f.status !== "cancelado")
     .reduce((a, x: any) => a + Number(x.valor ?? 0), 0);
   const consConcluidasMes = consMes.filter((c: any) => c.status === "concluida");
-  const ticketMedio = consConcluidasMes.length ? receitaMes / consConcluidasMes.length : 0;
+  const ticketPromedio = consConcluidasMes.length ? ingresoMes / consConcluidasMes.length : 0;
   const consTotal = consMes.length || 1;
   const consFaltou = consMes.filter((c: any) => c.status === "ausente").length;
   const noShowRate = (consFaltou / consTotal) * 100;
@@ -79,7 +79,7 @@ function Page() {
   const chartSemana = Array.from({ length: 7 }).map((_, i) => {
     const d = format(subDays(new Date(), 6 - i), "yyyy-MM-dd");
     return {
-      dia: dateBR(d, "EEE dd/MM"),
+      dia: fechaES(d, "EEE dd/MM"),
       consultas: consultas.filter((c: any) => c.data === d).length,
       concluidas: consultas.filter((c: any) => c.data === d && c.status === "concluida").length,
     };
@@ -123,8 +123,8 @@ function Page() {
         <KpiCard to="/app/Agenda" label="Citas hoy" value={consHoje.length} icon={<Calendar className="size-4" />} />
         <KpiCard to="/app/Agenda" label="Citas semana" value={consSemana.length} icon={<Calendar className="size-4" />} />
         <KpiCard to="/app/Agenda" label="Citas mes" value={consMes.length} icon={<Activity className="size-4" />} />
-        <KpiCard to="/app/Financiero" label="Facturación mes" value={money(receitaMes)} icon={<DollarSign className="size-4" />} />
-        <KpiCard to="/app/Informes" label="Ticket promedio" value={money(ticketMedio)} icon={<TrendingUp className="size-4" />} />
+        <KpiCard to="/app/Financiero" label="Facturación mes" value={money(ingresoMes)} icon={<DollarSign className="size-4" />} />
+        <KpiCard to="/app/Informes" label="Ticket promedio" value={money(ticketPromedio)} icon={<TrendingUp className="size-4" />} />
         <KpiCard to="/app/Pacientes" label="Pacientes activos" value={pacAtivos} icon={<Users className="size-4" />} />
         <KpiCard to="/app/Informes" label="Tasa de retorno 90d" value={`${taxaRetorno.toFixed(1)}%`} icon={<Repeat className="size-4" />} />
         <KpiCard to="/app/Agenda" label="No-show" value={`${noShowRate.toFixed(1)}%`} icon={<AlertTriangle className="size-4" />} />
@@ -200,7 +200,7 @@ function Page() {
                     <div className="text-xs text-muted-foreground">{c.profissional_nome}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs">{dateBR(c.data, "dd/MM")} {c.hora?.slice(0, 5)}</div>
+                    <div className="text-xs">{fechaES(c.data, "dd/MM")} {c.hora?.slice(0, 5)}</div>
                     <Badge variant="outline" className="text-[10px]">{c.status}</Badge>
                   </div>
                 </div>
@@ -222,7 +222,7 @@ function Page() {
                       <div className="font-medium">{c.paciente_nome}</div>
                       <div className="text-xs text-muted-foreground">{c.profissional_nome}</div>
                     </div>
-                    <span className="text-xs text-muted-foreground">{dateBR(c.data, "dd/MM")}</span>
+                    <span className="text-xs text-muted-foreground">{fechaES(c.data, "dd/MM")}</span>
                   </div>
                 ))}
               </div>
