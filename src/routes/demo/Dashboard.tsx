@@ -137,7 +137,7 @@ function Page() {
                   <XAxis dataKey="dia" stroke="#94a3b8" fontSize={11} />
                   <YAxis stroke="#94a3b8" fontSize={11} />
                   <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #e2e8f0" }} />
-                  <Area type="monotone" dataKey="qtd" stroke="#0EA5E9" strokeWidth={2.5} fill="url(#grad1)" />
+                  <Area type="monotone" dataKey="qtd" name="Citas" stroke="#0EA5E9" strokeWidth={2.5} fill="url(#grad1)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
