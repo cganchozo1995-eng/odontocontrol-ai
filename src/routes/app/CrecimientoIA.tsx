@@ -50,7 +50,7 @@ function Page() {
     t.status === "en_curso" && t.updated_at && t.updated_at.slice(0, 10) < cutoff90
   );
 
-  // Procedimentos com baixa demanda (não apareceram em nenhum orçamento nos últimos 90d)
+  // Procedimientos con baja demanda (no aparecieron en ningún presupuesto en los últimos 90 días)
   const procsUsados = new Set<string>();
   (data?.orc ?? []).forEach((o: any) => {
     if (o.data >= cutoff90) {
