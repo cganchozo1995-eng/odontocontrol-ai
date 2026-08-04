@@ -892,6 +892,18 @@ export type Database = {
       }
       is_admin: { Args: never; Returns: boolean }
       is_clinica_admin: { Args: { _clinica_id: string }; Returns: boolean }
+      list_procedimentos_publicos: {
+        Args: { p_clinica_id: string }
+        Returns: {
+          categoria: string
+          clinica_id: string
+          descricao: string
+          duracao_minutos: number
+          id: string
+          nome: string
+          valor: number
+        }[]
+      }
       list_profissionais_publicos: {
         Args: { p_clinica_id: string }
         Returns: {
