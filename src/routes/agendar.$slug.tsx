@@ -36,9 +36,9 @@ function Page() {
       if (c) {
         const [{ data: p }, { data: pr }] = await Promise.all([
           (supabase as any).rpc("list_profissionais_publicos", { p_clinica_id: c.id }),
-          supabase.from("procedimento").select("*").eq("clinica_id", c.id).eq("ativo", true),
+          (supabase as any).rpc("list_procedimentos_publicos", { p_clinica_id: c.id }),
         ]);
-        setProfs((p as any[]) ?? []); setProcs(pr ?? []);
+        setProfs((p as any[]) ?? []); setProcs((pr as any[]) ?? []);
       }
       setLoading(false);
     })();
